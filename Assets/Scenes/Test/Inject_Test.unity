@@ -119,6 +119,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &125848253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 125848254}
+  - component: {fileID: 125848255}
+  m_Layer: 0
+  m_Name: UiInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &125848254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125848253}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1709577136}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &125848255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125848253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8260f6c2994e76749bfeab25b485a8e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startMath:
+    _button: {fileID: 0}
+  _skinStore:
+    _button: {fileID: 0}
+  _locationStore:
+    _button: {fileID: 0}
 --- !u!1 &161622118
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +296,7 @@ MonoBehaviour:
   - {fileID: 2120771657}
   - {fileID: 2057091561}
   - {fileID: 479361930}
+  - {fileID: 125848255}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -520,6 +571,7 @@ Transform:
   - {fileID: 2120771656}
   - {fileID: 2057091560}
   - {fileID: 479361929}
+  - {fileID: 125848254}
   m_Father: {fileID: 220917809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1863932547

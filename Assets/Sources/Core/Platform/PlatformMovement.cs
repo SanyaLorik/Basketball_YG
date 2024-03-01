@@ -15,10 +15,10 @@ namespace Basketball_YG.Core
         private readonly RangeValues _limits;
 
         public PlatformMovement(
-            [InjectOptional(Optional = true, Id = "PlatformModel")] ITransformableModel model, 
+            [InjectOptional(Optional = true, Id = GameConstants.PlatformModel)] ITransformableModel model, 
             IPaltformInputService input, 
             PlatformConfig config,
-            [InjectOptional(Optional = true, Id = "PlatfromRangeValues")] RangeValues limits)
+            [InjectOptional(Optional = true, Id = GameConstants.PlatfromRangeValues)] RangeValues limits)
         {
             _model = model;
             _input = input;

@@ -1,8 +1,8 @@
 ﻿using Basketball_YG.Additional;
+using Basketball_YG.Config;
 using Basketball_YG.Core;
 using Basketball_YG.Model;
 using Basketball_YG.View;
-using System;
 using UnityEngine;
 using Zenject;
 
@@ -27,7 +27,7 @@ namespace Basketball_YG.Installer
         {
             Container
                .Bind<Transform>()
-               .WithId("PlatformTransform")
+               .WithId(GameConstants.PlatformTransform)
                .FromInstance(_platform)
                .AsCached();
         }
@@ -36,7 +36,7 @@ namespace Basketball_YG.Installer
         {
             Container
                 .Bind<ITransformableView>()
-                .WithId("PlatformView")
+                .WithId(GameConstants.PlatformView)
                 .To<PlatformView>()
                 .AsCached();
         }
@@ -45,7 +45,7 @@ namespace Basketball_YG.Installer
         {
             Container
                 .Bind<ITransformableModel>()
-                .WithId("PlatformModel")
+                .WithId(GameConstants.PlatformModel)
                 .To<PlatformModel>()
                 .AsCached();
         }
@@ -54,7 +54,7 @@ namespace Basketball_YG.Installer
         {
             Container
                 .Bind<RangeValues>()
-                .WithId("PlatfromRangeValues")
+                .WithId(GameConstants.PlatfromRangeValues)
                 .FromInstance(_limits)
                 .AsCached();
         }

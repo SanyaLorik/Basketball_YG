@@ -1,3 +1,4 @@
+using Basketball_YG.Config;
 using Basketball_YG.Input;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,12 +20,12 @@ namespace Basketball_YG.Installer
         {
             Container
                 .Bind<EventTrigger>()
-                .WithId("PlatfromTouchInput")
+                .WithId(GameConstants.PlatfromTouchInput)
                 .FromInstance(_surface);
 
             Container
                 .Bind<LayerMask>()
-                .WithId("WallMask")
+                .WithId(GameConstants.WallMask)
                 .FromInstance(_wallmask);
 
             Container

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Basketball_YG.Config;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
@@ -15,9 +16,9 @@ namespace Basketball_YG.Input
         private EventTrigger.Entry _draggedEntry = new() { eventID = EventTriggerType.Drag };
 
         public PlatfromTouchInput(
-            [InjectOptional(Optional = true, Id = "CameraMain")] Camera camera,
-            [InjectOptional(Optional = true, Id = "WallMask")] LayerMask wallMask,
-            [InjectOptional(Optional = true, Id = "PlatfromTouchInput")] EventTrigger surface)
+            [InjectOptional(Optional = true, Id = GameConstants.CameraMain)] Camera camera,
+            [InjectOptional(Optional = true, Id = GameConstants.WallMask)] LayerMask wallMask,
+            [InjectOptional(Optional = true, Id = GameConstants.PlatfromTouchInput)] EventTrigger surface)
         {
             _camera = camera;
             _wallMask = wallMask;
@@ -57,7 +58,7 @@ namespace Basketball_YG.Input
         private void CalculateTarget(Vector2 screenPosition)
         {
             var ray = _camera.ScreenPointToRay(screenPosition);
-            if (Physics.Raycast(ray, out RaycastHit hit, PlatformInputConstants.MaxDistanceRaycasting, _wallMask) == true)
+            if (Physics.Raycast(ray, out RaycastHit hit, GameConstants.MaxDistanceRaycasting, _wallMask) == true)
                 TargetX = hit.point.x;
         }
     }

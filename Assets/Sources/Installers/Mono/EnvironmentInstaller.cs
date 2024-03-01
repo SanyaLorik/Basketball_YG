@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Basketball_YG.Config;
+using UnityEngine;
 using Zenject;
 
 namespace Basketball_YG.Installer
@@ -16,7 +17,7 @@ namespace Basketball_YG.Installer
         {
             Container
                 .Bind<Camera>()
-                .WithId("CameraMain")
+                .WithId(GameConstants.CameraMain)
                 .FromInstance(_camerMain);
         }
     }
