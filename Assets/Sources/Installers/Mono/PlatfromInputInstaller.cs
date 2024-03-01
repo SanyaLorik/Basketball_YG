@@ -5,7 +5,6 @@ using Zenject;
 
 namespace Basketball_YG.Installer
 {
-
     public class PlatfromInputInstaller : MonoInstaller
     {
         [SerializeField] private EventTrigger _surface;

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16ad64554f388e46bb78cf4bb0b852f, type: 3}
   m_Name: Platfrom
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 0.1
+  <Speed>k__BackingField: 5
