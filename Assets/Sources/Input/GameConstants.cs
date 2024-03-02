@@ -16,5 +16,7 @@
         public const string UiButtonStartMath = "UiButtonStartMath";
         public const string UiButtonSkinStore = "UiButtonSkinStore";
         public const string UiButtonLocationStore = "UiButtonLocationStore";
+        public const string UiScoreText = "UiScoreText";
+        public const string UiMainMenuAction = "UiMainMenuAction";
     }
 }

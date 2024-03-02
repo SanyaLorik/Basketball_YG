@@ -1,5 +1,7 @@
 ﻿using Basketball_YG.Config;
 using Basketball_YG.Meta;
+using Basketball_YG.View.Ui;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -11,10 +13,12 @@ namespace Basketball_YG.Installer
         [SerializeField] private ClickedCallback _startMath;
         [SerializeField] private ClickedCallback _skinStore;
         [SerializeField] private ClickedCallback _locationStore;
+        [SerializeField] private TextSetup _score;
 
         public override void InstallBindings()
         {
             BindMainMenu();
+            BindScoreText();
         }
 
         private void BindMainMenu()
@@ -35,6 +39,20 @@ namespace Basketball_YG.Installer
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiButtonLocationStore)
                 .FromInstance(_locationStore)
+                .AsCached();
+
+            Container
+                .Bind<UiMainMenuAction>()
+                .WithId(GameConstants.UiMainMenuAction)
+                .AsCached();
+        }
+
+        private void BindScoreText()
+        {
+            Container
+                .Bind<TextSetup>()
+                .WithId(GameConstants.UiScoreText)
+                .FromInstance(_score)
                 .AsCached();
         }
     }
