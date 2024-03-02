@@ -1,7 +1,6 @@
 ﻿using Basketball_YG.Config;
 using Basketball_YG.Meta;
 using Basketball_YG.View.Ui;
-using System;
 using UnityEngine;
 using Zenject;
 
