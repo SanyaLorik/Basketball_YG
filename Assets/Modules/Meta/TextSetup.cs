@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Basketball_YG.Meta
+namespace SanyaBeer.Meta
 {
     [Serializable]
     public struct TextSetup

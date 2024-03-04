@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Basketball_YG.Additional
+namespace SanyaBeer.Additional
 {
     [Serializable]
     public struct RangeValues

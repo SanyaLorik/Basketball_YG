@@ -1,5 +1,5 @@
 using Basketball_YG.Config;
-using Basketball_YG.Meta;
+using SanyaBeer.Meta;
 using Zenject;
 
 namespace Basketball_YG.View.Ui

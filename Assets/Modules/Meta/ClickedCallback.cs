@@ -1,22 +1,22 @@
+using SanyaBeer.Meta.Ui;
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Basketball_YG.Meta
+namespace SanyaBeer.Meta
 {
     [Serializable]
     public struct ClickedCallback
     {
-        [SerializeField] private Button _button;
+        [SerializeField] private DefualtButton _button;
 
         public void AddListner(Action action)
         {
-            _button.onClick.AddListener(action.Invoke);
+            _button.OnClicked += action;
         }
 
         public void RemoveListener(Action action)
         {
-            _button.onClick.RemoveListener(action.Invoke);
+            _button.OnClicked -= action;
         }
     }
 }
