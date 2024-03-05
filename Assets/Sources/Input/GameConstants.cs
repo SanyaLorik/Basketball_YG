@@ -18,5 +18,10 @@
         public const string UiButtonLocationStore = "UiButtonLocationStore";
         public const string UiScoreText = "UiScoreText";
         public const string UiMainMenuAction = "UiMainMenuAction";
+
+
+        public const string StateMainMenu = "StateMainMenu";
+        public const string StateGameplay = "StateGameplay";
+        public const string StateEnd = "StateEnd";
     }
 }
