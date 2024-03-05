@@ -7,7 +7,7 @@ namespace SanyaBeer.Meta
     [Serializable]
     public struct ClickedCallback
     {
-        [SerializeField] private DefualtButton _button;
+        [SerializeField] private DefualtClickedElement _button;
 
         public void AddListner(Action action)
         {

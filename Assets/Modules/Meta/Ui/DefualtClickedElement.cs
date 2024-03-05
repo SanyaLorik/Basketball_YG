@@ -8,8 +8,8 @@ namespace SanyaBeer.Meta.Ui
     [RequireComponent(typeof(Image))]
     public abstract class DefualtClickedElement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        [SerializeField] private Sprite _state1;
-        [SerializeField] private Sprite _state2;
+        [SerializeField] private GameObject _state1;
+        [SerializeField] private GameObject _state2;
 
         public event Action OnClicked;
 
@@ -34,12 +34,14 @@ namespace SanyaBeer.Meta.Ui
 
         protected void ChangeSpriteToState1()
         {
-            ChangeSprite(_state1);
+            _state1.SetActive(true);
+            _state2.SetActive(false);
         }
 
         protected void ChangeSpriteToState2()
         {
-            ChangeSprite(_state2);
+            _state1.SetActive(false);
+            _state2.SetActive(true);
         }
 
         private void Tap(Vector2 position)
@@ -52,11 +54,6 @@ namespace SanyaBeer.Meta.Ui
             float distance = Vector2.Distance(position, _positionDown);
             if (distance <= UiConstants.DistanceTap)
                 OnClicked?.Invoke();
-        }
-
-        private void ChangeSprite(Sprite sprite)
-        {
-            Surface.sprite = sprite;
         }
     }
 }
