@@ -44,7 +44,7 @@ namespace Basketball_YG.Core
             Vector3 to = from;
             to.x = _input.TargetX;
 
-            return Vector3.LerpUnclamped(from, to, _config.Speed * Time.fixedDeltaTime);
+            return Vector3.LerpUnclamped(from, to, _config.Speed * Time.deltaTime);
         }
     }
 }

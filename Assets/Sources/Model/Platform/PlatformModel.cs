@@ -10,9 +10,16 @@ namespace Basketball_YG.Model
         public PlatformModel([InjectOptional(Optional = true, Id = GameConstants.PlatformView)] ITransformableView view) : base(view) { }
 
         public override Vector3 Position 
-        { 
-            get => base.Position; 
-            set => View.SetPosition(value); 
+        {
+            get
+            {
+                return base.Position;
+            }
+            set
+            { 
+                base.Position = value;
+                View.SetPosition(value);
+            } 
         }
     }
 }
