@@ -18,9 +18,15 @@
         public const string UiButtonStartMath = "UiButtonStartMath";
         public const string UiButtonBallStore = "UiButtonBallStore";
         public const string UiButtonSiteStore = "UiButtonSiteStore";
+        public const string UiButtonSettingsOpener = "UiButtonSettingsOpener";
+        public const string UiButtonGameSharing = "UiButtonGameSharing";
         public const string UiMainMenuScoreText = "UiScoreText";
-        public const string UiMainMenu = "UiMainMenu";
         public const string UiMainMenuElementActivity = "UiMainMenuElementActivity";
+        public const string UiMainMenu = "UiMainMenu";
+
+        // Ui Settings Menu
+        public const string UiSettingsMenuElementActivity = "UiSettingsMenuElementActivity";
+        public const string UiSettingsMenu = "UiSettingsMenu";
 
         // Ui Gameplay Menu
         public const string UiGameplayMenu = "UiGameplayMenu";

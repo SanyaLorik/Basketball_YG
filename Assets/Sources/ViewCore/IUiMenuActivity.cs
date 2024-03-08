@@ -1,4 +1,4 @@
-﻿namespace Basketball_YG.View.Ui
+﻿namespace Basketball_YG.ViewCore
 {
     public interface IUiMenuActivity
     {

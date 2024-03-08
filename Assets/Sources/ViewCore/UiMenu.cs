@@ -1,6 +1,6 @@
 using SanyaBeer.Meta;
 
-namespace Basketball_YG.View.Ui
+namespace Basketball_YG.ViewCore
 {
     public abstract class UiMenu : IUiMenuActivity
     {

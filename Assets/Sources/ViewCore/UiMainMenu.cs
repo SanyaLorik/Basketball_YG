@@ -5,13 +5,15 @@ using SanyaBeer.Meta;
 using System;
 using Zenject;
 
-namespace Basketball_YG.View.Ui
+namespace Basketball_YG.ViewCore
 {
     public class UiMainMenu : UiMenu, IInitializable, IDisposable
     {
         private readonly ClickedCallback _startMath;
         private readonly ClickedCallback _ballStore;
         private readonly ClickedCallback _siteStore;
+        private readonly ClickedCallback _settingsOpener;
+        private readonly ClickedCallback _gameSharing;
 
         private readonly SignalBus _signalBus;
 
@@ -24,11 +26,17 @@ namespace Basketball_YG.View.Ui
             ClickedCallback ballStore,
             [InjectOptional(Optional = true, Id = GameConstants.UiButtonSiteStore)]
             ClickedCallback siteStore,
+            [InjectOptional(Optional = true, Id = GameConstants.UiButtonSettingsOpener)]
+            ClickedCallback settingsOpener,
+            [InjectOptional(Optional = true, Id = GameConstants.UiButtonGameSharing)]
+            ClickedCallback gameSharing,
             SignalBus signalBus) : base(activity)
         {
             _startMath = startMath;
             _ballStore = ballStore;
             _siteStore = siteStore;
+            _settingsOpener = settingsOpener;
+            _gameSharing = gameSharing;
             _signalBus = signalBus;
         }
 
@@ -37,6 +45,8 @@ namespace Basketball_YG.View.Ui
             _startMath.AddListner(OnStartMath);
             _ballStore.AddListner(OnOpenBallStore);
             _siteStore.AddListner(OnOpenSiteStore);
+            _settingsOpener.AddListner(OnOpenSettings);
+            _gameSharing.AddListner(OnShareGame);
         }
 
         public void Dispose()
@@ -44,6 +54,8 @@ namespace Basketball_YG.View.Ui
             _startMath.RemoveListener(OnStartMath);
             _ballStore.RemoveListener(OnOpenBallStore);
             _siteStore.RemoveListener(OnOpenSiteStore);
+            _settingsOpener.RemoveListener(OnOpenSettings);
+            _gameSharing.RemoveListener(OnShareGame);
         }
 
         private void OnStartMath()
@@ -57,6 +69,16 @@ namespace Basketball_YG.View.Ui
         }
 
         private void OnOpenSiteStore()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnOpenSettings()
+        {
+            _signalBus.Fire<OpenedSettingsSignal>();
+        }
+
+        private void OnShareGame()
         {
             throw new NotImplementedException();
         }

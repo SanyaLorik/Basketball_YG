@@ -1,6 +1,7 @@
 ﻿using Basketball_YG.Config;
-using Basketball_YG.View.Ui;
+using Basketball_YG.ViewCore;
 using SanyaBeer.Meta;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -12,9 +13,12 @@ namespace Basketball_YG.Installer
         [SerializeField] private ClickedCallback _startMath;
         [SerializeField] private ClickedCallback _skinStore;
         [SerializeField] private ClickedCallback _siteStore;
+        [SerializeField] private ClickedCallback _settingsOpener;
+        [SerializeField] private ClickedCallback _gameSharing;
         [SerializeField] private TextSetup _scoreMain;
         [SerializeField] private TextSetup _moneyMain;
         [SerializeField] private ElementActivity _mainMenuActivity;
+        [SerializeField] private ElementActivity _settingsMenuActivity;
 
         [Header("Main Menu")]
         [SerializeField] private ElementActivity _gameplayMenuActivity;
@@ -22,6 +26,7 @@ namespace Basketball_YG.Installer
         public override void InstallBindings()
         {
             BindMainMenu();
+            BindSettingsMenu();
             BindGameplayMenu();
         }
 
@@ -46,6 +51,18 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiButtonSettingsOpener)
+                .FromInstance(_settingsOpener)
+                .AsCached();
+
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiButtonGameSharing)
+                .FromInstance(_gameSharing)
+                .AsCached();
+
+            Container
                 .Bind<ElementActivity>()
                 .WithId(GameConstants.UiMainMenuElementActivity)
                 .FromInstance(_mainMenuActivity)
@@ -60,6 +77,27 @@ namespace Basketball_YG.Installer
             Container
                 .BindInterfacesTo<UiMainMenu>()
                 .AsCached();
+        }
+
+        private void BindSettingsMenu()
+        {
+            Container
+              .Bind<ElementActivity>()
+              .WithId(GameConstants.UiSettingsMenuElementActivity)
+              .FromInstance(_settingsMenuActivity)
+              .AsCached();
+
+            Container
+                .Bind<IUiMenuActivity>()
+                .WithId(GameConstants.UiSettingsMenu)
+                .To<UiSettingsMenu>()
+                .AsCached();
+
+
+            Container
+                .BindInterfacesAndSelfTo<VolumeSettings>()
+                .AsCached()
+                .NonLazy();
         }
 
         private void BindGameplayMenu()

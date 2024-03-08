@@ -1,5 +1,5 @@
 ﻿using Basketball_YG.Config;
-using Basketball_YG.View.Ui;
+using Basketball_YG.ViewCore;
 using UnityEngine;
 using Zenject;
 

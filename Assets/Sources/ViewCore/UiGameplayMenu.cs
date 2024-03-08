@@ -3,7 +3,7 @@ using SanyaBeer.Meta;
 using System;
 using Zenject;
 
-namespace Basketball_YG.View.Ui
+namespace Basketball_YG.ViewCore
 {
     public class UiGameplayMenu : UiMenu, IInitializable, IDisposable
     {

@@ -849,12 +849,18 @@ MonoBehaviour:
     _clicked: {fileID: 1610805636}
   _siteStore:
     _clicked: {fileID: 4239331450655307574}
+  _settingsOpener:
+    _clicked: {fileID: 2094893435}
+  _gameSharing:
+    _clicked: {fileID: 2121987615}
   _scoreMain:
     _text: {fileID: 16026839}
   _moneyMain:
     _text: {fileID: 502704791}
   _mainMenuActivity:
     _menu: {fileID: 812836883}
+  _settingsMenuActivity:
+    _menu: {fileID: 681950382}
   _gameplayMenuActivity:
     _menu: {fileID: 77465416}
 --- !u!1001 &139329045
@@ -7187,6 +7193,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086295965}
   m_CullTransparentMesh: 1
+--- !u!114 &2094893435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7178467674647797253, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
+  m_PrefabInstance: {fileID: 841074166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba89156f073153947bc549168bf523c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2117255676
 GameObject:
   m_ObjectHideFlags: 0
@@ -7375,6 +7392,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camerMain: {fileID: 161622120}
+--- !u!114 &2121987615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7178467674647797253, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
+  m_PrefabInstance: {fileID: 81545603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba89156f073153947bc549168bf523c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2123539387
 GameObject:
   m_ObjectHideFlags: 0
