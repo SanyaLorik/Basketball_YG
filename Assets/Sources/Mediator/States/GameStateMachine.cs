@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Basketball_YG.Mediator
 {
-    public class GameStateMachine : IInitializable, IDisposable, IStateSwitcher
+    public class GameStateMachine : IInitializable, IDisposable
     {
         private readonly IDictionary<Type, IState> _states;
         private IState _current;
@@ -32,7 +32,7 @@ namespace Basketball_YG.Mediator
 
         public void Initialize()
         {
-            _signalBus.Subscribe<StateSignal>(Switch);
+            _signalBus.Subscribe<StateSignal>(OnSwitch);
 
             _current = _states[typeof(MainMenuState)];
             _current.Enable();
@@ -40,10 +40,10 @@ namespace Basketball_YG.Mediator
 
         public void Dispose()
         {
-            _signalBus.Unsubscribe<StateSignal>(Switch);
+            _signalBus.Unsubscribe<StateSignal>(OnSwitch);
         }
 
-        public void Switch(StateSignal next)
+        private void OnSwitch(StateSignal next)
         {
             Debug.Log($"Switch from {_current} state to {next.State}");
             _current.Disable();

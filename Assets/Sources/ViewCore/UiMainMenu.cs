@@ -75,7 +75,7 @@ namespace Basketball_YG.ViewCore
 
         private void OnOpenSettings()
         {
-            _signalBus.Fire<OpenedSettingsSignal>();
+            _signalBus.Fire(new ActivitySettingsSignal(true));
         }
 
         private void OnShareGame()

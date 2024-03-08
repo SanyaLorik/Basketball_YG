@@ -23,7 +23,7 @@ namespace Basketball_YG.Installer
         private void BindSettings()
         {
             Container
-                .DeclareSignal<OpenedSettingsSignal>()
+                .DeclareSignal<ActivitySettingsSignal>()
                 .OptionalSubscriber();
         }
     }

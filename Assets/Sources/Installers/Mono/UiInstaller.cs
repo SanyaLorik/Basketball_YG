@@ -18,9 +18,12 @@ namespace Basketball_YG.Installer
         [SerializeField] private TextSetup _scoreMain;
         [SerializeField] private TextSetup _moneyMain;
         [SerializeField] private ElementActivity _mainMenuActivity;
+
+        [Header("Settings Menu")]
+        [SerializeField] private ClickedCallback _closeSettingsMenu;
         [SerializeField] private ElementActivity _settingsMenuActivity;
 
-        [Header("Main Menu")]
+        [Header("Gameplay Menu")]
         [SerializeField] private ElementActivity _gameplayMenuActivity;
 
         public override void InstallBindings()
@@ -82,6 +85,12 @@ namespace Basketball_YG.Installer
         private void BindSettingsMenu()
         {
             Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiButtonCloseSettingsMenu)
+                .FromInstance(_closeSettingsMenu)
+                .AsCached();
+
+            Container
               .Bind<ElementActivity>()
               .WithId(GameConstants.UiSettingsMenuElementActivity)
               .FromInstance(_settingsMenuActivity)
@@ -93,6 +102,10 @@ namespace Basketball_YG.Installer
                 .To<UiSettingsMenu>()
                 .AsCached();
 
+            Container
+                .BindInterfacesAndSelfTo<UiSettingsMenu>()
+                .AsCached()
+                .NonLazy();
 
             Container
                 .BindInterfacesAndSelfTo<VolumeSettings>()

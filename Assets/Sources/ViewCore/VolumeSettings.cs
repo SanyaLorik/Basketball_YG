@@ -21,17 +21,20 @@ namespace Basketball_YG.ViewCore
 
         public void Initialize()
         {
-            _signalBus.Subscribe<OpenedSettingsSignal>(OnOpenSettingMenu);
+            _signalBus.Subscribe<ActivitySettingsSignal>(OnOpenSettingMenu);
         }
 
         public void Dispose()
         {
-            _signalBus.Unsubscribe<OpenedSettingsSignal>(OnOpenSettingMenu);
+            _signalBus.Unsubscribe<ActivitySettingsSignal>(OnOpenSettingMenu);
         }
 
-        private void OnOpenSettingMenu()
+        private void OnOpenSettingMenu(ActivitySettingsSignal activity)
         {
-            _uiMenuActivity.Show();
+            if (activity.IsOpening == true)
+                _uiMenuActivity.Show();
+            else
+                _uiMenuActivity.Hide();
         }
     }
 }

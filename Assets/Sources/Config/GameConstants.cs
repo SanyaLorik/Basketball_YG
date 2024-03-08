@@ -26,6 +26,7 @@
 
         // Ui Settings Menu
         public const string UiSettingsMenuElementActivity = "UiSettingsMenuElementActivity";
+        public const string UiButtonCloseSettingsMenu = "UiButtonCloseSettingsMenu";
         public const string UiSettingsMenu = "UiSettingsMenu";
 
         // Ui Gameplay Menu
