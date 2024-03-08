@@ -32,6 +32,12 @@
         // Ui Gameplay Menu
         public const string UiGameplayMenu = "UiGameplayMenu";
         public const string UiGameplayMenuElementActivity = "UiGameplayMenuElementActivity";
+        public const string UiButtonPauseOpener = "UiButtonPauseOpener";
+
+        // Ui Pause Menu
+        public const string UiPauseMenuElementActivity = "UiPauseMenuElementActivity";
+        public const string UiButtonClosePauseMenu = "UiButtonClosePauseMenu";
+        public const string UiPauseMenu = "UiPauseMenu";
 
         // States
         public const string StateMainMenu = "StateMainMenu";

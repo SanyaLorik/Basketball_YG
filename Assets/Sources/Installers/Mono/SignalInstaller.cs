@@ -11,6 +11,7 @@ namespace Basketball_YG.Installer
 
             BindSwitchState();
             BindSettings();
+            BindPause();
         }
 
         private void BindSwitchState()
@@ -24,6 +25,13 @@ namespace Basketball_YG.Installer
         {
             Container
                 .DeclareSignal<ActivitySettingsSignal>()
+                .OptionalSubscriber();
+        }
+
+        private void BindPause()
+        {
+            Container
+                .DeclareSignal<ActivityPauseSignal>()
                 .OptionalSubscriber();
         }
     }

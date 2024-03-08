@@ -25,12 +25,18 @@ namespace Basketball_YG.Installer
 
         [Header("Gameplay Menu")]
         [SerializeField] private ElementActivity _gameplayMenuActivity;
+        [SerializeField] private ClickedCallback _pauseOpener;
+
+        [Header("Pause Menu")]
+        [SerializeField] private ElementActivity _pauseMenuActivity;
+        [SerializeField] private ClickedCallback _closePauseMenu;
 
         public override void InstallBindings()
         {
             BindMainMenu();
             BindSettingsMenu();
             BindGameplayMenu();
+            BindPauseMenu();
         }
 
         private void BindMainMenu()
@@ -116,6 +122,12 @@ namespace Basketball_YG.Installer
         private void BindGameplayMenu()
         {
             Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiButtonPauseOpener)
+                .FromInstance(_pauseOpener)
+                .AsCached();
+
+            Container
                 .Bind<ElementActivity>()
                 .WithId(GameConstants.UiGameplayMenuElementActivity)
                 .FromInstance(_gameplayMenuActivity)
@@ -130,6 +142,37 @@ namespace Basketball_YG.Installer
             Container
                 .BindInterfacesTo<UiGameplayMenu>()
                 .AsCached();
+        }
+
+        private void BindPauseMenu()
+        {
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiButtonClosePauseMenu)
+                .FromInstance(_closePauseMenu)
+                .AsCached();
+
+            Container
+              .Bind<ElementActivity>()
+              .WithId(GameConstants.UiPauseMenuElementActivity)
+              .FromInstance(_pauseMenuActivity)
+              .AsCached();
+
+            Container
+                .Bind<IUiMenuActivity>()
+                .WithId(GameConstants.UiPauseMenu)
+                .To<UiPauseMenu>()
+                .AsCached();
+
+            Container
+                .BindInterfacesAndSelfTo<UiPauseMenu>()
+                .AsCached()
+                .NonLazy();
+
+            Container
+                .BindInterfacesAndSelfTo<PauseOptions>()
+                .AsCached()
+                .NonLazy();
         }
     }
 }

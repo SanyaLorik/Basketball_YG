@@ -1,18 +1,17 @@
 ﻿using Basketball_YG.Config;
 using Basketball_YG.Model.Signal;
 using System;
-using UnityEngine;
 using Zenject;
 
 namespace Basketball_YG.ViewCore
 {
-    public class VolumeSettings : IInitializable, IDisposable
+    public class PauseOptions : IInitializable, IDisposable
     {
         private IUiMenuActivity _uiMenuActivity;
         private readonly SignalBus _signalBus;
 
-        public VolumeSettings(
-            [InjectOptional(Optional = true, Id = GameConstants.UiSettingsMenu)]
+        public PauseOptions(
+            [InjectOptional(Optional = true, Id = GameConstants.UiPauseMenu)]
             IUiMenuActivity uiMenuActivity,
             SignalBus signalBus)
         {
@@ -22,15 +21,15 @@ namespace Basketball_YG.ViewCore
 
         public void Initialize()
         {
-            _signalBus.Subscribe<ActivitySettingsSignal>(OnOpenMenu);
+            _signalBus.Subscribe<ActivityPauseSignal>(OnOpenMenu);
         }
 
         public void Dispose()
         {
-            _signalBus.Unsubscribe<ActivitySettingsSignal>(OnOpenMenu);
+            _signalBus.Unsubscribe<ActivityPauseSignal>(OnOpenMenu);
         }
 
-        private void OnOpenMenu(ActivitySettingsSignal activity)
+        private void OnOpenMenu(ActivityPauseSignal activity)
         {
             if (activity.IsOpening == true)
                 _uiMenuActivity.Show();
