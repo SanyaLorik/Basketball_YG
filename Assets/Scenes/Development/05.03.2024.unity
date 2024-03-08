@@ -848,10 +848,14 @@ MonoBehaviour:
     _clicked: {fileID: 1610805636}
   _siteStore:
     _clicked: {fileID: 4239331450655307574}
-  _score:
-    _text: {fileID: 16026839}
+  _scoreMain:
+    _text: {fileID: 0}
+  _moneyMain:
+    _text: {fileID: 0}
   _mainMenuActivity:
     _menu: {fileID: 812836883}
+  _gameplayMenuActivity:
+    _menu: {fileID: 77465416}
 --- !u!1001 &139329045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1811,7 +1815,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.64
 --- !u!222 &361532187
 CanvasRenderer:
   m_ObjectHideFlags: 0

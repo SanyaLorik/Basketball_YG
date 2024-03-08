@@ -22,6 +22,10 @@
         public const string UiMainMenu = "UiMainMenu";
         public const string UiMainMenuElementActivity = "UiMainMenuElementActivity";
 
+        // Ui Gameplay Menu
+        public const string UiGameplayMenu = "UiGameplayMenu";
+        public const string UiGameplayMenuElementActivity = "UiGameplayMenuElementActivity";
+
         // States
         public const string StateMainMenu = "StateMainMenu";
         public const string StateGameplay = "StateGameplay";

@@ -1,6 +1,7 @@
 ﻿using Basketball_YG.Config;
 using Basketball_YG.View.Ui;
 using SanyaBeer.Meta;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -12,13 +13,17 @@ namespace Basketball_YG.Installer
         [SerializeField] private ClickedCallback _startMath;
         [SerializeField] private ClickedCallback _skinStore;
         [SerializeField] private ClickedCallback _siteStore;
-        [SerializeField] private TextSetup _score;
+        [SerializeField] private TextSetup _scoreMain;
+        [SerializeField] private TextSetup _moneyMain;
         [SerializeField] private ElementActivity _mainMenuActivity;
+
+        [Header("Main Menu")]
+        [SerializeField] private ElementActivity _gameplayMenuActivity;
 
         public override void InstallBindings()
         {
             BindMainMenu();
-            BindScoreText();
+            BindGameplayMenu();
         }
 
         private void BindMainMenu()
@@ -58,12 +63,22 @@ namespace Basketball_YG.Installer
                 .AsCached();
         }
 
-        private void BindScoreText()
+        private void BindGameplayMenu()
         {
             Container
-                .Bind<TextSetup>()
-                .WithId(GameConstants.UiMainMenuScoreText)
-                .FromInstance(_score)
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiGameplayMenuElementActivity)
+                .FromInstance(_gameplayMenuActivity)
+                .AsCached();
+
+            Container
+                .Bind<IUiMenuActivity>()
+                .WithId(GameConstants.UiGameplayMenu)
+                .To<UiGameplayMenu>()
+                .AsCached();
+
+            Container
+                .BindInterfacesTo<UiGameplayMenu>()
                 .AsCached();
         }
     }

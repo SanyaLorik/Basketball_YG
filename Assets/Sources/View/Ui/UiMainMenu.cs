@@ -61,5 +61,4 @@ namespace Basketball_YG.View.Ui
             throw new NotImplementedException();
         }
     }
-
 }
