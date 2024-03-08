@@ -3,7 +3,7 @@ using Basketball_YG.View.Ui;
 using UnityEngine;
 using Zenject;
 
-namespace Basketball_YG.Core
+namespace Basketball_YG.Mediator
 {
     public class GameplayState : State
     {

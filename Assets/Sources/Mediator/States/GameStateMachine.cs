@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace Basketball_YG.Core
+namespace Basketball_YG.Mediator
 {
     public class GameStateMachine : IInitializable, IDisposable, IStateSwitcher
     {

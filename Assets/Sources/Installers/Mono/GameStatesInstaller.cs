@@ -1,5 +1,5 @@
 ﻿using Basketball_YG.Config;
-using Basketball_YG.Core;
+using Basketball_YG.Mediator;
 using Zenject;
 
 namespace Basketball_YG.Installer

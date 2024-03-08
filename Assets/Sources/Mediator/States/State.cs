@@ -1,4 +1,4 @@
-namespace Basketball_YG.Core
+namespace Basketball_YG.Mediator
 {
     public abstract class State : IState
     {

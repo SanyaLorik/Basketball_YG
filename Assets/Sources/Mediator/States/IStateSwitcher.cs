@@ -1,6 +1,6 @@
 ﻿using Basketball_YG.Model.Signal;
 
-namespace Basketball_YG.Core
+namespace Basketball_YG.Mediator
 {
     public interface IStateSwitcher
     {

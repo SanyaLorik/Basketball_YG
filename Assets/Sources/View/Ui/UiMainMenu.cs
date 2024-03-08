@@ -1,5 +1,5 @@
 ﻿using Basketball_YG.Config;
-using Basketball_YG.Core;
+using Basketball_YG.Mediator;
 using Basketball_YG.Model.Signal;
 using SanyaBeer.Meta;
 using System;
