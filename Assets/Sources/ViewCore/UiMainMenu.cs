@@ -15,9 +15,8 @@ namespace Basketball_YG.ViewCore
         private readonly ClickedCallback _settingsOpener;
         private readonly ClickedCallback _gameSharing;
 
-        private readonly SignalBus _signalBus;
-
         public UiMainMenu(
+            SignalBus signalBus,
             [InjectOptional(Optional = true, Id = GameConstants.UiMainMenuElementActivity)]
             ElementActivity activity,
             [InjectOptional(Optional = true, Id = GameConstants.UiButtonStartMath)]
@@ -29,15 +28,13 @@ namespace Basketball_YG.ViewCore
             [InjectOptional(Optional = true, Id = GameConstants.UiButtonSettingsOpener)]
             ClickedCallback settingsOpener,
             [InjectOptional(Optional = true, Id = GameConstants.UiButtonGameSharing)]
-            ClickedCallback gameSharing,
-            SignalBus signalBus) : base(activity)
+            ClickedCallback gameSharing) : base(signalBus, activity)
         {
             _startMath = startMath;
             _ballStore = ballStore;
             _siteStore = siteStore;
             _settingsOpener = settingsOpener;
             _gameSharing = gameSharing;
-            _signalBus = signalBus;
         }
 
         public void Initialize()
@@ -60,7 +57,7 @@ namespace Basketball_YG.ViewCore
 
         private void OnStartMath()
         {
-            _signalBus.Fire(new StateSignal(typeof(GameplayState)));
+            SignalBus.Fire(new StateSignal(typeof(GameplayState)));
         }
 
         private void OnOpenBallStore()
@@ -75,7 +72,7 @@ namespace Basketball_YG.ViewCore
 
         private void OnOpenSettings()
         {
-            _signalBus.Fire(new ActivitySettingsSignal(true));
+            SignalBus.Fire(new ActivitySettingsSignal(true));
         }
 
         private void OnShareGame()

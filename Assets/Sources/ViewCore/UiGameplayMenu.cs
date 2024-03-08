@@ -8,9 +8,11 @@ namespace Basketball_YG.ViewCore
     public class UiGameplayMenu : UiMenu, IInitializable, IDisposable
     {
         public UiGameplayMenu(
+            SignalBus signalBus,
             [InjectOptional(Optional = true, Id = GameConstants.UiGameplayMenuElementActivity)]
-            ElementActivity activity) : base(activity)
+            ElementActivity activity) : base(signalBus, activity)
         {
+
         }
 
         public void Initialize()
