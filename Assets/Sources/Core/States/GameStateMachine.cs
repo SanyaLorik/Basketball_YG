@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Basketball_YG.Core
 {
-    public class GameStateMachine
+    public class GameStateMachine : IDisposable
     {
         private readonly IDictionary<Type, IState> _states;
 
@@ -25,6 +25,13 @@ namespace Basketball_YG.Core
             mainMenu.OnFinised += OnSwitch;
             stateGameplay.OnFinised += OnSwitch;
             end.OnFinised += OnSwitch;
+        }
+
+        public void Dispose()
+        {
+            _states[typeof(MainStage)].OnFinised -= OnSwitch;
+            _states[typeof(GameplayState)].OnFinised -= OnSwitch;
+            _states[typeof(EndState)].OnFinised -= OnSwitch;
         }
 
         private void OnSwitch(IState current, Type next)

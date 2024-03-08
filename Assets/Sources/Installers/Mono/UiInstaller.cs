@@ -11,8 +11,9 @@ namespace Basketball_YG.Installer
         [Header("Main Menu")]
         [SerializeField] private ClickedCallback _startMath;
         [SerializeField] private ClickedCallback _skinStore;
-        [SerializeField] private ClickedCallback _locationStore;
+        [SerializeField] private ClickedCallback _siteStore;
         [SerializeField] private TextSetup _score;
+        [SerializeField] private ElementActivity _mainMenuActivity;
 
         public override void InstallBindings()
         {
@@ -36,13 +37,20 @@ namespace Basketball_YG.Installer
 
             Container
                 .Bind<ClickedCallback>()
-                .WithId(GameConstants.UiButtonLocationStore)
-                .FromInstance(_locationStore)
+                .WithId(GameConstants.UiButtonSiteStore)
+                .FromInstance(_siteStore)
                 .AsCached();
 
             Container
-                .Bind<UiMainMenuAction>()
-                .WithId(GameConstants.UiMainMenuAction)
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiMainMenuElementActivity)
+                .FromInstance(_mainMenuActivity)
+                .AsCached();
+
+            Container
+                .Bind<IUiMenuActivity>()
+                .WithId(GameConstants.UiMainMenu)
+                .To<UiMainMenu>()
                 .AsCached();
         }
 
