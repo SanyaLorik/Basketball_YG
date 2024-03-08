@@ -1,7 +1,6 @@
 ﻿using Basketball_YG.Config;
 using Basketball_YG.View.Ui;
 using SanyaBeer.Meta;
-using System;
 using UnityEngine;
 using Zenject;
 
