@@ -9,7 +9,7 @@ namespace Basketball_YG.Model
         private readonly TextSetup _scoreText;
 
         public ScoreModel(
-            [InjectOptional(Optional = true, Id = GameConstants.UiScoreText)]
+            [InjectOptional(Optional = true, Id = GameConstants.UiMainMenuScoreText)]
             TextSetup scoreText)
         {
             _scoreText = scoreText;

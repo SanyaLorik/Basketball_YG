@@ -58,7 +58,7 @@ namespace Basketball_YG.Installer
         {
             Container
                 .Bind<TextSetup>()
-                .WithId(GameConstants.UiScoreText)
+                .WithId(GameConstants.UiMainMenuScoreText)
                 .FromInstance(_score)
                 .AsCached();
         }

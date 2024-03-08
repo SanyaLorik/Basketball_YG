@@ -1,12 +1,11 @@
 ﻿using Basketball_YG.Config;
 using System;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using Zenject;
 
 namespace Basketball_YG.Core
 {
-    public class GameStateMachine : IDisposable
+    public class GameStateMachine : IInitializable, IDisposable
     {
         private readonly IDictionary<Type, IState> _states;
 
@@ -17,19 +16,26 @@ namespace Basketball_YG.Core
         {
             _states = new Dictionary<Type, IState>()
             {
-                [typeof(MainStage)] = mainMenu,
+                [typeof(MainMenuState)] = mainMenu,
                 [typeof(GameplayState)] = stateGameplay,
                 [typeof(EndState)] = end
             };
+        }
 
-            mainMenu.OnFinised += OnSwitch;
-            stateGameplay.OnFinised += OnSwitch;
-            end.OnFinised += OnSwitch;
+        public void Initialize()
+        {
+            IState mainStage = _states[typeof(MainMenuState)];
+
+            mainStage.OnFinised += OnSwitch;
+            _states[typeof(GameplayState)].OnFinised += OnSwitch;
+            _states[typeof(EndState)].OnFinised += OnSwitch;
+
+            mainStage.Enable();
         }
 
         public void Dispose()
         {
-            _states[typeof(MainStage)].OnFinised -= OnSwitch;
+            _states[typeof(MainMenuState)].OnFinised -= OnSwitch;
             _states[typeof(GameplayState)].OnFinised -= OnSwitch;
             _states[typeof(EndState)].OnFinised -= OnSwitch;
         }
