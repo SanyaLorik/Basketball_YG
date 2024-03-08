@@ -1,4 +1,5 @@
 ﻿using Basketball_YG.Model.Signal;
+using System;
 using Zenject;
 
 namespace Basketball_YG.Installer
@@ -9,13 +10,13 @@ namespace Basketball_YG.Installer
         {
             SignalBusInstaller.Install(Container);
 
-            BindScore();
+            BindSwitchState();
         }
 
-        private void BindScore()
+        private void BindSwitchState()
         {
             Container
-                .DeclareSignal<ScoreSignal>()
+                .DeclareSignal<StateSignal>()
                 .OptionalSubscriber();
         }
     }

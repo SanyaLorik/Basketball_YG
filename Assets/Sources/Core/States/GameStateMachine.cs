@@ -1,18 +1,24 @@
 ﻿using Basketball_YG.Config;
+using Basketball_YG.Model.Signal;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace Basketball_YG.Core
 {
-    public class GameStateMachine : IInitializable, IDisposable
+    public class GameStateMachine : IInitializable, IDisposable, IStateSwitcher
     {
         private readonly IDictionary<Type, IState> _states;
+        private IState _current;
+
+        private readonly SignalBus _signalBus;
 
         public GameStateMachine(
              [InjectOptional(Optional = true, Id = GameConstants.StateMainMenu)] IState mainMenu,
              [InjectOptional(Optional = true, Id = GameConstants.StateGameplay)] IState stateGameplay,
-             [InjectOptional(Optional = true, Id = GameConstants.StateEnd)] IState end)
+             [InjectOptional(Optional = true, Id = GameConstants.StateEnd)] IState end,
+             SignalBus signalBus)
         {
             _states = new Dictionary<Type, IState>()
             {
@@ -20,34 +26,33 @@ namespace Basketball_YG.Core
                 [typeof(GameplayState)] = stateGameplay,
                 [typeof(EndState)] = end
             };
+
+            _signalBus = signalBus;
         }
 
         public void Initialize()
         {
-            IState mainStage = _states[typeof(MainMenuState)];
+            _signalBus.Subscribe<StateSignal>(Switch);
 
-            mainStage.OnFinised += OnSwitch;
-            _states[typeof(GameplayState)].OnFinised += OnSwitch;
-            _states[typeof(EndState)].OnFinised += OnSwitch;
-
-            mainStage.Enable();
+            _current = _states[typeof(MainMenuState)];
+            _current.Enable();
         }
 
         public void Dispose()
         {
-            _states[typeof(MainMenuState)].OnFinised -= OnSwitch;
-            _states[typeof(GameplayState)].OnFinised -= OnSwitch;
-            _states[typeof(EndState)].OnFinised -= OnSwitch;
+            _signalBus.Unsubscribe<StateSignal>(Switch);
         }
 
-        private void OnSwitch(IState current, Type next)
+        public void Switch(StateSignal next)
         {
-            current.Disable();
+            Debug.Log($"Switch from {_current} state to {next.State}");
+            _current.Disable();
 
-            if (_states.TryGetValue(next, out IState nextState) == false)
-                throw new KeyNotFoundException($"{next} is not found!");
+            if (_states.TryGetValue(next.State, out IState nextState) == false)
+                throw new KeyNotFoundException($"{next.State} is not found!");
 
+            _current = nextState;
             nextState.Enable();
         }
-    }
+    } 
 }

@@ -31,7 +31,7 @@ namespace Basketball_YG.Installer
 
             Container
                 .Bind<ClickedCallback>()
-                .WithId(GameConstants.UiButtonSkinStore)
+                .WithId(GameConstants.UiButtonBallStore)
                 .FromInstance(_skinStore)
                 .AsCached();
 
@@ -51,6 +51,10 @@ namespace Basketball_YG.Installer
                 .Bind<IUiMenuActivity>()
                 .WithId(GameConstants.UiMainMenu)
                 .To<UiMainMenu>()
+                .AsCached();
+
+            Container
+                .BindInterfacesTo<UiMainMenu>()
                 .AsCached();
         }
 

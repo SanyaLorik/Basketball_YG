@@ -1,6 +1,6 @@
 namespace Basketball_YG.Model.Signal
 {
-    public class ScoreSignal
+    public struct ScoreSignal
     {
         public readonly int Score;
 

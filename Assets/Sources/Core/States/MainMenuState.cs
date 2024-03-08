@@ -2,12 +2,12 @@
 {
     public class MainMenuState : State
     {
-        public override void Disable()
+        public override void Enable()
         {
             throw new System.NotImplementedException();
         }
 
-        public override void Enable()
+        public override void Disable()
         {
             throw new System.NotImplementedException();
         }

@@ -44,7 +44,7 @@ namespace Basketball_YG.Installer
         private void BindGameStateMachine()
         {
             Container
-                .Bind<GameStateMachine>()
+                .BindInterfacesTo<GameStateMachine>()
                 .AsCached()
                 .NonLazy();
         }

@@ -16,7 +16,7 @@
 
         // Ui Main Menu
         public const string UiButtonStartMath = "UiButtonStartMath";
-        public const string UiButtonSkinStore = "UiButtonSkinStore";
+        public const string UiButtonBallStore = "UiButtonBallStore";
         public const string UiButtonSiteStore = "UiButtonSiteStore";
         public const string UiMainMenuScoreText = "UiScoreText";
         public const string UiMainMenu = "UiMainMenu";
