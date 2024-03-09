@@ -45,7 +45,13 @@ namespace Basketball_YG.Mediator
 
         private void OnSwitch(StateSignal next)
         {
-            Debug.Log($"Switch from {_current} state to {next.State}");
+            if (next.State == _current.GetType())
+            {
+                Debug.LogWarning($"This state {next.State} is already set.");
+                return;
+            }
+
+            Debug.Log($"Switch from {_current} state to {next.State}.");
             _current.Disable();
 
             if (_states.TryGetValue(next.State, out IState nextState) == false)

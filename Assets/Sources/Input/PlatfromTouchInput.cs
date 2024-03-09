@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Basketball_YG.Input
 {
-    public class PlatfromTouchInput : IPaltformInputService, IInitializable, IDisposable
+    public class PlatfromTouchInput : IPaltformInputService, IActivityInputService, IInitializable, IDisposable
     {
         private readonly Camera _camera;
         private readonly LayerMask _wallMask;
@@ -14,6 +14,8 @@ namespace Basketball_YG.Input
 
         private EventTrigger.Entry _clickedEntry = new() { eventID = EventTriggerType.PointerClick };
         private EventTrigger.Entry _draggedEntry = new() { eventID = EventTriggerType.Drag };
+
+        private bool _isEnabled = true;
 
         public PlatfromTouchInput(
             [InjectOptional(Optional = true, Id = GameConstants.CameraMain)] Camera camera,
@@ -45,6 +47,16 @@ namespace Basketball_YG.Input
             _surface.triggers.Remove(_draggedEntry);
         }
 
+        public void Enable()
+        {
+            _isEnabled = true;
+        }
+
+        public void Disable()
+        {
+            _isEnabled = false;
+        }
+
         public void OnPointerClick(BaseEventData eventData)
         {
             CalculateTarget(((PointerEventData)eventData).position);
@@ -57,6 +69,9 @@ namespace Basketball_YG.Input
 
         private void CalculateTarget(Vector2 screenPosition)
         {
+            if (_isEnabled == false)
+                return;
+
             var ray = _camera.ScreenPointToRay(screenPosition);
             if (Physics.Raycast(ray, out RaycastHit hit, GameConstants.MaxDistanceRaycasting, _wallMask) == true)
                 TargetX = hit.point.x;

@@ -17,7 +17,7 @@ namespace Basketball_YG.ViewCore
 
         public UiMainMenu(
             SignalBus signalBus,
-            [InjectOptional(Optional = true, Id = GameConstants.UiMainMenuElementActivity)]
+            [InjectOptional(Optional = true, Id = GameConstants.UiMainMenuActivity)]
             ElementActivity activity,
             [InjectOptional(Optional = true, Id = GameConstants.UiButtonStartMath)]
             ClickedCallback startMath,

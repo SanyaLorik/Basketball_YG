@@ -26,6 +26,8 @@ namespace Basketball_YG.Installer
         [Header("Gameplay Menu")]
         [SerializeField] private ElementActivity _gameplayMenuActivity;
         [SerializeField] private ClickedCallback _pauseOpener;
+        [SerializeField] private ElementActivity _timerActivity;
+        [SerializeField] private Timer _timer;
 
         [Header("Pause Menu")]
         [SerializeField] private ElementActivity _pauseMenuActivity;
@@ -73,7 +75,7 @@ namespace Basketball_YG.Installer
 
             Container
                 .Bind<ElementActivity>()
-                .WithId(GameConstants.UiMainMenuElementActivity)
+                .WithId(GameConstants.UiMainMenuActivity)
                 .FromInstance(_mainMenuActivity)
                 .AsCached();
 
@@ -98,7 +100,7 @@ namespace Basketball_YG.Installer
 
             Container
               .Bind<ElementActivity>()
-              .WithId(GameConstants.UiSettingsMenuElementActivity)
+              .WithId(GameConstants.UiSettingsMenuActivity)
               .FromInstance(_settingsMenuActivity)
               .AsCached();
 
@@ -123,13 +125,13 @@ namespace Basketball_YG.Installer
         {
             Container
                 .Bind<ClickedCallback>()
-                .WithId(GameConstants.UiButtonPauseOpener)
+                .WithId(GameConstants.UiButtonGameplayPauseOpener)
                 .FromInstance(_pauseOpener)
                 .AsCached();
 
             Container
                 .Bind<ElementActivity>()
-                .WithId(GameConstants.UiGameplayMenuElementActivity)
+                .WithId(GameConstants.UiGameplayMenuActivity)
                 .FromInstance(_gameplayMenuActivity)
                 .AsCached();
 
@@ -141,6 +143,17 @@ namespace Basketball_YG.Installer
 
             Container
                 .BindInterfacesTo<UiGameplayMenu>()
+                .AsCached();
+
+            Container
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiGameplayTimerActivity)
+                .FromInstance(_timerActivity)
+                .AsCached();
+
+            Container
+                .Bind<Timer>()
+                .FromInstance(_timer)
                 .AsCached();
         }
 
@@ -154,7 +167,7 @@ namespace Basketball_YG.Installer
 
             Container
               .Bind<ElementActivity>()
-              .WithId(GameConstants.UiPauseMenuElementActivity)
+              .WithId(GameConstants.UiPauseMenuActivity)
               .FromInstance(_pauseMenuActivity)
               .AsCached();
 

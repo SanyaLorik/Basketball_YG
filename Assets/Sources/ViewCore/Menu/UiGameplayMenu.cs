@@ -12,9 +12,9 @@ namespace Basketball_YG.ViewCore
 
         public UiGameplayMenu(
             SignalBus signalBus,
-            [InjectOptional(Optional = true, Id = GameConstants.UiGameplayMenuElementActivity)]
+            [InjectOptional(Optional = true, Id = GameConstants.UiGameplayMenuActivity)]
             ElementActivity activity,
-            [InjectOptional(Optional = true, Id = GameConstants.UiButtonPauseOpener)]
+            [InjectOptional(Optional = true, Id = GameConstants.UiButtonGameplayPauseOpener)]
             ClickedCallback pauseOpener) : base(signalBus, activity)
         {
             _pauseOpener = pauseOpener;

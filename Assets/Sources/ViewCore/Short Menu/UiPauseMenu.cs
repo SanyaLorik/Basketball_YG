@@ -9,7 +9,7 @@ namespace Basketball_YG.ViewCore
     {
         public UiPauseMenu(
             SignalBus signalBus,
-            [InjectOptional(Optional = true, Id = GameConstants.UiPauseMenuElementActivity)]
+            [InjectOptional(Optional = true, Id = GameConstants.UiPauseMenuActivity)]
             ElementActivity activity,
             [InjectOptional(Optional = true, Id = GameConstants.UiButtonClosePauseMenu)]
             ClickedCallback close) : base(signalBus, activity, close)

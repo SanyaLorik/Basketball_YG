@@ -21,21 +21,22 @@
         public const string UiButtonSettingsOpener = "UiButtonSettingsOpener";
         public const string UiButtonGameSharing = "UiButtonGameSharing";
         public const string UiMainMenuScoreText = "UiScoreText";
-        public const string UiMainMenuElementActivity = "UiMainMenuElementActivity";
+        public const string UiMainMenuActivity = "UiMainMenuActivity";
         public const string UiMainMenu = "UiMainMenu";
 
         // Ui Settings Menu
-        public const string UiSettingsMenuElementActivity = "UiSettingsMenuElementActivity";
-        public const string UiButtonCloseSettingsMenu = "UiButtonCloseSettingsMenu";
+        public const string UiSettingsMenuActivity = "UiSettingsMenuActivity";
         public const string UiSettingsMenu = "UiSettingsMenu";
+        public const string UiButtonCloseSettingsMenu = "UiButtonCloseSettingsMenu";
 
         // Ui Gameplay Menu
         public const string UiGameplayMenu = "UiGameplayMenu";
-        public const string UiGameplayMenuElementActivity = "UiGameplayMenuElementActivity";
-        public const string UiButtonPauseOpener = "UiButtonPauseOpener";
+        public const string UiGameplayMenuActivity = "UiGameplayMenuActivity";
+        public const string UiGameplayTimerActivity = "UiGameplayTimerActivity";
+        public const string UiButtonGameplayPauseOpener = "UiButtonPauseOpener";
 
         // Ui Pause Menu
-        public const string UiPauseMenuElementActivity = "UiPauseMenuElementActivity";
+        public const string UiPauseMenuActivity = "UiPauseMenuActivity";
         public const string UiButtonClosePauseMenu = "UiButtonClosePauseMenu";
         public const string UiPauseMenu = "UiPauseMenu";
 
