@@ -34,6 +34,7 @@
         public const string UiGameplayMenuActivity = "UiGameplayMenuActivity";
         public const string UiGameplayTimerActivity = "UiGameplayTimerActivity";
         public const string UiButtonGameplayPauseOpener = "UiButtonPauseOpener";
+        public const string UiGameplayPrestartMatchActivities = "UiGameplayPrestartMatchActivities";
 
         // Ui Pause Menu
         public const string UiPauseMenuActivity = "UiPauseMenuActivity";

@@ -12,6 +12,7 @@ namespace Basketball_YG.Mediator
     {
         private readonly IUiMenuActivity _uiGameplayMenuActivity;
         private readonly IActivityInputService _activityInput;
+        private readonly ElementActivityArray _prestartActivities;
         private readonly ElementActivity _timerActivity;
         private readonly Timer _timer;
 
@@ -20,11 +21,14 @@ namespace Basketball_YG.Mediator
             IUiMenuActivity uiGameplayMenuActivity,
             [InjectOptional(Optional = true, Id = GameConstants.UiGameplayTimerActivity)]
             ElementActivity timerActivity,
+            [InjectOptional(Optional = true, Id = GameConstants.UiGameplayPrestartMatchActivities)]
+            ElementActivityArray prestartActivities,
             IActivityInputService activityInput,
             Timer timer)
         {
             _uiGameplayMenuActivity = uiGameplayMenuActivity;
             _timerActivity = timerActivity;
+            _prestartActivities = prestartActivities;
             _activityInput = activityInput;
             _timer = timer;
         }
@@ -37,11 +41,13 @@ namespace Basketball_YG.Mediator
             {
                 _activityInput.Disable();
                 _timerActivity.Show();
+                _prestartActivities.Hide();
 
                 await _timer.StartTimer();
 
                 _activityInput.Enable();
                 _timerActivity.Hide();
+                _prestartActivities.Show();
             });
         }
 

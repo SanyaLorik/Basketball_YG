@@ -25,6 +25,7 @@ namespace Basketball_YG.Installer
 
         [Header("Gameplay Menu")]
         [SerializeField] private ElementActivity _gameplayMenuActivity;
+        [SerializeField] private ElementActivityArray _gameplayMenuActivities;
         [SerializeField] private ClickedCallback _pauseOpener;
         [SerializeField] private ElementActivity _timerActivity;
         [SerializeField] private Timer _timer;
@@ -133,6 +134,12 @@ namespace Basketball_YG.Installer
                 .Bind<ElementActivity>()
                 .WithId(GameConstants.UiGameplayMenuActivity)
                 .FromInstance(_gameplayMenuActivity)
+                .AsCached();
+
+            Container
+                .Bind<ElementActivityArray>()
+                .WithId(GameConstants.UiGameplayPrestartMatchActivities)
+                .FromInstance(_gameplayMenuActivities)
                 .AsCached();
 
             Container

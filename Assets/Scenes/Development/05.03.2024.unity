@@ -903,6 +903,11 @@ MonoBehaviour:
     _menu: {fileID: 681950382}
   _gameplayMenuActivity:
     _menu: {fileID: 77465416}
+  _gameplayMenuActivities:
+    _menus:
+    - {fileID: 827629837}
+    - {fileID: 909555850}
+    - {fileID: 1074377303}
   _pauseOpener:
     _clicked: {fileID: 531112635}
   _timerActivity:
@@ -2744,7 +2749,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7178467674647797253, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
   m_PrefabInstance: {fileID: 35069436}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 827629837}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba89156f073153947bc549168bf523c4, type: 3}
@@ -3652,6 +3657,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818431138}
   m_CullTransparentMesh: 1
+--- !u!1 &827629837 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1883194575990771032, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
+  m_PrefabInstance: {fileID: 35069436}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &837068671
 GameObject:
   m_ObjectHideFlags: 0
