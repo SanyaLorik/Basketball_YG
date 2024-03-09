@@ -37,9 +37,11 @@ namespace Basketball_YG.Mediator
             {
                 _activityInput.Disable();
                 _timerActivity.Show();
+
                 await _timer.StartTimer();
-                _timerActivity.Hide();
+
                 _activityInput.Enable();
+                _timerActivity.Hide();
             });
         }
 
