@@ -881,15 +881,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8260f6c2994e76749bfeab25b485a8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startMath:
+  _startMathButton:
     _clicked: {fileID: 1456587198}
-  _skinStore:
+  _skinStoreButton:
     _clicked: {fileID: 1610805636}
-  _siteStore:
+  _siteStoreButton:
     _clicked: {fileID: 4239331450655307574}
-  _settingsOpener:
+  _settingsOpenerButton:
     _clicked: {fileID: 2094893435}
-  _gameSharing:
+  _gameSharingButton:
     _clicked: {fileID: 2121987615}
   _scoreMain:
     _text: {fileID: 16026839}
@@ -897,7 +897,7 @@ MonoBehaviour:
     _text: {fileID: 502704791}
   _mainMenuActivity:
     _menu: {fileID: 812836883}
-  _closeSettingsMenu:
+  _closeSettingsMenuButton:
     _clicked: {fileID: 308544700}
   _settingsMenuActivity:
     _menu: {fileID: 681950382}
@@ -908,7 +908,7 @@ MonoBehaviour:
     - {fileID: 827629837}
     - {fileID: 909555850}
     - {fileID: 1074377303}
-  _pauseOpener:
+  _pauseOpenerButton:
     _clicked: {fileID: 531112635}
   _timerActivity:
     _menu: {fileID: 1942007136}
@@ -918,7 +918,7 @@ MonoBehaviour:
     _time: 3
   _pauseMenuActivity:
     _menu: {fileID: 1263742293}
-  _closePauseMenu:
+  _closePauseMenuButton:
     _clicked: {fileID: 1692370930}
 --- !u!1001 &139329045
 PrefabInstance:

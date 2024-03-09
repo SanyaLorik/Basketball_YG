@@ -10,29 +10,29 @@ namespace Basketball_YG.Installer
     public class UiInstaller : MonoInstaller
     {
         [Header("Main Menu")]
-        [SerializeField] private ClickedCallback _startMath;
-        [SerializeField] private ClickedCallback _skinStore;
-        [SerializeField] private ClickedCallback _siteStore;
-        [SerializeField] private ClickedCallback _settingsOpener;
-        [SerializeField] private ClickedCallback _gameSharing;
+        [SerializeField] private ClickedCallback _startMathButton;
+        [SerializeField] private ClickedCallback _skinStoreButton;
+        [SerializeField] private ClickedCallback _siteStoreButton;
+        [SerializeField] private ClickedCallback _settingsOpenerButton;
+        [SerializeField] private ClickedCallback _gameSharingButton;
         [SerializeField] private TextSetup _scoreMain;
         [SerializeField] private TextSetup _moneyMain;
         [SerializeField] private ElementActivity _mainMenuActivity;
 
         [Header("Settings Menu")]
-        [SerializeField] private ClickedCallback _closeSettingsMenu;
+        [SerializeField] private ClickedCallback _closeSettingsMenuButton;
         [SerializeField] private ElementActivity _settingsMenuActivity;
 
         [Header("Gameplay Menu")]
         [SerializeField] private ElementActivity _gameplayMenuActivity;
         [SerializeField] private ElementActivityArray _gameplayMenuActivities;
-        [SerializeField] private ClickedCallback _pauseOpener;
+        [SerializeField] private ClickedCallback _pauseOpenerButton;
         [SerializeField] private ElementActivity _timerActivity;
         [SerializeField] private Timer _timer;
 
         [Header("Pause Menu")]
         [SerializeField] private ElementActivity _pauseMenuActivity;
-        [SerializeField] private ClickedCallback _closePauseMenu;
+        [SerializeField] private ClickedCallback _closePauseMenuButton;
 
         public override void InstallBindings()
         {
@@ -47,31 +47,31 @@ namespace Basketball_YG.Installer
             Container
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiButtonStartMath)
-                .FromInstance(_startMath)
+                .FromInstance(_startMathButton)
                 .AsCached();
 
             Container
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiButtonBallStore)
-                .FromInstance(_skinStore)
+                .FromInstance(_skinStoreButton)
                 .AsCached();
 
             Container
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiButtonSiteStore)
-                .FromInstance(_siteStore)
+                .FromInstance(_siteStoreButton)
                 .AsCached();
 
             Container
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiButtonSettingsOpener)
-                .FromInstance(_settingsOpener)
+                .FromInstance(_settingsOpenerButton)
                 .AsCached();
 
             Container
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiButtonGameSharing)
-                .FromInstance(_gameSharing)
+                .FromInstance(_gameSharingButton)
                 .AsCached();
 
             Container
@@ -96,7 +96,7 @@ namespace Basketball_YG.Installer
             Container
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiButtonCloseSettingsMenu)
-                .FromInstance(_closeSettingsMenu)
+                .FromInstance(_closeSettingsMenuButton)
                 .AsCached();
 
             Container
@@ -127,7 +127,7 @@ namespace Basketball_YG.Installer
             Container
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiButtonGameplayPauseOpener)
-                .FromInstance(_pauseOpener)
+                .FromInstance(_pauseOpenerButton)
                 .AsCached();
 
             Container
@@ -169,7 +169,7 @@ namespace Basketball_YG.Installer
             Container
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiButtonClosePauseMenu)
-                .FromInstance(_closePauseMenu)
+                .FromInstance(_closePauseMenuButton)
                 .AsCached();
 
             Container
