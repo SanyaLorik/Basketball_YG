@@ -9,11 +9,13 @@ namespace Basketball_YG.Installer
     {
         [SerializeField] private PlatformConfig _platformConfig;
         [SerializeField] private BallConfig _ballConfig;
+        [SerializeField] private SpeedomentRewardConfig _speedomentRewardConfig;
 
         public override void InstallBindings()
         {
             BindPlatformConfig();
             BindBallConfig();
+            BindSpeedomentRewardConfig();
         }
 
         private void BindPlatformConfig()
@@ -26,6 +28,12 @@ namespace Basketball_YG.Installer
         {
             Container
                 .BindInstance(_ballConfig);
+        }
+
+        private void BindSpeedomentRewardConfig()
+        {
+            Container
+                .BindInstance(_speedomentRewardConfig);
         }
     }
 }

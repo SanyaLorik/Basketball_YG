@@ -35,7 +35,7 @@ namespace Basketball_YG.Installer
         private void BindView()
         {
             Container
-                .Bind<ITransformableView>()
+                .Bind<IPositionView>()
                 .WithId(GameConstants.PlatformView)
                 .To<PlatformView>()
                 .AsCached();
@@ -44,7 +44,7 @@ namespace Basketball_YG.Installer
         private void BindModel()
         {
             Container
-                .Bind<ITransformableModel>()
+                .Bind<IPositionModel>()
                 .WithId(GameConstants.PlatformModel)
                 .To<PlatformModel>()
                 .AsCached();

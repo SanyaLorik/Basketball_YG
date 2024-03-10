@@ -2,7 +2,7 @@
 
 namespace Basketball_YG.View
 {
-    public interface ITransformableView
+    public interface IPositionView
     {
         void SetPosition(Vector3 position);
     }

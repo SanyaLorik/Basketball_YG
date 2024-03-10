@@ -1,16 +1,14 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Basketball_YG.View
 {
-    public abstract class TransformableView : ITransformableView
+    public abstract class TransformableView : PositionView, IRotatationView
     {
-        protected readonly Transform Transform;
-
-        public TransformableView(Transform transform)
+        protected TransformableView(Transform transform) : base(transform)
         {
-            Transform = transform;
+
         }
 
-        public abstract void SetPosition(Vector3 position);
+        public abstract void SetRotation(Vector3 rotation);
     }
 }

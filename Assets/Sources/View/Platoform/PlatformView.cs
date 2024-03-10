@@ -4,13 +4,8 @@ using Zenject;
 
 namespace Basketball_YG.View
 {
-    public class PlatformView : TransformableView
+    public class PlatformView : PositionView
     {
         public PlatformView([InjectOptional(Optional = true, Id = GameConstants.PlatformTransform)] Transform transform) : base(transform) { }
-
-        public override void SetPosition(Vector3 position)
-        {
-            Transform.position = position;
-        }
     }
 }

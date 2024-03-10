@@ -9,13 +9,13 @@ namespace Basketball_YG.Core
 {
     public class PlatformMovement : ITickable
     {
-        private readonly ITransformableModel _model;
+        private readonly IPositionModel _model;
         private readonly IPaltformInputService _input;
         private readonly PlatformConfig _config;
         private readonly RangeValues _limits;
 
         public PlatformMovement(
-            [InjectOptional(Optional = true, Id = GameConstants.PlatformModel)] ITransformableModel model, 
+            [InjectOptional(Optional = true, Id = GameConstants.PlatformModel)] IPositionModel model, 
             IPaltformInputService input, 
             PlatformConfig config,
             [InjectOptional(Optional = true, Id = GameConstants.PlatfromRangeValues)] RangeValues limits)

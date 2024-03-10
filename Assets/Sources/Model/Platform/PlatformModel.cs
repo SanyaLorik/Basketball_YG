@@ -5,9 +5,14 @@ using Zenject;
 
 namespace Basketball_YG.Model
 {
-    public class PlatformModel : TransformableModel
+    public class PlatformModel : PositionModel
     {
-        public PlatformModel([InjectOptional(Optional = true, Id = GameConstants.PlatformView)] ITransformableView view) : base(view) { }
+        private readonly IPositionView _view;
+
+        public PlatformModel([InjectOptional(Optional = true, Id = GameConstants.PlatformView)] IPositionView view)
+        {
+            _view = view;
+        }
 
         public override Vector3 Position 
         {
@@ -18,7 +23,7 @@ namespace Basketball_YG.Model
             set
             { 
                 base.Position = value;
-                View.SetPosition(value);
+                _view.SetPosition(value);
             } 
         }
     }

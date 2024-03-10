@@ -2,10 +2,8 @@
 
 namespace Basketball_YG.Model
 {
-    public interface ITransformableModel
+    public interface IRotationModel
     {
-        Vector3 Position { get; set; }
-
         Vector3 Rotation { get; set; }
     }
 }
