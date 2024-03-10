@@ -1,12 +1,14 @@
 ﻿using Basketball_YG.Config;
 using Basketball_YG.Model;
-using System.Collections;
+using Cysharp.Threading.Tasks;
+using System;
+using System.Threading;
 using UnityEngine;
 using Zenject;
 
 namespace Basketball_YG.Core
 {
-    public class RewardSpeedometr
+    public class RewardSpeedometr : IDisposable, IInitializable
     {
         private readonly IRotationModel _arrowModel;
         private readonly IInformationSetupModel<string> _moneyText;
@@ -14,6 +16,7 @@ namespace Basketball_YG.Core
         private readonly MultiplayerSlot[] _multipliers;
         private readonly RewardSpeedometrConfig _config;
 
+        private CancellationTokenSource _cancellationToken;
         private Vector3 _currentAngle;
 
         public RewardSpeedometr(
@@ -34,14 +37,21 @@ namespace Basketball_YG.Core
             _config = config;
         }
 
+        public void Dispose()
+        {
+            _cancellationToken?.Cancel();
+            _cancellationToken?.Dispose();
+        }
+
         public void StartArrow()
         {
-
+            _cancellationToken = new();
+            Rotate(_cancellationToken.Token).Forget();
         }
 
         public void StopArrow()
         {
-
+            _cancellationToken.Cancel();
         }
 
         public void ReturToInitialPosition()
@@ -66,30 +76,22 @@ namespace Basketball_YG.Core
             }
         }
 
-        private IEnumerator Rotate()
+        private async UniTaskVoid Rotate(CancellationToken token)
         {
             Vector3 initial = new(0, 0, _config.Angel);
             Vector3 final = new(0, 0, -_config.Angel);
 
-            while (this != null)
+            while (token.IsCancellationRequested == false)
             {
                 float expandedTime = 0;
+                (initial, final) = (final, initial);
 
                 do
                 {
                     expandedTime = Lerp(initial, final, expandedTime);
                     UpdateCounterText();
-                    yield return null;
-                }
-                while (_config.Duration > expandedTime);
 
-                expandedTime = 0;
-
-                do
-                {
-                    expandedTime = Lerp(final, initial, expandedTime);
-                    UpdateCounterText();
-                    yield return null;
+                    await UniTask.Yield(cancellationToken: token);
                 }
                 while (_config.Duration > expandedTime);
             }
@@ -110,6 +112,11 @@ namespace Basketball_YG.Core
         {
             int money = _matchMoney.Money * CalculatedMultiplier;
             _moneyText.SetInformation(money.ToString());
+        }
+
+        public void Initialize()
+        {
+            StartArrow();
         }
     }
 }

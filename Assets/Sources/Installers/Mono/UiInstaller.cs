@@ -243,7 +243,7 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
-                .Bind<RewardSpeedometr>()
+                .BindInterfacesAndSelfTo<RewardSpeedometr>()
                 .AsCached();
         }
     }

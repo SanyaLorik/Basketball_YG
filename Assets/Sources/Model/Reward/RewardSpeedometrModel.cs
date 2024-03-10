@@ -29,7 +29,7 @@ namespace Basketball_YG.Model
             }
             set
             {
-                base.Position = value;
+                base.Rotation = value;
                 _arrowView.SetRotation(value);
             }
         }
