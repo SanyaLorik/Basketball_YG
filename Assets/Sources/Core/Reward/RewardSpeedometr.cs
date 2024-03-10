@@ -2,6 +2,7 @@
 using Basketball_YG.Model;
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 namespace Basketball_YG.Core
 {
@@ -9,19 +10,28 @@ namespace Basketball_YG.Core
     {
         private readonly IRotationModel _arrowModel;
         private readonly IInformationSetupModel<string> _moneyText;
-        private readonly IMoney _money;
-        private readonly SpeedomentRewardConfig _config;
+        private readonly IMoney _matchMoney;
         private readonly MultiplayerSlot[] _multipliers;
+        private readonly RewardSpeedometrConfig _config;
 
         private Vector3 _currentAngle;
 
-        public RewardSpeedometr(IRotationModel arrowModel, IInformationSetupModel<string> moneyText, IMoney money, SpeedomentRewardConfig config, MultiplayerSlot[] multipliers)
+        public RewardSpeedometr(
+            [InjectOptional(Optional = true, Id = GameConstants.SpeedometrRotationModel)]
+            IRotationModel arrowModel,
+            [InjectOptional(Optional = true, Id = GameConstants.SpeedometrInformationModel)]
+            IInformationSetupModel<string> moneyText,
+            [InjectOptional(Optional = true, Id = GameConstants.MoneyMatch)]
+            IMoney matchMoney,
+            [InjectOptional(Optional = true, Id = GameConstants.SpeedometrMultiplayerSlot)]
+            MultiplayerSlot[] multipliers,
+            RewardSpeedometrConfig config)
         {
             _arrowModel = arrowModel;
             _moneyText = moneyText;
-            _money = money;
-            _config = config;
+            _matchMoney = matchMoney;
             _multipliers = multipliers;
+            _config = config;
         }
 
         public void StartArrow()
@@ -98,7 +108,7 @@ namespace Basketball_YG.Core
 
         private void UpdateCounterText()
         {
-            int money = _money.Money * CalculatedMultiplier;
+            int money = _matchMoney.Money * CalculatedMultiplier;
             _moneyText.SetInformation(money.ToString());
         }
     }

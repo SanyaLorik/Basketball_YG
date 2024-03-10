@@ -1,4 +1,7 @@
 ﻿using Basketball_YG.Config;
+using Basketball_YG.Core;
+using Basketball_YG.Model;
+using Basketball_YG.View;
 using Basketball_YG.ViewCore;
 using SanyaBeer.Meta;
 using System;
@@ -34,12 +37,18 @@ namespace Basketball_YG.Installer
         [SerializeField] private ElementActivity _pauseMenuActivity;
         [SerializeField] private ClickedCallback _closePauseMenuButton;
 
+        [Header("Speedoment Reward")]
+        [SerializeField] private Transform _speedomentRewardArrow;
+        [SerializeField] private MultiplayerSlot[] _multiplayerSlot;
+        [SerializeField] private TextSetup _speedomentRewardmoneyText;
+
         public override void InstallBindings()
         {
             BindMainMenu();
             BindSettingsMenu();
             BindGameplayMenu();
             BindPauseMenu();
+            BindSpeedometrReward();
         }
 
         private void BindMainMenu()
@@ -193,6 +202,49 @@ namespace Basketball_YG.Installer
                 .BindInterfacesAndSelfTo<PauseOptions>()
                 .AsCached()
                 .NonLazy();
+        }
+
+        private void BindSpeedometrReward()
+        {
+            Container
+                .Bind<TextSetup>()
+                .WithId(GameConstants.SpeedometrRewardmoneyText)
+                .FromInstance(_speedomentRewardmoneyText)
+                .AsCached();
+
+            Container
+                .Bind<Transform>()
+                .WithId(GameConstants.RewardSpeedometrArrow)
+                .FromInstance(_speedomentRewardArrow)
+                .AsCached();
+
+            Container
+                .Bind<IRotatationView>()
+                .WithId(GameConstants.SpeedometrView)
+                .To<RewardSpeedometrView>()
+                .AsCached();
+
+            Container
+                .Bind<IRotationModel>()
+                .WithId(GameConstants.SpeedometrRotationModel)
+                .To<RewardSpeedometrModel>()
+                .AsCached();
+
+            Container
+                .Bind<IInformationSetupModel<string>>()
+                .WithId(GameConstants.SpeedometrInformationModel)
+                .To<RewardSpeedometrModel>()
+                .AsCached();
+
+            Container
+                .Bind<MultiplayerSlot[]>()
+                .WithId(GameConstants.SpeedometrMultiplayerSlot)
+                .FromInstance(_multiplayerSlot)
+                .AsCached();
+
+            Container
+                .Bind<RewardSpeedometr>()
+                .AsCached();
         }
     }
 }

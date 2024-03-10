@@ -1,4 +1,5 @@
 ﻿using Basketball_YG.Config;
+using Basketball_YG.Model;
 using UnityEngine;
 using Zenject;
 
@@ -11,6 +12,7 @@ namespace Basketball_YG.Installer
         public override void InstallBindings()
         {
             BindCamera();
+            BindMoney();
         }
 
         private void BindCamera()
@@ -19,6 +21,19 @@ namespace Basketball_YG.Installer
                 .Bind<Camera>()
                 .WithId(GameConstants.CameraMain)
                 .FromInstance(_camerMain);
+        }
+
+        private void BindMoney()
+        {
+            Container
+                .Bind<IMoney>()
+                .WithId(GameConstants.MoneyMatch)
+                .To<MatchMoney>()
+                .AsCached();
+
+            Container
+                .BindInterfacesAndSelfTo<MatchMoney>()
+                .AsCached();
         }
     }
 }

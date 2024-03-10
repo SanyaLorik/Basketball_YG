@@ -9,7 +9,7 @@ namespace Basketball_YG.Installer
     {
         [SerializeField] private PlatformConfig _platformConfig;
         [SerializeField] private BallConfig _ballConfig;
-        [SerializeField] private SpeedomentRewardConfig _speedomentRewardConfig;
+        [SerializeField] private RewardSpeedometrConfig _speedomentRewardConfig;
 
         public override void InstallBindings()
         {

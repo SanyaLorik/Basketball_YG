@@ -41,6 +41,17 @@
         public const string UiButtonClosePauseMenu = "UiButtonClosePauseMenu";
         public const string UiPauseMenu = "UiPauseMenu";
 
+        // Speedometr Reward
+        public const string RewardSpeedometrArrow = "RewardSpeedometrArrow";
+        public const string SpeedometrMultiplayerSlot = "SpeedometrMultiplayerSlot";
+        public const string SpeedometrRewardmoneyText = "SpeedomentRewardmoneyText";
+        public const string SpeedometrView = "SpeedomentView";
+        public const string SpeedometrRotationModel = "SpeedomentRotationModel";
+        public const string SpeedometrInformationModel = "SpeedomentRotationModel";
+
+        // Money
+        public const string MoneyMatch = "MoneyMatch";
+
         // States
         public const string StateMainMenu = "StateMainMenu";
         public const string StateGameplay = "StateGameplay";
