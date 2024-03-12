@@ -1,5 +1,7 @@
 ﻿using Basketball_YG.Config;
+using Basketball_YG.Core;
 using Basketball_YG.Model;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -11,8 +13,15 @@ namespace Basketball_YG.Installer
 
         public override void InstallBindings()
         {
+            //BindBallPool();
             BindCamera();
             BindMoney();
+        }
+
+        private void BindBallPool()
+        {
+            Container
+                .BindMemoryPool<Ball, BallPool>();
         }
 
         private void BindCamera()
