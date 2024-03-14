@@ -2,10 +2,11 @@
 using Basketball_YG.Core;
 using Basketball_YG.Model;
 using Basketball_YG.View;
-using Basketball_YG.ViewCore;
+using Basketball_YG.CompositeRoot;
 using SanyaBeer.Meta;
 using UnityEngine;
 using Zenject;
+using Basketball_YG.Counter;
 
 namespace Basketball_YG.Installer
 {
@@ -109,13 +110,13 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
-                .Bind<IUiMenuActivity>()
+                .Bind<IMenuActivity>()
                 .WithId(GameConstants.UiMainMenu)
-                .To<UiMainMenu>()
+                .To<MainMenu>()
                 .AsCached();
 
             Container
-                .BindInterfacesTo<UiMainMenu>()
+                .BindInterfacesTo<MainMenu>()
                 .AsCached();
         }
 
@@ -134,18 +135,13 @@ namespace Basketball_YG.Installer
               .AsCached();
 
             Container
-                .Bind<IUiMenuActivity>()
+                .Bind<IMenuActivity>()
                 .WithId(GameConstants.UiSettingsMenu)
-                .To<UiSettingsMenu>()
+                .To<SettingsMenu>()
                 .AsCached();
 
             Container
-                .BindInterfacesAndSelfTo<UiSettingsMenu>()
-                .AsCached()
-                .NonLazy();
-
-            Container
-                .BindInterfacesAndSelfTo<VolumeSettings>()
+                .BindInterfacesAndSelfTo<SettingsMenu>()
                 .AsCached()
                 .NonLazy();
         }
@@ -171,13 +167,13 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
-                .Bind<IUiMenuActivity>()
+                .Bind<IMenuActivity>()
                 .WithId(GameConstants.UiGameplayMenu)
-                .To<UiGameplayMenu>()
+                .To<GameplayMenu>()
                 .AsCached();
 
             Container
-                .BindInterfacesTo<UiGameplayMenu>()
+                .BindInterfacesTo<GameplayMenu>()
                 .AsCached();
 
             Container
@@ -207,18 +203,13 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
-                .Bind<IUiMenuActivity>()
+                .Bind<IMenuActivity>()
                 .WithId(GameConstants.UiPauseMenu)
-                .To<UiPauseMenu>()
+                .To<PauseMenu>()
                 .AsCached();
 
             Container
-                .BindInterfacesAndSelfTo<UiPauseMenu>()
-                .AsCached()
-                .NonLazy();
-
-            Container
-                .BindInterfacesAndSelfTo<PauseOptions>()
+                .BindInterfacesAndSelfTo<PauseMenu>()
                 .AsCached()
                 .NonLazy();
         }
@@ -268,18 +259,19 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
-                .Bind<IUiMenuActivity>()
-                .WithId(GameConstants.UiBallStoreMenu)
-                .To<UiBallStoreMenu>()
+                .Bind<SkinSelector>()
+                .WithId(GameConstants.BallSkinSelector)
+                .To<BallSkinSelector>()
                 .AsCached();
 
             Container
-              .BindInterfacesAndSelfTo<UiBallStoreMenu>()
-              .AsCached()
-              .NonLazy();
+                .Bind<IMenuActivity>()
+                .WithId(GameConstants.UiBallStoreMenu)
+                .To<BallStoreMenu>()
+                .AsCached();
 
             Container
-              .BindInterfacesAndSelfTo<BallStore>()
+              .BindInterfacesAndSelfTo<BallStoreMenu>()
               .AsCached()
               .NonLazy();
         }
@@ -329,20 +321,22 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
-                .Bind<IUiMenuActivity>()
+                .Bind<IMenuActivity>()
                 .WithId(GameConstants.UiSiteStoreMenu)
-                .To<UiSiteStoreMenu>()
+                .To<SiteStoreMenu>()
                 .AsCached();
 
             Container
-              .BindInterfacesAndSelfTo<UiSiteStoreMenu>()
+                .Bind<SkinSelector>()
+                .WithId(GameConstants.SiteSkinSelector)
+                .To<SiteSkinSelector>()
+                .AsCached();
+
+            Container
+              .BindInterfacesAndSelfTo<SiteStoreMenu>()
               .AsCached()
               .NonLazy();
 
-            Container
-              .BindInterfacesAndSelfTo<SiteStore>()
-              .AsCached()
-              .NonLazy();
         }
 
         private void BindSpeedometrReward()

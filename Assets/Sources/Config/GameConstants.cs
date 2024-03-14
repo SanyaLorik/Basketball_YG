@@ -12,6 +12,8 @@
         public const string BallCameraPoint = "BallCameraPoint";
         public const string BallSkinData = "BallSkinData";
         public const string SiteSkinData = "SiteSkinData";
+        public const string BallSkinSelector = "BallSkinSelector";
+        public const string SiteSkinSelector = "SiteSkinSelector";
 
         // Platfrom
         public const string PlatfromTouchInput = "PlatfromTouchInput";
@@ -43,9 +45,9 @@
         public const string UiGameplayPrestartMatchActivities = "UiGameplayPrestartMatchActivities";
 
         // Ui Pause Menu
+        public const string UiPauseMenu = "UiPauseMenu";
         public const string UiPauseMenuActivity = "UiPauseMenuActivity";
         public const string UiButtonClosePauseMenu = "UiButtonClosePauseMenu";
-        public const string UiPauseMenu = "UiPauseMenu";
 
         // Ui Ball Store Menu
         public const string UiBallStoreMenu = "UiBallStoreMenu";

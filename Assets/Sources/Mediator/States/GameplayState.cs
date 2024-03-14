@@ -1,6 +1,7 @@
-﻿using Basketball_YG.Config;
+﻿using Basketball_YG.CompositeRoot;
+using Basketball_YG.Config;
+using Basketball_YG.Counter;
 using Basketball_YG.Input;
-using Basketball_YG.ViewCore;
 using Cysharp.Threading.Tasks;
 using SanyaBeer.Meta;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace Basketball_YG.Mediator
 {
     public class GameplayState : State
     {
-        private readonly IUiMenuActivity _uiGameplayMenuActivity;
+        private readonly IMenuActivity _uiGameplayMenuActivity;
         private readonly IActivityInputService _activityInput;
         private readonly ElementActivityArray _prestartActivities;
         private readonly ElementActivity _timerActivity;
@@ -18,7 +19,7 @@ namespace Basketball_YG.Mediator
 
         public GameplayState(
             [InjectOptional(Optional = true, Id = GameConstants.UiGameplayMenu)]
-            IUiMenuActivity uiGameplayMenuActivity,
+            IMenuActivity uiGameplayMenuActivity,
             [InjectOptional(Optional = true, Id = GameConstants.UiGameplayTimerActivity)]
             ElementActivity timerActivity,
             [InjectOptional(Optional = true, Id = GameConstants.UiGameplayPrestartMatchActivities)]

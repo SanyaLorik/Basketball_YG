@@ -1,5 +1,5 @@
-﻿using Basketball_YG.Config;
-using Basketball_YG.ViewCore;
+﻿using Basketball_YG.CompositeRoot;
+using Basketball_YG.Config;
 using UnityEngine;
 using Zenject;
 
@@ -7,11 +7,11 @@ namespace Basketball_YG.Mediator
 {
     public class MainMenuState : State
     {
-        private readonly IUiMenuActivity _uiMainMenuActivity;
+        private readonly IMenuActivity _uiMainMenuActivity;
 
         public MainMenuState(
             [InjectOptional(Optional = true, Id = GameConstants.UiMainMenu)]
-            IUiMenuActivity uiMainMenuActivity)
+            IMenuActivity uiMainMenuActivity)
         {
             _uiMainMenuActivity = uiMainMenuActivity;
         }
