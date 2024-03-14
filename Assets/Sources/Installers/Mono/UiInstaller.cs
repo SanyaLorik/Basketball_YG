@@ -226,6 +226,12 @@ namespace Basketball_YG.Installer
         private void BindBallStoreMenu()
         {
             Container
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiBallStoreMenuActivity)
+                .FromInstance(_ballStoreMenuActivity)
+                .AsCached();
+
+            Container
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiBallStoreNextButton)
                 .FromInstance(_ballStoreNextButton)
@@ -260,10 +266,21 @@ namespace Basketball_YG.Installer
                 .WithId(GameConstants.UiBallStoreMoneyText)
                 .FromInstance(_ballStoreNamingText)
                 .AsCached();
+
+            Container
+              .BindInterfacesAndSelfTo<UiBallStoreMenu>()
+              .AsCached()
+              .NonLazy();
         }
 
         private void BindSiteStoreMenu()
         {
+            Container
+                 .Bind<ElementActivity>()
+                 .WithId(GameConstants.UiSiteStoreMenuActivity)
+                 .FromInstance(_siteStoreMenuActivity)
+                 .AsCached();
+
             Container
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiSiteStoreNextButton)
@@ -299,6 +316,11 @@ namespace Basketball_YG.Installer
                 .WithId(GameConstants.UiSiteStoreMoneyText)
                 .FromInstance(_siteStoreNamingText)
                 .AsCached();
+
+            Container
+              .BindInterfacesAndSelfTo<UiSiteStoreMenu>()
+              .AsCached()
+              .NonLazy();
         }
 
         private void BindSpeedometrReward()
