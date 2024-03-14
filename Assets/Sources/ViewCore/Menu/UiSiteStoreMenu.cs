@@ -1,4 +1,5 @@
 ﻿using Basketball_YG.Config;
+using Basketball_YG.Model.Signal;
 using SanyaBeer.Meta;
 using System;
 using Zenject;
@@ -72,7 +73,7 @@ namespace Basketball_YG.ViewCore
 
         private void OnMenuSkin()
         {
-            throw new NotImplementedException();
+            SignalBus.Fire(new ActivitySiteStoreSignal(false));
         }
     }
 }
