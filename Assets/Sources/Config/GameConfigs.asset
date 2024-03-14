@@ -15,3 +15,5 @@ MonoBehaviour:
   _platformConfig: {fileID: 11400000, guid: 69f7817180f563448a491be5fd2fafab, type: 2}
   _ballConfig: {fileID: 11400000, guid: 94a751ae1d839be429da438393773c10, type: 2}
   _speedomentRewardConfig: {fileID: 11400000, guid: e27cbac9be80d5b4bb7549b0ac538462, type: 2}
+  _ballSkinData: {fileID: 11400000, guid: 55ef051ab35ede84ebb9f9c844580140, type: 2}
+  _siteSkinData: {fileID: 11400000, guid: 9ad40872c7b49db46935ea78fc8ff7e6, type: 2}
