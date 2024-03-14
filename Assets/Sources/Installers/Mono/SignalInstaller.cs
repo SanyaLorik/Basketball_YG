@@ -12,6 +12,8 @@ namespace Basketball_YG.Installer
             BindSwitchState();
             BindSettings();
             BindPause();
+            BindBall();
+            BindSite();
         }
 
         private void BindSwitchState()
@@ -32,6 +34,20 @@ namespace Basketball_YG.Installer
         {
             Container
                 .DeclareSignal<ActivityPauseSignal>()
+                .OptionalSubscriber();
+        }
+
+        private void BindBall()
+        {
+            Container
+                .DeclareSignal<ActivityBallStoreSignal>()
+                .OptionalSubscriber();
+        }
+
+        private void BindSite()
+        {
+            Container
+                .DeclareSignal<ActivitySiteStoreSignal>()
                 .OptionalSubscriber();
         }
     }

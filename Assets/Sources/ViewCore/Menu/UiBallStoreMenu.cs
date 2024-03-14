@@ -41,10 +41,36 @@ namespace Basketball_YG.ViewCore
 
         public void Initialize()
         {
-            throw new NotImplementedException();
+            _nextButton.AddListner(OnNextSkin);
+            _backButton.AddListner(OnBackSkin);
+            _selectedButton.AddListner(OnSelectSkin);
+            _menuButton.AddListner(OnMenuSkin);
         }
 
         public void Dispose()
+        {
+            _nextButton.RemoveListener(OnNextSkin);
+            _backButton.RemoveListener(OnBackSkin);
+            _selectedButton.RemoveListener(OnSelectSkin);
+            _menuButton.RemoveListener(OnMenuSkin);
+        }
+
+        private void OnNextSkin()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnBackSkin()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnSelectSkin()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnMenuSkin()
         {
             throw new NotImplementedException();
         }

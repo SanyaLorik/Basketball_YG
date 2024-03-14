@@ -25,8 +25,8 @@
         public const string UiMainMenu = "UiMainMenu";
 
         // Ui Settings Menu
-        public const string UiSettingsMenuActivity = "UiSettingsMenuActivity";
         public const string UiSettingsMenu = "UiSettingsMenu";
+        public const string UiSettingsMenuActivity = "UiSettingsMenuActivity";
         public const string UiButtonCloseSettingsMenu = "UiButtonCloseSettingsMenu";
 
         // Ui Gameplay Menu
@@ -42,6 +42,7 @@
         public const string UiPauseMenu = "UiPauseMenu";
 
         // Ui Ball Store Menu
+        public const string UiBallStoreMenu = "UiBallStoreMenu";
         public const string UiBallStoreMenuActivity = "UiBallStoreMenuActivity";
         public const string UiBallStoreNextButton = "UiBallStoreNextButton";
         public const string UiBallStoreBackButton = "UiBallStoreBackButton";
@@ -51,6 +52,7 @@
         public const string UiBallStoreMoneyText = "UiBallStoreMoneyText";
 
         // Ui Site Store Menu
+        public const string UiSiteStoreMenu = "UiSiteStoreMenu";
         public const string UiSiteStoreMenuActivity = "UiSiteStoreMenuActivity";
         public const string UiSiteStoreNextButton = "UiSiteStoreNextButton";
         public const string UiSiteStoreBackButton = "UiSiteStoreBackButton";

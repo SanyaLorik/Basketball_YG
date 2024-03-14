@@ -62,12 +62,12 @@ namespace Basketball_YG.ViewCore
 
         private void OnOpenBallStore()
         {
-            throw new NotImplementedException();
+            SignalBus.Fire(new ActivityBallStoreSignal(true));
         }
 
         private void OnOpenSiteStore()
         {
-            throw new NotImplementedException();
+            SignalBus.Fire(new ActivitySiteStoreSignal(true));
         }
 
         private void OnOpenSettings()

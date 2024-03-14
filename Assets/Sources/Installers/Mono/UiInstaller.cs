@@ -268,7 +268,18 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
+                .Bind<IUiMenuActivity>()
+                .WithId(GameConstants.UiBallStoreMenu)
+                .To<UiBallStoreMenu>()
+                .AsCached();
+
+            Container
               .BindInterfacesAndSelfTo<UiBallStoreMenu>()
+              .AsCached()
+              .NonLazy();
+
+            Container
+              .BindInterfacesAndSelfTo<BallStore>()
               .AsCached()
               .NonLazy();
         }
@@ -318,7 +329,18 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
+                .Bind<IUiMenuActivity>()
+                .WithId(GameConstants.UiSiteStoreMenu)
+                .To<UiSiteStoreMenu>()
+                .AsCached();
+
+            Container
               .BindInterfacesAndSelfTo<UiSiteStoreMenu>()
+              .AsCached()
+              .NonLazy();
+
+            Container
+              .BindInterfacesAndSelfTo<SiteStore>()
               .AsCached()
               .NonLazy();
         }
