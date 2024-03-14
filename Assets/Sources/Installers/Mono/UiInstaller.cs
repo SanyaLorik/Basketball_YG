@@ -4,7 +4,6 @@ using Basketball_YG.Model;
 using Basketball_YG.View;
 using Basketball_YG.ViewCore;
 using SanyaBeer.Meta;
-using System;
 using UnityEngine;
 using Zenject;
 
@@ -37,6 +36,24 @@ namespace Basketball_YG.Installer
         [SerializeField] private ElementActivity _pauseMenuActivity;
         [SerializeField] private ClickedCallback _closePauseMenuButton;
 
+        [Header("Ball Store Menu")]
+        [SerializeField] private ElementActivity _ballStoreMenuActivity;
+        [SerializeField] private ClickedCallback _ballStoreNextButton;
+        [SerializeField] private ClickedCallback _ballStoreBackButton;
+        [SerializeField] private ClickedCallback _ballStoreSelectedButton;
+        [SerializeField] private ClickedCallback _ballStoreMenuButton;
+        [SerializeField] private TextSetup _ballStoreNamingText;
+        [SerializeField] private TextSetup _ballStoreMoneyText;
+
+        [Header("Site Store Menu")]
+        [SerializeField] private ElementActivity _siteStoreMenuActivity;
+        [SerializeField] private ClickedCallback _siteStoreNextButton;
+        [SerializeField] private ClickedCallback _siteStoreBackButton;
+        [SerializeField] private ClickedCallback _siteStoreSelectedButton;
+        [SerializeField] private ClickedCallback _siteStoreMenuButton;
+        [SerializeField] private TextSetup _siteStoreNamingText;
+        [SerializeField] private TextSetup _siteStoreMoneyText;
+
         [Header("Speedoment Reward")]
         [SerializeField] private Transform _speedomentRewardArrow;
         [SerializeField] private MultiplayerSlot[] _multiplayerSlot;
@@ -48,6 +65,8 @@ namespace Basketball_YG.Installer
             BindSettingsMenu();
             BindGameplayMenu();
             BindPauseMenu();
+            BindBallStoreMenu();
+            BindSiteStoreMenu();
             BindSpeedometrReward();
         }
 
@@ -182,10 +201,10 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
-              .Bind<ElementActivity>()
-              .WithId(GameConstants.UiPauseMenuActivity)
-              .FromInstance(_pauseMenuActivity)
-              .AsCached();
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiPauseMenuActivity)
+                .FromInstance(_pauseMenuActivity)
+                .AsCached();
 
             Container
                 .Bind<IUiMenuActivity>()
@@ -202,6 +221,84 @@ namespace Basketball_YG.Installer
                 .BindInterfacesAndSelfTo<PauseOptions>()
                 .AsCached()
                 .NonLazy();
+        }
+
+        private void BindBallStoreMenu()
+        {
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiBallStoreNextButton)
+                .FromInstance(_ballStoreNextButton)
+                .AsCached();
+
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiBallStoreBackButton)
+                .FromInstance(_ballStoreBackButton)
+                .AsCached();
+
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiBallStoreSelectedButton)
+                .FromInstance(_ballStoreSelectedButton)
+                .AsCached();
+
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiBallStoreMenuButton)
+                .FromInstance(_ballStoreMenuButton)
+                .AsCached();
+
+            Container
+                .Bind<TextSetup>()
+                .WithId(GameConstants.UiBallStoreNamingText)
+                .FromInstance(_ballStoreNamingText)
+                .AsCached();
+
+            Container
+                .Bind<TextSetup>()
+                .WithId(GameConstants.UiBallStoreMoneyText)
+                .FromInstance(_ballStoreNamingText)
+                .AsCached();
+        }
+
+        private void BindSiteStoreMenu()
+        {
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiSiteStoreNextButton)
+                .FromInstance(_siteStoreNextButton)
+                .AsCached();
+
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiSiteStoreBackButton)
+                .FromInstance(_siteStoreBackButton)
+                .AsCached();
+
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiSiteStoreSelectedButton)
+                .FromInstance(_siteStoreSelectedButton)
+                .AsCached();
+
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiSiteStoreMenuButton)
+                .FromInstance(_siteStoreMenuButton)
+                .AsCached();
+
+            Container
+                .Bind<TextSetup>()
+                .WithId(GameConstants.UiSiteStoreNamingText)
+                .FromInstance(_siteStoreNamingText)
+                .AsCached();
+
+            Container
+                .Bind<TextSetup>()
+                .WithId(GameConstants.UiSiteStoreMoneyText)
+                .FromInstance(_siteStoreNamingText)
+                .AsCached();
         }
 
         private void BindSpeedometrReward()

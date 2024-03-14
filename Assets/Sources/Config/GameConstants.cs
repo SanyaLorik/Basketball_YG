@@ -41,6 +41,24 @@
         public const string UiButtonClosePauseMenu = "UiButtonClosePauseMenu";
         public const string UiPauseMenu = "UiPauseMenu";
 
+        // Ui Ball Store Menu
+        public const string UiBallStoreMenuActivity = "UiBallStoreMenuActivity";
+        public const string UiBallStoreNextButton = "UiBallStoreNextButton";
+        public const string UiBallStoreBackButton = "UiBallStoreBackButton";
+        public const string UiBallStoreSelectedButton = "UiBallStoreSelectedButton";
+        public const string UiBallStoreMenuButton = "UiBallStoreMenuButton";
+        public const string UiBallStoreNamingText = "UiBallStoreNamingText";
+        public const string UiBallStoreMoneyText = "UiBallStoreMoneyText";
+
+        // Ui Site Store Menu
+        public const string UiSiteStoreMenuActivity = "UiSiteStoreMenuActivity";
+        public const string UiSiteStoreNextButton = "UiSiteStoreNextButton";
+        public const string UiSiteStoreBackButton = "UiSiteStoreBackButton";
+        public const string UiSiteStoreSelectedButton = "UiSiteStoreSelectedButton";
+        public const string UiSiteStoreMenuButton = "UiSiteStoreMenuButton";
+        public const string UiSiteStoreNamingText = "UiSiteStoreNamingText";
+        public const string UiSiteStoreMoneyText = "UiSiteStoreMoneyText";
+
         // Speedometr Reward
         public const string RewardSpeedometrArrow = "RewardSpeedometrArrow";
         public const string SpeedometrMultiplayerSlot = "SpeedometrMultiplayerSlot";
