@@ -10,6 +10,10 @@ namespace Basketball_YG.Installer
     {
         [SerializeField] private Camera _camerMain;
 
+        [Header("Skins")]
+        [SerializeField] private Transform _gameplayCameraPoint;
+        [SerializeField] private Transform _ballCameraPoint;
+
         public override void InstallBindings()
         {
             //BindBallPool();
@@ -29,6 +33,16 @@ namespace Basketball_YG.Installer
                 .Bind<Camera>()
                 .WithId(GameConstants.CameraMain)
                 .FromInstance(_camerMain);
+
+            Container
+                .Bind<Transform>()
+                .WithId(GameConstants.GameplayCameraPoint)
+                .FromInstance(_gameplayCameraPoint);
+
+            Container
+                .Bind<Transform>()
+                .WithId(GameConstants.BallCameraPoint)
+                .FromInstance(_ballCameraPoint);
         }
 
         private void BindMoney()

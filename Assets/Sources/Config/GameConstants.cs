@@ -2,12 +2,18 @@
 {
     public static class GameConstants
     {
-        // Platfrom
+        // Platfrom Movement
         public const float MaxDistanceRaycasting = 128f;
-
-        public const string CameraMain = "CameraMain";
         public const string WallMask = "WallMask";
 
+        // Skins
+        public const string CameraMain = "CameraMain";
+        public const string GameplayCameraPoint = "GameplayCameraPoint";
+        public const string BallCameraPoint = "BallCameraPoint";
+        public const string BallSkinData = "BallSkinData";
+        public const string SiteSkinData = "SiteSkinData";
+
+        // Platfrom
         public const string PlatfromTouchInput = "PlatfromTouchInput";
         public const string PlatformTransform = "PlatformTransform";
         public const string PlatformView = "PlatformView";

@@ -7,6 +7,7 @@ namespace Basketball_YG.Data
     public struct SkinStore
     {
         public uint Index;
+        public string Name;
         public int Price;
         public bool IsBought;
         public GameObject Prefab;

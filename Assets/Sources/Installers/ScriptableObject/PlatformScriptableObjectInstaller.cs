@@ -47,13 +47,15 @@ namespace Basketball_YG.Installer
         private void BindBallSkins()
         {
             Container
-                .BindInstance(_ballSkinData);
+                .BindInstance(_ballSkinData)
+                .WithId(GameConstants.BallSkinData);
         }
 
         private void BindSiteSkins()
         {
             Container
-                .BindInstance(_siteSkinData);
+                .BindInstance(_siteSkinData)
+                .WithId(GameConstants.SiteSkinData);
         }
     }
 }

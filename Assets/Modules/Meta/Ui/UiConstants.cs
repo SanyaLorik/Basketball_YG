@@ -3,9 +3,9 @@
     public static class UiConstants
     {
         // View
-        public const float TapDarkReducing = 0.25f;
+        public const float TapDarkReducing = 0.32f;
 
         // Logic
-        public const float DistanceTap = 10f;
+        public const float DistanceTap = 32f;
     }
 }
