@@ -6,25 +6,27 @@ namespace Basketball_YG.CompositeRoot
 {
     public abstract class SkinSelector
     {
-        protected readonly SkinCollectionData SkinCollection;
+        protected readonly SkinCollectionData _skinCollection;
         protected readonly TextSetup NamingText;
         protected readonly TextSetup MoneyText;
 
+        private int _indexSelector = 0;
+
         protected SkinSelector(SkinCollectionData skinCollection, TextSetup namingText, TextSetup moneyText)
         {
-            SkinCollection = skinCollection;
+            _skinCollection = skinCollection;
             NamingText = namingText;
             MoneyText = moneyText;
         }
 
         public void Next()
         {
-            throw new NotImplementedException();
+            Change(() => _indexSelector + 1 < _skinCollection.Lenght, 1); 
         }
 
         public void Back()
         {
-            throw new NotImplementedException();
+            Change(() => _indexSelector - 1 > 0, -1);
         }
 
         public void Select()
@@ -34,12 +36,20 @@ namespace Basketball_YG.CompositeRoot
 
         public void BuyForMoney()
         {
-
+            throw new NotImplementedException();
         }
 
         public void BuyForVideo()
         {
+            throw new NotImplementedException();
+        }
 
+        private void Change(Func<bool> predicate, int direction)
+        {
+            if (predicate.Invoke() == false)
+                return;
+            
+            _indexSelector += direction;
         }
     }
 }
