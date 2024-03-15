@@ -31,5 +31,15 @@ namespace Basketball_YG.CompositeRoot
         {
             throw new NotImplementedException();
         }
+
+        public void BuyForMoney()
+        {
+
+        }
+
+        public void BuyForVideo()
+        {
+
+        }
     }
 }

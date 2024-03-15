@@ -16,11 +16,15 @@ namespace Basketball_YG.CompositeRoot
             ClickedCallback backButton,
             [InjectOptional(Optional = true, Id = GameConstants.UiBallStoreSelectedButton)]
             ClickedCallback selectedButton,
+            [InjectOptional(Optional = true, Id = GameConstants.UiBallStoreBoughtButton)]
+            ClickedCallback boughtButton,
+            [InjectOptional(Optional = true, Id = GameConstants.UiBallStoreVideoButton)]
+            ClickedCallback videoButton,
             [InjectOptional(Optional = true, Id = GameConstants.UiBallStoreMenuButton)]
             ClickedCallback menuButton,
             [InjectOptional(Optional = true, Id = GameConstants.BallSkinSelector)]
             SkinSelector skinSelector) : 
-            base(signalBus, activity, nextButton, backButton, selectedButton, menuButton, skinSelector)
+            base(signalBus, activity, nextButton, backButton, selectedButton, boughtButton, videoButton, menuButton, skinSelector)
         {
         }
     }

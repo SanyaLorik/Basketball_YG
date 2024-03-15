@@ -55,7 +55,12 @@
         public const string UiBallStoreNextButton = "UiBallStoreNextButton";
         public const string UiBallStoreBackButton = "UiBallStoreBackButton";
         public const string UiBallStoreSelectedButton = "UiBallStoreSelectedButton";
+        public const string UiBallStoreBoughtButton = "UiBallStoreBoughtButton";
+        public const string UiBallStoreVideoButton = "UiBallStoreVideoButton";
         public const string UiBallStoreMenuButton = "UiBallStoreMenuButton";
+        public const string UiBallStoreSelectedActivity = "UiBallStoreSelectedActivity";
+        public const string UiBallStoreBoughtActivity = "UiBallStoreBuyActivity";
+        public const string UiBallStoreVideoActivity = "UiBallStoreVideoActivity";
         public const string UiBallStoreNamingText = "UiBallStoreNamingText";
         public const string UiBallStoreMoneyText = "UiBallStoreMoneyText";
 
@@ -65,7 +70,12 @@
         public const string UiSiteStoreNextButton = "UiSiteStoreNextButton";
         public const string UiSiteStoreBackButton = "UiSiteStoreBackButton";
         public const string UiSiteStoreSelectedButton = "UiSiteStoreSelectedButton";
+        public const string UiSiteStoreBoughtButton = "UiSiteStoreBoughtButton";
+        public const string UiSiteStoreVideoButton = "UiSiteStoreVideoButton";
         public const string UiSiteStoreMenuButton = "UiSiteStoreMenuButton";
+        public const string UiSiteStoreSelectedActivity = "UiSiteStoreSelectedActivity";
+        public const string UiSiteStoreBoughtActivity = "UiSiteStoreBuyActivity";
+        public const string UiSiteStoreVideoActivity = "UiSiteStoreVideoActivity";
         public const string UiSiteStoreNamingText = "UiSiteStoreNamingText";
         public const string UiSiteStoreMoneyText = "UiSiteStoreMoneyText";
 

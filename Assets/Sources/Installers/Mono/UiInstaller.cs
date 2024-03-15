@@ -39,18 +39,28 @@ namespace Basketball_YG.Installer
 
         [Header("Ball Store Menu")]
         [SerializeField] private ElementActivity _ballStoreMenuActivity;
+        [SerializeField] private ElementActivity _ballStoreSelectedActivity;
+        [SerializeField] private ElementActivity _ballStoreBoughtActivity;
+        [SerializeField] private ElementActivity _ballStoreVideoActivity;
         [SerializeField] private ClickedCallback _ballStoreNextButton;
         [SerializeField] private ClickedCallback _ballStoreBackButton;
         [SerializeField] private ClickedCallback _ballStoreSelectedButton;
+        [SerializeField] private ClickedCallback _ballStoreBoughtButton;
+        [SerializeField] private ClickedCallback _ballStoreVideoButton;
         [SerializeField] private ClickedCallback _ballStoreMenuButton;
         [SerializeField] private TextSetup _ballStoreNamingText;
         [SerializeField] private TextSetup _ballStoreMoneyText;
 
         [Header("Site Store Menu")]
         [SerializeField] private ElementActivity _siteStoreMenuActivity;
+        [SerializeField] private ElementActivity _siteStoreSelectedActivity;
+        [SerializeField] private ElementActivity _siteStoreBoughtActivity;
+        [SerializeField] private ElementActivity _siteStoreVideoActivity;
         [SerializeField] private ClickedCallback _siteStoreNextButton;
         [SerializeField] private ClickedCallback _siteStoreBackButton;
         [SerializeField] private ClickedCallback _siteStoreSelectedButton;
+        [SerializeField] private ClickedCallback _siteStoreBoughtButton;
+        [SerializeField] private ClickedCallback _siteStoreVideoButton;
         [SerializeField] private ClickedCallback _siteStoreMenuButton;
         [SerializeField] private TextSetup _siteStoreNamingText;
         [SerializeField] private TextSetup _siteStoreMoneyText;
@@ -223,6 +233,24 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiBallStoreSelectedActivity)
+                .FromInstance(_ballStoreSelectedActivity)
+                .AsCached();
+
+            Container
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiBallStoreBoughtActivity)
+                .FromInstance(_ballStoreBoughtActivity)
+                .AsCached();
+
+            Container
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiBallStoreVideoActivity)
+                .FromInstance(_ballStoreVideoActivity)
+                .AsCached();
+
+            Container
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiBallStoreNextButton)
                 .FromInstance(_ballStoreNextButton)
@@ -238,6 +266,18 @@ namespace Basketball_YG.Installer
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiBallStoreSelectedButton)
                 .FromInstance(_ballStoreSelectedButton)
+                .AsCached();
+
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiBallStoreBoughtButton)
+                .FromInstance(_ballStoreBoughtButton)
+                .AsCached();
+
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiBallStoreVideoButton)
+                .FromInstance(_ballStoreVideoButton)
                 .AsCached();
 
             Container
@@ -285,6 +325,24 @@ namespace Basketball_YG.Installer
                  .AsCached();
 
             Container
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiSiteStoreSelectedActivity)
+                .FromInstance(_siteStoreSelectedActivity)
+                .AsCached();
+
+            Container
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiSiteStoreBoughtActivity)
+                .FromInstance(_siteStoreBoughtActivity)
+                .AsCached();
+
+            Container
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiSiteStoreVideoActivity)
+                .FromInstance(_siteStoreVideoActivity)
+                .AsCached();
+
+            Container
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiSiteStoreNextButton)
                 .FromInstance(_siteStoreNextButton)
@@ -306,6 +364,18 @@ namespace Basketball_YG.Installer
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiSiteStoreMenuButton)
                 .FromInstance(_siteStoreMenuButton)
+                .AsCached();
+
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiSiteStoreBoughtButton)
+                .FromInstance(_siteStoreBoughtButton)
+                .AsCached();
+
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiSiteStoreVideoButton)
+                .FromInstance(_siteStoreVideoButton)
                 .AsCached();
 
             Container
