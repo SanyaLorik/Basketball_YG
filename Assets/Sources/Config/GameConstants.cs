@@ -6,10 +6,13 @@
         public const float MaxDistanceRaycasting = 128f;
         public const string WallMask = "WallMask";
 
-        // Skins
+        // Camera
         public const string CameraMain = "CameraMain";
         public const string GameplayCameraPoint = "GameplayCameraPoint";
-        public const string BallCameraPoint = "BallCameraPoint";
+        public const string BallSkinCameraPoint = "BallSkinCameraPoint";
+        public const string SiteSkinCameraPoint = "SiteSkinCameraPoint";
+
+        // Skins
         public const string BallSkinData = "BallSkinData";
         public const string SiteSkinData = "SiteSkinData";
         public const string BallSkinSelector = "BallSkinSelector";

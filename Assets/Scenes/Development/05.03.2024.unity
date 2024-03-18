@@ -5055,7 +5055,7 @@ GameObject:
   m_Component:
   - component: {fileID: 630601989}
   m_Layer: 0
-  m_Name: Camera Point
+  m_Name: Gameplay Camera Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12143,7 +12143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1836333217}
   m_Layer: 0
-  m_Name: Camera Point
+  m_Name: Ball Camera Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12980,7 +12980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1894619202}
   m_Layer: 0
-  m_Name: Camera Point
+  m_Name: Site Camera Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14584,6 +14584,7 @@ MonoBehaviour:
   _camerMain: {fileID: 161622120}
   _gameplayCameraPoint: {fileID: 630601989}
   _ballCameraPoint: {fileID: 1836333217}
+  _siteCameraPoint: {fileID: 1894619202}
 --- !u!114 &2121987615 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7178467674647797253, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}

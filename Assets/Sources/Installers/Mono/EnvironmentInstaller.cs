@@ -1,6 +1,7 @@
 ﻿using Basketball_YG.Config;
 using Basketball_YG.Core;
 using Basketball_YG.Model;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -8,16 +9,17 @@ namespace Basketball_YG.Installer
 {
     public class EnvironmentInstaller : MonoInstaller
     {
+        [Header("Cameras")]
         [SerializeField] private Camera _camerMain;
-
-        [Header("Skins")]
         [SerializeField] private Transform _gameplayCameraPoint;
         [SerializeField] private Transform _ballCameraPoint;
+        [SerializeField] private Transform _siteCameraPoint;
 
         public override void InstallBindings()
         {
             //BindBallPool();
-            BindCamera();
+            BindCameras();
+            BindCameraMovement();
             BindMoney();
         }
 
@@ -27,7 +29,7 @@ namespace Basketball_YG.Installer
                 .BindMemoryPool<Ball, BallPool>();
         }
 
-        private void BindCamera()
+        private void BindCameras()
         {
             Container
                 .Bind<Camera>()
@@ -41,8 +43,21 @@ namespace Basketball_YG.Installer
 
             Container
                 .Bind<Transform>()
-                .WithId(GameConstants.BallCameraPoint)
+                .WithId(GameConstants.BallSkinCameraPoint)
                 .FromInstance(_ballCameraPoint);
+
+            Container
+                .Bind<Transform>()
+                .WithId(GameConstants.SiteSkinCameraPoint)
+                .FromInstance(_siteCameraPoint);
+        }
+
+        private void BindCameraMovement()
+        {
+            Container
+                .BindInterfacesAndSelfTo<CameraMovementByClicking>()
+                .AsCached()
+                .NonLazy();
         }
 
         private void BindMoney()
