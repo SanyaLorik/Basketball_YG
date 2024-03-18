@@ -14,6 +14,12 @@
         public const string SiteSkinData = "SiteSkinData";
         public const string BallSkinSelector = "BallSkinSelector";
         public const string SiteSkinSelector = "SiteSkinSelector";
+        public const string BallSkinSelectingView = "BallSkinSelectingView";
+        public const string SiteSkinSelectingView = "SiteSkinSelectingView";
+        public const string BallSkinSelectingModel = "BallSkinSelectingModel";
+        public const string SiteSkinSelectingModel = "SiteSkinSelectingModel";
+        public const string BallSkinPrefabStore = "BallSkinPrefabStore";
+        public const string SiteSkinPrefabStore = "SiteSkinPrefabStore";
 
         // Platfrom
         public const string PlatfromTouchInput = "PlatfromTouchInput";

@@ -156,7 +156,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6587957489625987407}
-  - component: {fileID: 5472070939112566967}
   m_Layer: 7
   m_Name: Simple Ball
   m_TagString: Untagged
@@ -180,18 +179,6 @@ Transform:
   - {fileID: 2378943560945271890}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5472070939112566967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533521308493794369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab47393131d6940ae78ed1d3a67004, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8370262311590443363
 GameObject:
   m_ObjectHideFlags: 0

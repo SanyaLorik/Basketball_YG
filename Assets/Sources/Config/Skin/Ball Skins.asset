@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c6355dacf2a794e93e737e8e89442b, type: 3}
   m_Name: Ball Skins
   m_EditorClassIdentifier: 
-  <Skins>k__BackingField: []
+  <Skins>k__BackingField:
+  - Name: FuckRap
+    Price: 0
+    Trade: 1
+    Prefab: {fileID: 533521308493794369, guid: 3fec8b960ca1c3f42ac1a386b081437c, type: 3}
+  - Name: FuckRap
+    Price: 10
+    Trade: 0
+    Prefab: {fileID: 533521308493794369, guid: 3fec8b960ca1c3f42ac1a386b081437c, type: 3}

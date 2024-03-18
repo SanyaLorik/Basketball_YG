@@ -1,4 +1,5 @@
-﻿using SanyaBeer.Meta;
+﻿using Basketball_YG.Core;
+using SanyaBeer.Meta;
 using System;
 using Zenject;
 
@@ -52,6 +53,12 @@ namespace Basketball_YG.CompositeRoot
             _boughtButton.RemoveListener(OnBuyForMoney);
             _videoButton.RemoveListener(OnBuyForVideo);
             _menuButton.RemoveListener(OnBackToMenu);
+        }
+
+        public override void Show()
+        {
+            base.Show();
+            _skinSelector.SelectLastOpenedSkin();
         }
 
         private void OnNextSkin()

@@ -66,8 +66,6 @@ namespace Basketball_YG.Installer
         [SerializeField] private TextSetup _siteStoreMoneyText;
 
         [Header("Speedoment Reward")]
-        [SerializeField] private Transform _speedomentRewardArrow;
-        [SerializeField] private MultiplayerSlot[] _multiplayerSlot;
         [SerializeField] private TextSetup _speedomentRewardmoneyText;
 
         public override void InstallBindings()
@@ -299,12 +297,6 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
-                .Bind<SkinSelector>()
-                .WithId(GameConstants.BallSkinSelector)
-                .To<BallSkinSelector>()
-                .AsCached();
-
-            Container
                 .Bind<IMenuActivity>()
                 .WithId(GameConstants.UiBallStoreMenu)
                 .To<BallStoreMenu>()
@@ -397,12 +389,6 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
-                .Bind<SkinSelector>()
-                .WithId(GameConstants.SiteSkinSelector)
-                .To<SiteSkinSelector>()
-                .AsCached();
-
-            Container
               .BindInterfacesAndSelfTo<SiteStoreMenu>()
               .AsCached()
               .NonLazy();
@@ -415,40 +401,6 @@ namespace Basketball_YG.Installer
                 .Bind<TextSetup>()
                 .WithId(GameConstants.SpeedometrRewardmoneyText)
                 .FromInstance(_speedomentRewardmoneyText)
-                .AsCached();
-
-            Container
-                .Bind<Transform>()
-                .WithId(GameConstants.RewardSpeedometrArrow)
-                .FromInstance(_speedomentRewardArrow)
-                .AsCached();
-
-            Container
-                .Bind<IRotatationView>()
-                .WithId(GameConstants.SpeedometrView)
-                .To<RewardSpeedometrView>()
-                .AsCached();
-
-            Container
-                .Bind<IRotationModel>()
-                .WithId(GameConstants.SpeedometrRotationModel)
-                .To<RewardSpeedometrModel>()
-                .AsCached();
-
-            Container
-                .Bind<IInformationSetupModel<string>>()
-                .WithId(GameConstants.SpeedometrInformationModel)
-                .To<RewardSpeedometrModel>()
-                .AsCached();
-
-            Container
-                .Bind<MultiplayerSlot[]>()
-                .WithId(GameConstants.SpeedometrMultiplayerSlot)
-                .FromInstance(_multiplayerSlot)
-                .AsCached();
-
-            Container
-                .BindInterfacesAndSelfTo<RewardSpeedometr>()
                 .AsCached();
         }
     }

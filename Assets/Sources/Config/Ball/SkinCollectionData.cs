@@ -7,7 +7,5 @@ namespace Basketball_YG.Config
     public class SkinCollectionData : ScriptableObject
     {
         [field: SerializeField] public SkinStore[] Skins { get; private set; }
-
-        public int Lenght => Skins.Length;
     }
 }
