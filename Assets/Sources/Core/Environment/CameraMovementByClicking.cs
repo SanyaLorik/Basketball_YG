@@ -63,17 +63,17 @@ namespace Basketball_YG.Core
 
         private void OnMoveToBallSkinLocation()
         {
-            throw new NotImplementedException();
+            _camera.SetPositionAndRotation(_ballSkinCameraPoint.position, _ballSkinCameraPoint.rotation);
         }
 
         private void OnMoveToSiteSkinLocation()
         {
-            throw new NotImplementedException();
+            _camera.SetPositionAndRotation(_siteSkinCameraPoint.position, _siteSkinCameraPoint.rotation);
         }
 
         private void OnMoveToMenuLocation()
         {
-            throw new NotImplementedException();
+            _camera.SetPositionAndRotation(_gameplayCameraPoint.position, _gameplayCameraPoint.rotation);
         }
     }
 }

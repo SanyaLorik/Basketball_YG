@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Ball Skins
   m_EditorClassIdentifier: 
   <Skins>k__BackingField:
-  - Name: FuckRap
+  - Name: FuckTrap
     Price: 0
     Trade: 1
     Prefab: {fileID: 533521308493794369, guid: 3fec8b960ca1c3f42ac1a386b081437c, type: 3}
-  - Name: FuckRap
+  - Name: GAYSEX
     Price: 10
     Trade: 0
     Prefab: {fileID: 533521308493794369, guid: 3fec8b960ca1c3f42ac1a386b081437c, type: 3}

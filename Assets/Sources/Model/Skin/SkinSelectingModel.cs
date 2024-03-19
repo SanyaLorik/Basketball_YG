@@ -29,8 +29,11 @@ namespace Basketball_YG.Model
         public void SetSkinByIndex(int index)
         {
             IndexSelector = index;
-            _view.ShowOnlyButtonByType(_collection.Skins[IndexSelector].Trade);
             _prefabStore.ShowOnlyCurrentSkin(index);
+
+            _view.ShowOnlyButtonByType(_collection.Skins[IndexSelector].Trade);
+            _view.SetName(_collection.Skins[index].Name);
+            _view.SetPrice(_collection.Skins[index].Price.ToString());
         }
     }
 }
