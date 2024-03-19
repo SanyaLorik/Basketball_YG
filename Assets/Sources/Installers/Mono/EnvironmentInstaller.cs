@@ -1,6 +1,7 @@
 ﻿using Basketball_YG.Config;
 using Basketball_YG.Core;
 using Basketball_YG.Model;
+using SanyaBeer.Meta;
 using UnityEngine;
 using Zenject;
 
@@ -10,9 +11,9 @@ namespace Basketball_YG.Installer
     {
         [Header("Cameras")]
         [SerializeField] private Camera _camerMain;
-        [SerializeField] private Transform _gameplayCameraPoint;
-        [SerializeField] private Transform _ballCameraPoint;
-        [SerializeField] private Transform _siteCameraPoint;
+        [SerializeField] private ElementActivity _gameplayCameraActivity;
+        [SerializeField] private ElementActivity _ballCameraActivity;
+        [SerializeField] private ElementActivity _siteCameraActivity;
 
         public override void InstallBindings()
         {
@@ -36,19 +37,19 @@ namespace Basketball_YG.Installer
                 .FromInstance(_camerMain);
 
             Container
-                .Bind<Transform>()
-                .WithId(GameConstants.GameplayCameraPoint)
-                .FromInstance(_gameplayCameraPoint);
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.GameplayCameraActivity)
+                .FromInstance(_gameplayCameraActivity);
 
             Container
-                .Bind<Transform>()
-                .WithId(GameConstants.BallSkinCameraPoint)
-                .FromInstance(_ballCameraPoint);
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.BallSkinCameraActivity)
+                .FromInstance(_ballCameraActivity);
 
             Container
-                .Bind<Transform>()
-                .WithId(GameConstants.SiteSkinCameraPoint)
-                .FromInstance(_siteCameraPoint);
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.SiteSkinCameraActivity)
+                .FromInstance(_siteCameraActivity);
         }
 
         private void BindCameraMovement()

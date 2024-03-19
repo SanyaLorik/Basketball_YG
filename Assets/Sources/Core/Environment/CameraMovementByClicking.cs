@@ -9,9 +9,9 @@ namespace Basketball_YG.Core
     public struct CameraMovementByClicking : IInitializable, IDisposable
     {
         private readonly Transform _camera;
-        private readonly Transform _gameplayCameraPoint;
-        private readonly Transform _ballSkinCameraPoint;
-        private readonly Transform _siteSkinCameraPoint;
+        private readonly ElementActivity _gameplayCameraActivity;
+        private readonly ElementActivity _ballSkinCameraActivity;
+        private readonly ElementActivity _siteSkinCameraActivity;
         private readonly ClickedCallback _ballSkinMenuButton;
         private readonly ClickedCallback _siteSkinMenuButton;
         private readonly ClickedCallback _ballSkinButton;
@@ -20,12 +20,12 @@ namespace Basketball_YG.Core
         public CameraMovementByClicking(
             [InjectOptional(Optional = true, Id = GameConstants.CameraMain)]
             Camera camera,
-            [InjectOptional(Optional = true, Id = GameConstants.GameplayCameraPoint)]
-            Transform gameplayCameraPoint,
-            [InjectOptional(Optional = true, Id = GameConstants.BallSkinCameraPoint)]
-            Transform ballSkinCameraPoint,
-            [InjectOptional(Optional = true, Id = GameConstants.SiteSkinCameraPoint)]
-            Transform siteSkinCameraPoint,
+            [InjectOptional(Optional = true, Id = GameConstants.GameplayCameraActivity)]
+            ElementActivity gameplayCameraActivity,
+            [InjectOptional(Optional = true, Id = GameConstants.BallSkinCameraActivity)]
+            ElementActivity ballSkinCameraActivity,
+            [InjectOptional(Optional = true, Id = GameConstants.SiteSkinCameraActivity)]
+            ElementActivity siteSkinCameraActivity,
             [InjectOptional(Optional = true, Id = GameConstants.UiBallStoreMenuButton)]
             ClickedCallback ballSkinMenuButton,
             [InjectOptional(Optional = true, Id = GameConstants.UiSiteStoreMenuButton)]
@@ -36,9 +36,9 @@ namespace Basketball_YG.Core
             ClickedCallback siteSkinButton)
         {
             _camera = camera.transform;
-            _gameplayCameraPoint = gameplayCameraPoint;
-            _ballSkinCameraPoint = ballSkinCameraPoint;
-            _siteSkinCameraPoint = siteSkinCameraPoint;
+            _gameplayCameraActivity = gameplayCameraActivity;
+            _ballSkinCameraActivity = ballSkinCameraActivity;
+            _siteSkinCameraActivity = siteSkinCameraActivity;
             _ballSkinMenuButton = ballSkinMenuButton;
             _siteSkinMenuButton = siteSkinMenuButton;
             _ballSkinButton = ballSkinButton;
@@ -47,33 +47,39 @@ namespace Basketball_YG.Core
 
         public void Initialize()
         {
-            _ballSkinButton.AddListner(OnMoveToBallSkinLocation);
-            _siteSkinButton.AddListner(OnMoveToSiteSkinLocation);
-            _ballSkinMenuButton.AddListner(OnMoveToMenuLocation);
-            _siteSkinMenuButton.AddListner(OnMoveToMenuLocation);
+            _ballSkinButton.AddListner(OnShowOnlyBallSkinCamera);
+            _siteSkinButton.AddListner(OnShowOnlySiteSkinCamera);
+            _ballSkinMenuButton.AddListner(OnShowOnlyGameplayCamera);
+            _siteSkinMenuButton.AddListner(OnShowOnlyGameplayCamera);
         }
 
         public void Dispose()
         {
-            _ballSkinButton.RemoveListener(OnMoveToBallSkinLocation);
-            _siteSkinButton.RemoveListener(OnMoveToSiteSkinLocation);
-            _ballSkinMenuButton.RemoveListener(OnMoveToMenuLocation);
-            _siteSkinMenuButton.RemoveListener(OnMoveToMenuLocation);
+            _ballSkinButton.RemoveListener(OnShowOnlyBallSkinCamera);
+            _siteSkinButton.RemoveListener(OnShowOnlySiteSkinCamera);
+            _ballSkinMenuButton.RemoveListener(OnShowOnlyGameplayCamera);
+            _siteSkinMenuButton.RemoveListener(OnShowOnlyGameplayCamera);
         }
 
-        private void OnMoveToBallSkinLocation()
+        private void OnShowOnlyBallSkinCamera()
         {
-            _camera.SetPositionAndRotation(_ballSkinCameraPoint.position, _ballSkinCameraPoint.rotation);
+            _ballSkinCameraActivity.Show();
+            _siteSkinCameraActivity.Hide();
+            _gameplayCameraActivity.Hide();
         }
 
-        private void OnMoveToSiteSkinLocation()
+        private void OnShowOnlySiteSkinCamera()
         {
-            _camera.SetPositionAndRotation(_siteSkinCameraPoint.position, _siteSkinCameraPoint.rotation);
+            _ballSkinCameraActivity.Hide();
+            _siteSkinCameraActivity.Show();
+            _gameplayCameraActivity.Hide();
         }
 
-        private void OnMoveToMenuLocation()
+        private void OnShowOnlyGameplayCamera()
         {
-            _camera.SetPositionAndRotation(_gameplayCameraPoint.position, _gameplayCameraPoint.rotation);
+            _ballSkinCameraActivity.Hide();
+            _siteSkinCameraActivity.Hide();
+            _gameplayCameraActivity.Show();
         }
     }
 }

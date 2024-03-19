@@ -8,9 +8,9 @@
 
         // Camera
         public const string CameraMain = "CameraMain";
-        public const string GameplayCameraPoint = "GameplayCameraPoint";
-        public const string BallSkinCameraPoint = "BallSkinCameraPoint";
-        public const string SiteSkinCameraPoint = "SiteSkinCameraPoint";
+        public const string GameplayCameraActivity = "GameplayCameraActivity";
+        public const string BallSkinCameraActivity = "BallSkinCameraActivity";
+        public const string SiteSkinCameraActivity = "SiteSkinCameraActivity";
 
         // Skins
         public const string BallSkinData = "BallSkinData";
