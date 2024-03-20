@@ -8,7 +8,6 @@ namespace Basketball_YG.Core
 {
     public struct CameraMovementByClicking : IInitializable, IDisposable
     {
-        private readonly Transform _camera;
         private readonly ElementActivity _gameplayCameraActivity;
         private readonly ElementActivity _ballSkinCameraActivity;
         private readonly ElementActivity _siteSkinCameraActivity;
@@ -18,8 +17,6 @@ namespace Basketball_YG.Core
         private readonly ClickedCallback _siteSkinButton;
 
         public CameraMovementByClicking(
-            [InjectOptional(Optional = true, Id = GameConstants.CameraMain)]
-            Camera camera,
             [InjectOptional(Optional = true, Id = GameConstants.GameplayCameraActivity)]
             ElementActivity gameplayCameraActivity,
             [InjectOptional(Optional = true, Id = GameConstants.BallSkinCameraActivity)]
@@ -35,7 +32,6 @@ namespace Basketball_YG.Core
             [InjectOptional(Optional = true, Id = GameConstants.UiButtonSiteStore)]
             ClickedCallback siteSkinButton)
         {
-            _camera = camera.transform;
             _gameplayCameraActivity = gameplayCameraActivity;
             _ballSkinCameraActivity = ballSkinCameraActivity;
             _siteSkinCameraActivity = siteSkinCameraActivity;
