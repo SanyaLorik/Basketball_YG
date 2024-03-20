@@ -7,6 +7,7 @@ using SanyaBeer.Meta;
 using UnityEngine;
 using Zenject;
 using Basketball_YG.Counter;
+using System;
 
 namespace Basketball_YG.Installer
 {
@@ -67,6 +68,11 @@ namespace Basketball_YG.Installer
         [SerializeField] private TextSetup _siteStoreMoneyText;
         [SerializeField] private TextSetup _siteStoreSkinPriceText;
 
+        [Header("Extralife Menu")]
+        [SerializeField] private ElementActivity _extralifeMenuActivity;
+        [SerializeField] private ClickedCallback _extralifeButton;
+        [SerializeField] private ClickedCallback _extralifeCancelButton;
+
         [Header("Speedoment Reward")]
         [SerializeField] private TextSetup _speedomentRewardmoneyText;
 
@@ -78,6 +84,7 @@ namespace Basketball_YG.Installer
             BindPauseMenu();
             BindBallStoreMenu();
             BindSiteStoreMenu();
+            BindExtralifeMenu();
             BindSpeedometrReward();
         }
 
@@ -407,6 +414,38 @@ namespace Basketball_YG.Installer
               .AsCached()
               .NonLazy();
 
+        }
+
+        private void BindExtralifeMenu()
+        {
+            Container
+                 .Bind<ElementActivity>()
+                 .WithId(GameConstants.UiExtralifeMenuActivity)
+                 .FromInstance(_extralifeMenuActivity)
+                 .AsCached();
+
+            Container
+                 .Bind<ClickedCallback>()
+                 .WithId(GameConstants.UiExtralifeButton)
+                 .FromInstance(_extralifeButton)
+                 .AsCached();
+
+            Container
+                 .Bind<ClickedCallback>()
+                 .WithId(GameConstants.UiCancelExtralifeButton)
+                 .FromInstance(_extralifeCancelButton)
+                 .AsCached();
+
+            Container
+                .Bind<IMenuActivity>()
+                .WithId(GameConstants.UiExtralifeMenu)
+                .To<ExtralifeMenu>()
+                .AsCached();
+
+            Container
+              .BindInterfacesAndSelfTo<ExtralifeMenu>()
+              .AsCached()
+              .NonLazy();
         }
 
         private void BindSpeedometrReward()

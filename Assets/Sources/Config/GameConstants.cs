@@ -90,6 +90,12 @@
         public const string UiSiteStoreMoneyText = "UiSiteStoreMoneyText";
         public const string UiSiteStoreSkinPriceText = "UiSiteStoreSkinPriceText";
 
+        // Ui Extralife Menu
+        public const string UiExtralifeMenu = "UiExtralifeMenu";
+        public const string UiExtralifeMenuActivity = "UiExtralifeMenuActivity";
+        public const string UiExtralifeButton = "UiExtralifeButton";
+        public const string UiCancelExtralifeButton = "UiCancelExtralifeButton";
+
         // Speedometr Reward
         public const string RewardSpeedometrArrow = "RewardSpeedometrArrow";
         public const string SpeedometrMultiplayerSlot = "SpeedometrMultiplayerSlot";
