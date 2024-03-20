@@ -1,13 +1,8 @@
-﻿using Basketball_YG.Config;
-using Basketball_YG.Core;
-using Basketball_YG.Model;
-using Basketball_YG.View;
-using Basketball_YG.CompositeRoot;
+﻿using Basketball_YG.CompositeRoot;
+using Basketball_YG.Config;
 using SanyaBeer.Meta;
 using UnityEngine;
 using Zenject;
-using Basketball_YG.Counter;
-using System;
 
 namespace Basketball_YG.Installer
 {
@@ -31,8 +26,6 @@ namespace Basketball_YG.Installer
         [SerializeField] private ElementActivity _gameplayMenuActivity;
         [SerializeField] private ElementActivityArray _gameplayMenuActivities;
         [SerializeField] private ClickedCallback _pauseOpenerButton;
-        [SerializeField] private ElementActivity _timerActivity;
-        [SerializeField] private Timer _timer;
 
         [Header("Pause Menu")]
         [SerializeField] private ElementActivity _pauseMenuActivity;
@@ -195,17 +188,6 @@ namespace Basketball_YG.Installer
 
             Container
                 .BindInterfacesTo<GameplayMenu>()
-                .AsCached();
-
-            Container
-                .Bind<ElementActivity>()
-                .WithId(GameConstants.UiGameplayTimerActivity)
-                .FromInstance(_timerActivity)
-                .AsCached();
-
-            Container
-                .Bind<Timer>()
-                .FromInstance(_timer)
                 .AsCached();
         }
 

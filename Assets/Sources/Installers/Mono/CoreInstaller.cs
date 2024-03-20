@@ -3,6 +3,8 @@ using Basketball_YG.Core;
 using Basketball_YG.Model;
 using Basketball_YG.View;
 using SanyaBeer.Additional;
+using SanyaBeer.Meta;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -22,12 +24,32 @@ namespace Basketball_YG.Installer
         [SerializeField] private SkinPrefabStore _ballPrefabStore;
         [SerializeField] private SkinPrefabStore _sitePrefabStore;
 
+        [Header("Countdown Timer")]
+        [SerializeField] private ElementActivity _timerActivity;
+        [SerializeField] private Timer _timer;
+
         public override void InstallBindings()
         {
             BindPlatfrom();
             BindSpeedometrReward();
             BindBallSkinSelector();
             BindSiteSkinSelector();
+            BindCountdownTimer();
+        }
+
+        private void BindCountdownTimer()
+        {
+            Container
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiGameplayTimerActivity)
+                .FromInstance(_timerActivity)
+                .AsCached();
+
+
+            Container
+                .Bind<Timer>()
+                .FromInstance(_timer)
+                .AsCached();
         }
 
         private void BindPlatfrom()

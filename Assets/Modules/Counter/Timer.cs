@@ -3,7 +3,7 @@ using SanyaBeer.Meta;
 using System;
 using UnityEngine;
 
-namespace Basketball_YG.Counter
+namespace SanyaBeer.Meta
 {
     [Serializable]
     public struct Timer
