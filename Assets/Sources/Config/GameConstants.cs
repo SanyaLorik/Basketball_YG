@@ -96,6 +96,10 @@
         public const string UiExtralifeButton = "UiExtralifeButton";
         public const string UiCancelExtralifeButton = "UiCancelExtralifeButton";
 
+        // Ui Extralife Menu
+        public const string UiEndMenu = "UiEndMenu";
+        public const string UiEndActivity = "UiEndActivity";
+
         // Speedometr Reward
         public const string RewardSpeedometrArrow = "RewardSpeedometrArrow";
         public const string SpeedometrMultiplayerSlot = "SpeedometrMultiplayerSlot";

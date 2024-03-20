@@ -7,6 +7,7 @@ namespace Basketball_YG.CompositeRoot
 {
     public class ExtralifeMenu : Menu, IInitializable, IDisposable
     {
+        private readonly IMenuActivity _endMenu;
         private readonly ClickedCallback _extralife;
         private readonly ClickedCallback _cancelExtralife;
 
@@ -26,23 +27,24 @@ namespace Basketball_YG.CompositeRoot
         public void Initialize()
         {
             _extralife.AddListner(OnTakeExtralife);
-            _extralife.AddListner(OnCancelExtralife);
+            _cancelExtralife.AddListner(OnCancelExtralife);
         }
 
-        public void Dispose()
+        public void Dispose() 
         {
             _extralife.RemoveListener(OnTakeExtralife);
-            _extralife.RemoveListener(OnCancelExtralife);
-        }
-
-        private void OnCancelExtralife()
-        {
-            throw new NotImplementedException();
+            _cancelExtralife.RemoveListener(OnCancelExtralife);
         }
 
         private void OnTakeExtralife()
         {
             throw new NotImplementedException();
+        }
+
+        private void OnCancelExtralife()
+        {
+            _endMenu.Show();
+            Hide();
         }
     }
 }

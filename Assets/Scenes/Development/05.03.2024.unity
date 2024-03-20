@@ -1470,6 +1470,8 @@ MonoBehaviour:
     _clicked: {fileID: 1664578422}
   _extralifeCancelButton:
     _clicked: {fileID: 1721773708}
+  _endMenuActivity:
+    _menu: {fileID: 431357147}
   _speedomentRewardmoneyText:
     _text: {fileID: 7609707835782396773}
 --- !u!1001 &139329045

@@ -73,6 +73,9 @@ namespace Basketball_YG.Installer
         [SerializeField] private ClickedCallback _extralifeButton;
         [SerializeField] private ClickedCallback _extralifeCancelButton;
 
+        [Header("End Menu")]
+        [SerializeField] private ElementActivity _endMenuActivity;
+
         [Header("Speedoment Reward")]
         [SerializeField] private TextSetup _speedomentRewardmoneyText;
 
@@ -85,6 +88,7 @@ namespace Basketball_YG.Installer
             BindBallStoreMenu();
             BindSiteStoreMenu();
             BindExtralifeMenu();
+            BindEndMenu();
             BindSpeedometrReward();
         }
 
@@ -421,7 +425,7 @@ namespace Basketball_YG.Installer
             Container
                  .Bind<ElementActivity>()
                  .WithId(GameConstants.UiExtralifeMenuActivity)
-                 .FromInstance(_extralifeMenuActivity)
+                 .FromInstance(_endMenuActivity)
                  .AsCached();
 
             Container
@@ -444,6 +448,26 @@ namespace Basketball_YG.Installer
 
             Container
               .BindInterfacesAndSelfTo<ExtralifeMenu>()
+              .AsCached()
+              .NonLazy();
+        }
+
+        private void BindEndMenu()
+        {
+            Container
+             .Bind<ElementActivity>()
+             .WithId(GameConstants.UiEndActivity)
+             .FromInstance(_extralifeMenuActivity)
+             .AsCached();
+
+            Container
+                .Bind<IMenuActivity>()
+                .WithId(GameConstants.UiEndMenu)
+                .To<EndMenu>()
+                .AsCached();
+
+            Container
+              .BindInterfacesAndSelfTo<EndMenu>()
               .AsCached()
               .NonLazy();
         }
