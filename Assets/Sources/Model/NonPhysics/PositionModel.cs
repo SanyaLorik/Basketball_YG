@@ -1,5 +1,4 @@
-﻿using Basketball_YG.View;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Basketball_YG.Model
 {
