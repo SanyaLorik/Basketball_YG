@@ -7,7 +7,5 @@ namespace Basketball_YG.Core
         Action OnHitted { set; }
 
         Action OnMissed { set; }
-
-        void Tick();
     }
 }

@@ -1,19 +1,29 @@
-﻿using Zenject;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using Zenject;
 
 namespace Basketball_YG.Core
 {
-    public abstract class Ball : ITickable
+    public abstract class Ball 
     {
         private readonly IBallMovement _movement;
 
         public Ball(IBallMovement movement)
         {
-            _movement = movement;
-        }
 
-        public void Tick()
-        {
-            _movement.Tick();
         }
+    }
+
+    public interface IBall
+    {
+        event Action OnHitted;
+    }
+
+    public interface IBall<out T> : IBall
+    {
+        new event Action<T> OnHitted;
+    
+    
     }
 }

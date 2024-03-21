@@ -17,16 +17,9 @@ namespace Basketball_YG.Installer
 
         public override void InstallBindings()
         {
-            //BindBallPool();
             BindCameras();
             BindCameraMovement();
             BindMoney();
-        }
-
-        private void BindBallPool()
-        {
-            Container
-                .BindMemoryPool<Ball, BallPool>();
         }
 
         private void BindCameras()
