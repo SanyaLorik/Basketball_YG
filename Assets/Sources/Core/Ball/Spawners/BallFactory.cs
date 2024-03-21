@@ -20,8 +20,6 @@ namespace Basketball_YG.Core
         {
             Assert.IsTrue(_balls.ContainsKey(type));
 
-            ///var 
-
             return null;
         }
     }
