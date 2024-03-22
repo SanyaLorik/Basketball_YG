@@ -7,6 +7,11 @@ namespace Basketball_YG.Model
     {
         private readonly VelocityView _view;
 
+        public VelocityModel(VelocityView view)
+        {
+            _view = view;
+        }
+
         public void SetVelocity(Vector3 velocity) 
         {
             _view.Velocity = velocity;

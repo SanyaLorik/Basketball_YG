@@ -11,13 +11,14 @@ namespace Basketball_YG.Core
         private readonly BallConfig _config;
         private readonly VelocityModel _model;
 
-        public event Action OnHitted;
-        public event Action OnMissed;
-
-        public BallMovement(BallConfig config)
+        public BallMovement(BallConfig config, VelocityModel model)
         {
             _config = config;
+            _model = model;
         }
+
+        public event Action OnHitted;
+        public event Action OnMissed;
 
         public void Rebound(CollisionData data)
         {

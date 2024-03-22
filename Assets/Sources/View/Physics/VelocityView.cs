@@ -6,6 +6,11 @@ namespace Basketball_YG.View
     {
         private readonly Rigidbody _rigidbody;
 
+        public VelocityView(Rigidbody rigidbody)
+        {
+            _rigidbody = rigidbody;
+        }
+
         public Vector3 Velocity
         {
             get => _rigidbody.velocity;

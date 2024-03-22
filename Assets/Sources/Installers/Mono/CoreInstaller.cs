@@ -187,6 +187,10 @@ namespace Basketball_YG.Installer
         private void BindBalls()
         {
             Container
+                .Bind<BallDictionary>()
+                .AsCached();
+
+            Container
                 .BindFactory<BallType, BallWrapper, BallWrapperFactory>()
                 .AsCached();
         }

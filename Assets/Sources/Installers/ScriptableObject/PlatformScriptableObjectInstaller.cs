@@ -16,6 +16,9 @@ namespace Basketball_YG.Installer
         [SerializeField] private SkinCollectionData _ballSkinData;
         [SerializeField] private SkinCollectionData _siteSkinData;
 
+        [Header("Prefab")]
+        [SerializeField] private PrefabBallsConfig _ballPrefab;
+        
         public override void InstallBindings()
         {
             BindPlatformConfig();
@@ -24,6 +27,8 @@ namespace Basketball_YG.Installer
 
             BindBallSkins();
             BindSiteSkins();
+
+            BinfPrefabBallsConfig();
         }
 
         private void BindPlatformConfig()
@@ -56,6 +61,12 @@ namespace Basketball_YG.Installer
             Container
                 .BindInstance(_siteSkinData)
                 .WithId(GameConstants.SiteSkinData);
+        }
+
+        private void BinfPrefabBallsConfig()
+        {
+            Container
+                .BindInstance(_ballPrefab);
         }
     }
 }

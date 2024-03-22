@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Basketball_YG.Core
 {
-    public abstract class Ball : IInitializable, IDisposable
+    public class Ball : IInitializable, IDisposable
     {
         private readonly BallWrapper _ballWrapper;
         private readonly BallMovement _movement;
