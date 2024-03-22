@@ -35,10 +35,9 @@ namespace Basketball_YG.Mediator
 
         public override void Enable()
         {
-            _uiGameplayMenuActivity.Show();
-
             UniTask.Create(async () =>
             {
+                _uiGameplayMenuActivity.Show();
                 _activityInput.Disable();
                 _timerActivity.Show();
                 _prestartActivities.Hide();

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Basketball_YG.Core
 {
     [Serializable]
-    public struct BallSpawner
+    public class BallSpawner
     {
         [SerializeField] private Transform _container;
         [SerializeField] private Transform _spawnpoint;

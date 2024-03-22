@@ -5,6 +5,7 @@ using Basketball_YG.View;
 using Basketball_YG.Wrapper;
 using SanyaBeer.Additional;
 using SanyaBeer.Meta;
+using System.ComponentModel;
 using UnityEngine;
 using Zenject;
 
@@ -27,6 +28,9 @@ namespace Basketball_YG.Installer
         [Header("Countdown Timer")]
         [SerializeField] private ElementActivity _timerActivity;
         [SerializeField] private Timer _timer;
+
+        [Header("Ball")]
+        [SerializeField] private BallSpawner _ballSpawner;
 
         public override void InstallBindings()
         {
@@ -187,11 +191,20 @@ namespace Basketball_YG.Installer
         private void BindBalls()
         {
             Container
+                .Bind<BallSpawner>()
+                .FromInstance(_ballSpawner)
+                .AsCached();
+
+            Container
                 .Bind<BallDictionary>()
                 .AsCached();
 
             Container
                 .BindFactory<BallType, BallWrapper, BallWrapperFactory>()
+                .AsCached();
+
+            Container
+                .BindFactory<BallType, Ball, BallFactory>()
                 .AsCached();
         }
     }

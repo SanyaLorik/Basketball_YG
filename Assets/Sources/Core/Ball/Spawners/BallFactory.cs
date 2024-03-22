@@ -9,21 +9,21 @@ namespace Basketball_YG.Core
     public class BallFactory : PlaceholderFactory<BallType, Ball>
     {
         private readonly DiContainer _container;
-        private readonly BallWrapperFactory _ballFactory;
+        private readonly BallWrapperFactory _wrapperFactory;
         private readonly BallSpawner _ballSpawner;
         private readonly BallConfig _ballConfig;
 
         public BallFactory(DiContainer container, BallWrapperFactory ballFactory, BallSpawner ballSpawner, BallConfig ballConfig)
         {
             _container = container;
-            _ballFactory = ballFactory;
+            _wrapperFactory = ballFactory;
             _ballSpawner = ballSpawner;
             _ballConfig = ballConfig;
         }
 
         public override Ball Create(BallType type)
         {
-            BallWrapper prefab = _ballFactory.Create(type);
+            BallWrapper prefab = _wrapperFactory.Create(type);
             BallWrapper ballWrapper = _ballSpawner.Spawn(prefab);
             VelocityView velocityView = new (ballWrapper.Rigidbody);
             VelocityModel velocityModel = new (velocityView);

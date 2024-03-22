@@ -17,9 +17,6 @@ namespace Basketball_YG.Core
             _model = model;
         }
 
-        public event Action OnHitted;
-        public event Action OnMissed;
-
         public void Rebound(CollisionData data)
         {
             if (CanBound(data.Normal) == false)

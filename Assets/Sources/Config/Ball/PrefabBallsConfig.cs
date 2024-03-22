@@ -6,6 +6,6 @@ namespace Basketball_YG.Config
     [CreateAssetMenu(fileName = "Ball", menuName = "Configs/PrefabBall")]
     public class PrefabBallsConfig : ScriptableObject
     {
-        [field: SerializeField][field: Min(0)] public SkinPrefab[] Prefabs { get; private set; }
+        [field: SerializeField] public SkinPrefab[] Prefabs { get; private set; }
     }
 }

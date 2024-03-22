@@ -17,3 +17,4 @@ MonoBehaviour:
   _speedomentRewardConfig: {fileID: 11400000, guid: e27cbac9be80d5b4bb7549b0ac538462, type: 2}
   _ballSkinData: {fileID: 11400000, guid: 55ef051ab35ede84ebb9f9c844580140, type: 2}
   _siteSkinData: {fileID: 11400000, guid: 9ad40872c7b49db46935ea78fc8ff7e6, type: 2}
+  _ballPrefab: {fileID: 11400000, guid: 38926f9afc1b2904d905ff73c9ce05d2, type: 2}

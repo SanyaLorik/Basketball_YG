@@ -1,11 +1,10 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Basketball_YG.Test
 {
     public class BallMovement : MonoBehaviour
     {
-        public Rigidbody rigidbody;
+        public Rigidbody _rigidbody;
         public float height;
         public Transform target;
 
@@ -48,7 +47,7 @@ namespace Basketball_YG.Test
                 x = direction.x * velocityX,
             };
 
-            rigidbody.velocity = velocity;
+            _rigidbody.velocity = velocity;
         }
     }
 }

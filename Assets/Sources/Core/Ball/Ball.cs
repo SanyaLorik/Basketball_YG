@@ -1,4 +1,5 @@
 ﻿using Basketball_YG.Wrapper;
+using SanyaBeer.Event;
 using System;
 using Zenject;
 
@@ -6,23 +7,23 @@ namespace Basketball_YG.Core
 {
     public class Ball : IInitializable, IDisposable
     {
-        private readonly BallWrapper _ballWrapper;
+        private readonly IEventObserver<CollisionData> _collider;
         private readonly BallMovement _movement;
 
-        public Ball(BallWrapper ballWrapper, BallMovement movement)
+        public Ball(IEventObserver<CollisionData> ballWrapper, BallMovement movement)
         {
-            _ballWrapper = ballWrapper;
+            _collider = ballWrapper;
             _movement = movement;
         }
 
         public void Initialize()
         {
-            _ballWrapper.OnCollision += OnRebound;
+            _collider.OnPerfomed += OnRebound;
         }
 
         public void Dispose()
         {
-            _ballWrapper.OnCollision -= OnRebound;
+            _collider.OnPerfomed -= OnRebound;
         }
 
         private void OnRebound(CollisionData data)

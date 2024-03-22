@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Basketball_YG.Core
 {
-    public class RewardSpeedometr : IDisposable, IInitializable
+    public class RewardSpeedometr : IDisposable
     {
         private readonly IRotationModel _arrowModel;
         private readonly IInformationSetupModel<string> _moneyText;
@@ -112,11 +112,6 @@ namespace Basketball_YG.Core
         {
             int money = _matchMoney.Money * CalculatedMultiplier;
             _moneyText.SetInformation(money.ToString());
-        }
-
-        public void Initialize()
-        {
-            StartArrow();
         }
     }
 }
