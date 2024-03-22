@@ -20,7 +20,7 @@ namespace Basketball_YG.Wrapper
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.TryGetComponent(out CollisionBody body) == true)
-                OnPerfomed?.Invoke(new CollisionData(body.CollisionType, collision.contacts[0].normal));
+                OnPerfomed?.Invoke(new CollisionData(body.Height, collision.contacts[0].point));
         }
     }
 }

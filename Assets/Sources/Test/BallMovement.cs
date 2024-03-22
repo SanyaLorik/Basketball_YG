@@ -1,21 +1,60 @@
+using Cysharp.Threading.Tasks;
+using System.Threading;
 using UnityEngine;
 
 namespace Basketball_YG.Test
 {
     public class BallMovement : MonoBehaviour
     {
+        // physisc
         public Rigidbody _rigidbody;
         public float height;
         public Transform target;
 
+        // curve
+        public AnimationCurve pathCurve;
+        public AnimationCurve speedCurve;
+        public float durationCurve;
+        public float heightCurve;
+
+        private CancellationTokenSource _tokenSource;
+
         private void Start()
         {
-            Jump();
+            _tokenSource = new CancellationTokenSource();
+            Path(target.position, _tokenSource.Token).Forget();
+        }
+
+        async UniTask Path(Vector3 final, CancellationToken token)
+        {
+            float extendedTime = 0;
+            Vector3 initial = transform.position;   
+
+            do
+            {
+                float ratio = extendedTime / durationCurve;
+                float evaluatedPosition = pathCurve.Evaluate(ratio);
+                Vector3 position = Vector3.Lerp(initial, final, ratio);
+                position.y += evaluatedPosition * heightCurve;
+
+                _rigidbody.MovePosition(position);
+
+                float evaluatedSpeed = speedCurve.Evaluate(ratio);
+                extendedTime += Time.deltaTime * evaluatedSpeed;
+
+                await UniTask.Yield(cancellationToken: token);
+            } 
+            while (extendedTime < durationCurve && token.IsCancellationRequested == false);
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            Jump();
+            if (collision.gameObject.TryGetComponent(out ReflactionObstalce reflactionObstalce))
+            {
+                _tokenSource.Cancel();
+                _tokenSource = new();
+                Path(reflactionObstalce.Point.position, _tokenSource.Token).Forget();
+            }
         }
 
         private void Jump()
@@ -43,7 +82,7 @@ namespace Basketball_YG.Test
 
             Vector3 velocity = new()
             {
-                y = direction.x * velocityY,
+                y = velocityY,
                 x = direction.x * velocityX,
             };
 

@@ -24,14 +24,14 @@ namespace Basketball_YG.Core
         public override Ball Create(BallType type)
         {
             BallWrapper prefab = _wrapperFactory.Create(type);
-            BallWrapper ballWrapper = _ballSpawner.Spawn(prefab);
-            VelocityView velocityView = new (ballWrapper.Rigidbody);
-            VelocityModel velocityModel = new (velocityView);
-            BallMovement ballMovement = new BallMovement(_ballConfig, velocityModel);
+            BallWrapper wrapper = _ballSpawner.Spawn(prefab);
+            MovingPositionView view = new(wrapper.Rigidbody);
+            MovingPositionModel model = new(view);
+            BallMovement movement = new(_ballConfig, model);
 
-            _container.Inject(ballMovement);
+            _container.Inject(movement);
 
-            Ball ball = new (ballWrapper, ballMovement);
+            Ball ball = new (wrapper, movement);
 
             return ball;
         }

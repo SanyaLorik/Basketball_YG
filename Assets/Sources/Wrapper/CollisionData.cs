@@ -4,13 +4,13 @@ namespace Basketball_YG.Wrapper
 {
     public readonly struct CollisionData
     {
-        public readonly CollisionType CollisionType;
-        public readonly Vector3 Normal;
+        public readonly float Height;
+        public readonly Vector3 TouchPoint;
 
-        public CollisionData(CollisionType collisionType, Vector3 normal)
+        public CollisionData(float height, Vector3 touchPoint)
         {
-            CollisionType = collisionType;
-            Normal = normal;
+            Height = height;
+            TouchPoint = touchPoint;
         }
     }
 }
