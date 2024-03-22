@@ -1,26 +1,23 @@
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Assertions;
+using Basketball_YG.Wrapper;
 using Zenject;
 
 namespace Basketball_YG.Core
 {
-    public class BallFactory : PlaceholderFactory<BallType, IBall>
+    public class BallFactory : PlaceholderFactory<BallType, Ball>
     {
         private readonly DiContainer _container;
-        private readonly IDictionary<BallType, GameObject> _balls;
+        private readonly BallWrapperFactory _ballFactory;
 
-        public BallFactory(DiContainer container, IDictionary<BallType, GameObject> balls)
+        public BallFactory(DiContainer container, BallWrapperFactory ballFactory)
         {
             _container = container;
-            _balls = balls;
+            _ballFactory = ballFactory;
         }
 
-        public override IBall Create(BallType type)
+        public override Ball Create(BallType type)
         {
-            Assert.IsTrue(_balls.ContainsKey(type));
-
-
+            BallWrapper prefab = _ballFactory.Create(type);
+            
 
             return null;
         }

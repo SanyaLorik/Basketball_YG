@@ -2,9 +2,9 @@
 using Basketball_YG.Core;
 using Basketball_YG.Model;
 using Basketball_YG.View;
+using Basketball_YG.Wrapper;
 using SanyaBeer.Additional;
 using SanyaBeer.Meta;
-using System;
 using UnityEngine;
 using Zenject;
 
@@ -35,6 +35,7 @@ namespace Basketball_YG.Installer
             BindBallSkinSelector();
             BindSiteSkinSelector();
             BindCountdownTimer();
+            BindBalls();
         }
 
         private void BindCountdownTimer()
@@ -181,6 +182,13 @@ namespace Basketball_YG.Installer
                .WithId(GameConstants.SiteSkinSelector)
                .To<SiteSkinSelector>()
                .AsCached();
+        }
+
+        private void BindBalls()
+        {
+            Container
+                .BindFactory<BallType, BallWrapper, BallWrapperFactory>()
+                .AsCached();
         }
     }
 }

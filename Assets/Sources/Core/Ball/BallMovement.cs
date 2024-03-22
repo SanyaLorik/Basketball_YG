@@ -1,22 +1,47 @@
 ﻿using Basketball_YG.Config;
+using Basketball_YG.Model;
+using Basketball_YG.Wrapper;
 using System;
+using UnityEngine;
 
 namespace Basketball_YG.Core
 {
-    public abstract class BallMovement : IBallMovement
+    public class BallMovement
     {
-        protected readonly BallConfig Config;
+        private readonly BallConfig _config;
+        private readonly VelocityModel _model;
 
-        protected BallMovement(BallConfig config)
+        public event Action OnHitted;
+        public event Action OnMissed;
+
+        public BallMovement(BallConfig config)
         {
-            Config = config;
+            _config = config;
         }
 
-        public Action OnHitted { set => throw new NotImplementedException(); }
+        public void Rebound(CollisionData data)
+        {
+            if (CanBound(data.Normal) == false)
+                return;
 
-        public Action OnMissed { set => throw new NotImplementedException(); }
+            float height = GetHeight(data.CollisionType);
+            Vector3 velocity = Calculate(height);
+            _model.SetVelocity(velocity);
+        }
 
-        public void Tick()
+        private bool CanBound(Vector3 normal)
+        {
+            throw new NotImplementedException();
+        }
+
+        private float GetHeight(CollisionType type) => type switch
+        {
+            CollisionType.Platform => _config.HeightPlatform,
+            CollisionType.Hoopbase => _config.HeightHoopbase,
+            _ => throw new NotImplementedException(),
+        };
+
+        private Vector3 Calculate(float height)
         {
             throw new NotImplementedException();
         }

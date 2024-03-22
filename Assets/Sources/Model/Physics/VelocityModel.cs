@@ -1,9 +1,15 @@
+using Basketball_YG.View;
 using UnityEngine;
 
 namespace Basketball_YG.Model
 {
-    public abstract class VelocityModel
+    public class VelocityModel
     {
+        private readonly VelocityView _view;
 
+        public void SetVelocity(Vector3 velocity) 
+        {
+            _view.Velocity = velocity;
+        }
     }
 }
