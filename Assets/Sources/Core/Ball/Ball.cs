@@ -31,14 +31,4 @@ namespace Basketball_YG.Core
             _movement.Rebound(data);
         }
     }
-
-    public interface IBall
-    {
-        event Action OnHitted;
-    }
-
-    public interface IBall<out T> : IBall
-    {
-        new event Action<T> OnHitted;
-    }
 }

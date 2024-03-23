@@ -15,11 +15,15 @@ namespace Basketball_YG.Installer
         [SerializeField] private ElementActivity _ballCameraActivity;
         [SerializeField] private ElementActivity _siteCameraActivity;
 
+        [Header("BoundPoints")]
+        [SerializeField] private BoundPoints _boundPoints;
+
         public override void InstallBindings()
         {
             BindCameras();
             BindCameraMovement();
             BindMoney();
+            BindBoundPoints();
         }
 
         private void BindCameras()
@@ -63,6 +67,14 @@ namespace Basketball_YG.Installer
 
             Container
                 .BindInterfacesAndSelfTo<MatchMoney>()
+                .AsCached();
+        }
+        
+        private void BindBoundPoints()
+        {
+            Container
+                .BindInterfacesAndSelfTo<BoundPoints>()
+                .FromInstance(_boundPoints)
                 .AsCached();
         }
     }

@@ -23,6 +23,11 @@ namespace Basketball_YG.Core
                 return;
         }
 
+        public void RunPath()
+        {
+
+        }
+
         private bool CanBound(Vector3 normal)
         {
             throw new NotImplementedException();
