@@ -4814,7 +4814,7 @@ MonoBehaviour:
   _timer:
     _text:
       _text: {fileID: 1065921117}
-    _time: 3
+    _time: 1
   _ballSpawner:
     _container: {fileID: 1234452162}
     _spawnpoint: {fileID: 474776411}

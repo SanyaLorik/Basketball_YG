@@ -5,16 +5,16 @@ namespace Basketball_YG.Core
 {
     public class BoundPointsCalcualor
     {
-        private readonly BoundPoints _points;
+        private readonly BoundPoints _bound;
 
-        public BoundPointsCalcualor(BoundPoints points)
+        public BoundPointsCalcualor(BoundPoints bound)
         {
-            _points = points;
+            _bound = bound;
         }
 
         public Vector3 CalculateByPosition(Vector3 position, DirectionBoundType direction)
         {
-            throw new NotImplementedException();
+            return _bound.Points[_bound.Points.Length / 2];
         }
     }
 }
