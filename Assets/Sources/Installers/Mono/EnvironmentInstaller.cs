@@ -76,6 +76,10 @@ namespace Basketball_YG.Installer
                 .BindInterfacesAndSelfTo<BoundPoints>()
                 .FromInstance(_boundPoints)
                 .AsCached();
+
+            Container
+                .Bind<BoundPointsCalcualor>()
+                .AsCached();
         }
     }
 }

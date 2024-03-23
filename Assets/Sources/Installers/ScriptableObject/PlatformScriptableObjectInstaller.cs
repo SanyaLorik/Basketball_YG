@@ -1,4 +1,5 @@
 using Basketball_YG.Config;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -18,7 +19,10 @@ namespace Basketball_YG.Installer
 
         [Header("Prefab")]
         [SerializeField] private PrefabBallsConfig _ballPrefab;
-        
+
+        [Header("Ball Launcher")]
+        [SerializeField] private BallLauncherConfig _ballLauncher;
+
         public override void InstallBindings()
         {
             BindPlatformConfig();
@@ -29,6 +33,8 @@ namespace Basketball_YG.Installer
             BindSiteSkins();
 
             BinfPrefabBallsConfig();
+
+            BindBallLauncher();
         }
 
         private void BindPlatformConfig()
@@ -67,6 +73,12 @@ namespace Basketball_YG.Installer
         {
             Container
                 .BindInstance(_ballPrefab);
+        }
+
+        private void BindBallLauncher()
+        {
+            Container
+                .BindInstance(_ballLauncher);
         }
     }
 }

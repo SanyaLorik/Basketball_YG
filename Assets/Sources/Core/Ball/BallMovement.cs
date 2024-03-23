@@ -23,7 +23,7 @@ namespace Basketball_YG.Core
                 return;
         }
 
-        public void RunPath()
+        public void RunPath(PathSet pathSet)
         {
 
         }

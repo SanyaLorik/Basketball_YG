@@ -26,6 +26,11 @@ namespace Basketball_YG.Core
             _collider.OnPerfomed -= OnRebound;
         }
 
+        public void RunPatch(PathSet pathSet)
+        {
+            _movement.RunPath(pathSet);
+        }
+
         private void OnRebound(CollisionData data)
         {
             _movement.Rebound(data);

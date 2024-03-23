@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5301728605354485985}
   m_Layer: 0
-  m_Name: Thrown Point
+  m_Name: Launch Point
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

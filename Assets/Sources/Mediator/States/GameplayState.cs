@@ -1,5 +1,6 @@
 ﻿using Basketball_YG.CompositeRoot;
 using Basketball_YG.Config;
+using Basketball_YG.Core;
 using Basketball_YG.Input;
 using Cysharp.Threading.Tasks;
 using SanyaBeer.Meta;
@@ -15,6 +16,7 @@ namespace Basketball_YG.Mediator
         private readonly ElementActivityArray _prestartActivities;
         private readonly ElementActivity _timerActivity;
         private readonly Timer _timer;
+        private readonly BallDistributer _ballDistributer;
 
         public GameplayState(
             [InjectOptional(Optional = true, Id = GameConstants.UiGameplayMenu)]
@@ -24,13 +26,15 @@ namespace Basketball_YG.Mediator
             [InjectOptional(Optional = true, Id = GameConstants.UiGameplayPrestartMatchActivities)]
             ElementActivityArray prestartActivities,
             IActivityInputService activityInput,
-            Timer timer)
+            Timer timer,
+            BallDistributer ballDistributer)
         {
             _uiGameplayMenuActivity = uiGameplayMenuActivity;
             _timerActivity = timerActivity;
             _prestartActivities = prestartActivities;
             _activityInput = activityInput;
             _timer = timer;
+            _ballDistributer = ballDistributer;
         }
 
         public override void Enable()
@@ -47,6 +51,8 @@ namespace Basketball_YG.Mediator
                 _activityInput.Enable();
                 _timerActivity.Hide();
                 _prestartActivities.Show();
+
+                _ballDistributer.Start();
             });
         }
 

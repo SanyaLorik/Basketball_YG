@@ -3314,6 +3314,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1233832436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &302776674 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5301728605354485985, guid: c325221c9d4695d49a003ebead0cf2b7, type: 3}
+  m_PrefabInstance: {fileID: 184432481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &308544700 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7178467674647797253, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
@@ -4813,6 +4818,11 @@ MonoBehaviour:
   _ballSpawner:
     _container: {fileID: 1234452162}
     _spawnpoint: {fileID: 474776411}
+  _cannons:
+  - <Direction>k__BackingField: 1
+    _launchPoint: {fileID: 1953433903}
+  - <Direction>k__BackingField: 0
+    _launchPoint: {fileID: 302776674}
 --- !u!1 &488018938
 GameObject:
   m_ObjectHideFlags: 0
@@ -15409,6 +15419,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -528, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &1953433903 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5301728605354485985, guid: c325221c9d4695d49a003ebead0cf2b7, type: 3}
+  m_PrefabInstance: {fileID: 164332855}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1972885268 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1883194575990771032, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
