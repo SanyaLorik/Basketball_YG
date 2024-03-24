@@ -16,7 +16,10 @@ namespace Basketball_YG.Wrapper
 
         [field: SerializeField][Min(0)] public DirectionBoundType Direction { get; private set; }
 
+        [field: SerializeField][Min(0)] public Vector3 FinalPoint { get; private set; }
+
         [SerializeField] private bool _canChangedDirection;
+        [SerializeField] private bool _hasFinalPoint;
 
         public DirectionBoundType GetDirection()
         {
@@ -24,6 +27,14 @@ namespace Basketball_YG.Wrapper
                 return Direction;
 
             return DirectionBoundType.NoChanching;
+        }
+
+        public Vector3 GetFinalPoint()
+        {
+            if (_hasFinalPoint == true)
+                return FinalPoint;
+
+            return default;
         }
     }
 }

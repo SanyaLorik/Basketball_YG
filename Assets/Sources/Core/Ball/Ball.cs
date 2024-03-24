@@ -1,6 +1,7 @@
 ﻿using Basketball_YG.Wrapper;
 using SanyaBeer.Event;
 using System;
+using UnityEngine;
 using Zenject;
 
 namespace Basketball_YG.Core
@@ -18,6 +19,7 @@ namespace Basketball_YG.Core
 
         public void Initialize()
         {
+            Debug.Log("awdw");
             _collider.OnPerfomed += OnRebound;
         }
 

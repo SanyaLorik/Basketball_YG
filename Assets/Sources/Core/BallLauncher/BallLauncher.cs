@@ -19,7 +19,15 @@ namespace Basketball_YG.Core
         public void Launch(Ball ball)
         {
             Cannon cannon = _cannons.GetRandomElement();
-            PathSet pathSet = new(_config.Curve, _config.Speed, cannon.LaunchPoint, _calcualor.CalculateByPosition(cannon.LaunchPoint, cannon.Direction), cannon.Direction, _config.Duration, _config.Height);
+
+            PathSet pathSet = new(_config.Curve, _config.Speed);
+            pathSet
+                .SetInitial(cannon.LaunchPoint)
+                .SetFinal(_calcualor.CalculateByPosition(cannon.LaunchPoint, cannon.Direction))
+                .SetDirection(cannon.Direction)
+                .SetDuration(_config.Duration)
+                .SetHeight(_config.Height);
+
             ball.RunPatch(pathSet);
         }
     }

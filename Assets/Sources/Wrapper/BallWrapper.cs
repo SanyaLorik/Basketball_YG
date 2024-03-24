@@ -22,7 +22,7 @@ namespace Basketball_YG.Wrapper
             if (collision.gameObject.TryGetComponent(out CollisionBody body) == false) 
                 return;
 
-            CollisionData data = new(body.Curve, body.Speed, collision.contacts[0].point, body.GetDirection(), body.Duration, body.Height);
+            CollisionData data = new(body.Curve, body.Speed, collision.contacts[0].point, body.GetFinalPoint(), body.GetDirection(), body.Duration, body.Height);
             OnPerfomed?.Invoke(data);
         }
     }

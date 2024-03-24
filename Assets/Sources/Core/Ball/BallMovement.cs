@@ -29,11 +29,20 @@ namespace Basketball_YG.Core
         public void Rebound(CollisionData data)
         {
             _tokenSource.Cancel();
-            //Vector3 final = GetFinalPoint();
+
+            PathSet pathSet = data;
+
+            if (pathSet.Final.HasValue == false)
+                pathSet.SetFinal(GetFinalPoint());
+
+            RunPath(pathSet);
         }
 
         public void RunPath(PathSet pathSet)
         {
+            if (pathSet.Final.HasValue == false)
+                pathSet.SetFinal(GetFinalPoint());
+
             _tokenSource = new CancellationTokenSource();
             FollowPath(pathSet, _tokenSource.Token).Forget();
         }
@@ -44,10 +53,10 @@ namespace Basketball_YG.Core
 
             do
             {
-                float ratio = extendedTime / pathSet.Duration;
+                float ratio = extendedTime / pathSet.Duration.Value;
                 float evaluatedPosition = pathSet.Curve.Evaluate(ratio);
-                Vector3 position = Vector3.Lerp(pathSet.Initial, pathSet.Final, ratio);
-                position.y += evaluatedPosition * pathSet.Height;
+                Vector3 position = Vector3.Lerp(pathSet.Initial.Value, pathSet.Final.Value, ratio);
+                position.y += evaluatedPosition * pathSet.Height.Value;
 
                 _model.SetPosition(position);
 
@@ -57,6 +66,11 @@ namespace Basketball_YG.Core
                 await UniTask.Yield(cancellationToken: token);
             }
             while (extendedTime < pathSet.Duration && token.IsCancellationRequested == false);
+        }
+
+        private Vector3 GetFinalPoint()
+        {
+            throw new NotImplementedException();
         }
     }
 }
