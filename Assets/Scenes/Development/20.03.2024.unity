@@ -18293,11 +18293,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6332889952594336235, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
       propertyPath: m_text
-      value: Site
+      value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 6332889952594336235, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
       propertyPath: m_fontSize
-      value: 83.95
+      value: 79.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
