@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Basketball_YG.Wrapper;
+using UnityEngine;
 
 namespace Basketball_YG.View
 {
@@ -13,7 +14,7 @@ namespace Basketball_YG.View
 
         public void SetPosition(Vector3 position)
         {
-            _rigidbody.position = position;
+            _rigidbody.MovePosition(position);
         }
     }
 }

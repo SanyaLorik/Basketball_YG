@@ -1,7 +1,9 @@
 ﻿using Basketball_YG.Config;
 using Basketball_YG.Core;
+using Basketball_YG.Mediator;
 using Basketball_YG.Model;
 using SanyaBeer.Meta;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -20,10 +22,19 @@ namespace Basketball_YG.Installer
 
         public override void InstallBindings()
         {
+            BindSafeDisposableManagement();
             BindCameras();
             BindCameraMovement();
             BindMoney();
             BindBoundPoints();
+        }
+
+        private void BindSafeDisposableManagement()
+        {
+            Container
+                .BindInterfacesAndSelfTo<SafeDisposableManagement>()
+                .AsCached()
+                .NonLazy();
         }
 
         private void BindCameras()

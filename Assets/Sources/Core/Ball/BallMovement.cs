@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using System;
 using System.Threading;
 using UnityEngine;
+using Zenject;
 
 namespace Basketball_YG.Core
 {
@@ -26,15 +27,12 @@ namespace Basketball_YG.Core
             _tokenSource?.Dispose();
         }
 
+
         public void Rebound(CollisionData data)
         {
             _tokenSource.Cancel();
 
             PathSet pathSet = data;
-
-            if (pathSet.Final.HasValue == false)
-                pathSet.SetFinal(GetFinalPoint());
-
             RunPath(pathSet);
         }
 
@@ -45,6 +43,7 @@ namespace Basketball_YG.Core
 
             _tokenSource = new CancellationTokenSource();
             FollowPath(pathSet, _tokenSource.Token).Forget();
+            Debug.Log(pathSet.Initial + " " + pathSet.Final);
         }
 
         private async UniTaskVoid FollowPath(PathSet pathSet, CancellationToken token)
@@ -70,7 +69,7 @@ namespace Basketball_YG.Core
 
         private Vector3 GetFinalPoint()
         {
-            throw new NotImplementedException();
+            return _boundCalcualor.CalculateByPosition(Vector3.zero, DirectionBoundType.NoChanching);
         }
     }
 }

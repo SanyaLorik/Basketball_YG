@@ -1,19 +1,22 @@
 using Basketball_YG.Model;
 using Basketball_YG.View;
 using Basketball_YG.Wrapper;
+using System.ComponentModel;
+using System;
 using Zenject;
+using Basketball_YG.Mediator;
 
 namespace Basketball_YG.Core
 {
     public class BallFactory : PlaceholderFactory<BallType, Ball>
     {
-        private readonly DiContainer _container;
+        private readonly SafeDisposableManagement _disposableManagement;
         private readonly BallWrapperFactory _wrapperFactory;
         private readonly BoundPointsCalcualor _calcualor;
 
-        public BallFactory(DiContainer container, BallWrapperFactory wrapperFactory, BoundPointsCalcualor calcualor)
+        public BallFactory(SafeDisposableManagement disposableManagement, BallWrapperFactory wrapperFactory, BoundPointsCalcualor calcualor)
         {
-            _container = container;
+            _disposableManagement = disposableManagement;
             _wrapperFactory = wrapperFactory;
             _calcualor = calcualor;
         }
@@ -23,12 +26,11 @@ namespace Basketball_YG.Core
             BallWrapper wrapper = _wrapperFactory.Create(type);
             MovingPositionView view = new(wrapper.Rigidbody);
             MovingPositionModel model = new(view);
-
             BallMovement movement = new(model, _calcualor);
-            _container.BindInterfacesAndSelfTo<BallMovement>().FromInstance(movement).NonLazy();
-
             Ball ball = new(wrapper, movement);
-            _container.BindInterfacesAndSelfTo<Ball>().FromInstance(ball).NonLazy();
+
+            ball.Initialize();
+            _disposableManagement.AddDisposable(ball, movement);
 
             return ball;
         }
