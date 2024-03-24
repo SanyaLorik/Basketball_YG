@@ -1,6 +1,5 @@
 ﻿using Basketball_YG.Config;
 using SanyaBeer.Additional;
-using UnityEngine;
 
 namespace Basketball_YG.Core
 {
@@ -19,8 +18,8 @@ namespace Basketball_YG.Core
 
         public void Launch(Ball ball)
         {
-            var cannon = _cannons.GetRandomElement();
-            PathSet pathSet = new(_config.Curve, _config.Speed, cannon.LaunchPoint, _calcualor.CalculateByPosition(cannon.LaunchPoint, cannon.Direction), _config.Duration, _config.Height);
+            Cannon cannon = _cannons.GetRandomElement();
+            PathSet pathSet = new(_config.Curve, _config.Speed, cannon.LaunchPoint, _calcualor.CalculateByPosition(cannon.LaunchPoint, cannon.Direction), cannon.Direction, _config.Duration, _config.Height);
             ball.RunPatch(pathSet);
         }
     }

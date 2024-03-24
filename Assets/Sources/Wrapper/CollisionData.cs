@@ -1,16 +1,26 @@
-﻿using UnityEngine;
+﻿using Basketball_YG.Core;
+using UnityEngine;
 
 namespace Basketball_YG.Wrapper
 {
     public readonly struct CollisionData
     {
-        public readonly float Height;
+        public readonly AnimationCurve Curve;
+        public readonly AnimationCurve Speed;
         public readonly Vector3 TouchPoint;
+        public readonly DirectionBoundType Direction;
+        public readonly float Duration;
+        public readonly float Height;
 
-        public CollisionData(float height, Vector3 touchPoint)
+
+        public CollisionData(AnimationCurve curve, AnimationCurve speed, Vector3 touchPoint, DirectionBoundType direction, float duration, float height)
         {
-            Height = height;
+            Curve = curve;
+            Speed = speed;
             TouchPoint = touchPoint;
+            Direction = direction;
+            Duration = duration;
+            Height = height;
         }
     }
 }

@@ -11,12 +11,14 @@ namespace Basketball_YG.Core
         private readonly DiContainer _container;
         private readonly BallWrapperFactory _wrapperFactory;
         private readonly BallSpawner _ballSpawner;
+        private readonly BoundPointsCalcualor _calcualor;
 
-        public BallFactory(DiContainer container, BallWrapperFactory ballFactory, BallSpawner ballSpawner)
+        public BallFactory(DiContainer container, BallWrapperFactory wrapperFactory, BallSpawner ballSpawner, BoundPointsCalcualor calcualor)
         {
             _container = container;
-            _wrapperFactory = ballFactory;
+            _wrapperFactory = wrapperFactory;
             _ballSpawner = ballSpawner;
+            _calcualor = calcualor;
         }
 
         public override Ball Create(BallType type)
@@ -25,7 +27,7 @@ namespace Basketball_YG.Core
             BallWrapper wrapper = _ballSpawner.Spawn(prefab);
             MovingPositionView view = new(wrapper.Rigidbody);
             MovingPositionModel model = new(view);
-            BallMovement movement = new(model);
+            BallMovement movement = new(model, _calcualor);
 
             _container.Inject(movement);
 
