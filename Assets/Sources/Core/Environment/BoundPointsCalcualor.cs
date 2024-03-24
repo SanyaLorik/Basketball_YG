@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SanyaBeer.Additional;
+using System;
 using UnityEngine;
 
 namespace Basketball_YG.Core
@@ -14,7 +15,7 @@ namespace Basketball_YG.Core
 
         public Vector3 CalculateByPosition(Vector3 position, DirectionBoundType direction)
         {
-            return _bound.Points[_bound.Points.Length / 2];
+            return _bound.Points.GetRandomElement();
         }
     }
 }

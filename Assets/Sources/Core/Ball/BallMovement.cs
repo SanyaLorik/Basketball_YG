@@ -27,7 +27,6 @@ namespace Basketball_YG.Core
             _tokenSource?.Dispose();
         }
 
-
         public void Rebound(CollisionData data)
         {
             _tokenSource.Cancel();
@@ -41,9 +40,11 @@ namespace Basketball_YG.Core
             if (pathSet.Final.HasValue == false)
                 pathSet.SetFinal(GetFinalPoint());
 
+            if (pathSet.Direction != DirectionBoundType.NoChanching)
+                _model.Direction = pathSet.Direction.Value;
+
             _tokenSource = new CancellationTokenSource();
             FollowPath(pathSet, _tokenSource.Token).Forget();
-            Debug.Log(pathSet.Initial + " " + pathSet.Final);
         }
 
         private async UniTaskVoid FollowPath(PathSet pathSet, CancellationToken token)
@@ -69,7 +70,7 @@ namespace Basketball_YG.Core
 
         private Vector3 GetFinalPoint()
         {
-            return _boundCalcualor.CalculateByPosition(Vector3.zero, DirectionBoundType.NoChanching);
+            return _boundCalcualor.CalculateByPosition(_model.Position, _model.Direction);
         }
     }
 }
