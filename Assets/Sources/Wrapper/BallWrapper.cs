@@ -1,4 +1,5 @@
-﻿using SanyaBeer.Event;
+﻿using Basketball_YG.Config;
+using SanyaBeer.Event;
 using System;
 using UnityEngine;
 
@@ -22,7 +23,11 @@ namespace Basketball_YG.Wrapper
             if (collision.gameObject.TryGetComponent(out CollisionBody body) == false) 
                 return;
 
-            CollisionData data = new(body.Curve, body.Speed, collision.contacts[0].point, body.GetFinalPoint(), body.GetDirection(), body.Duration, body.Height);
+            var angle = Vector3.Angle(Vector3.up, collision.contacts[0].normal);
+            if (angle >= GameConstants.AngelBlock) 
+                return;
+
+            CollisionData data = new(body.Curve, body.Speed, Rigidbody.position, body.GetFinalPoint(), body.GetDirection(), body.Duration, body.Height);
             OnPerfomed?.Invoke(data);
         }
     }

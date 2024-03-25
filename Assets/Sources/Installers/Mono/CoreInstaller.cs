@@ -15,7 +15,8 @@ namespace Basketball_YG.Installer
     {
         [Header("Platform")]
         [SerializeField] private Transform _platform;
-        [SerializeField] private RangeValues _limits;
+        [SerializeField] private RangeValues _movementLimits;
+        [SerializeField] private RangeValues _surfaceLimits;
 
         [Header("Speedoment Reward")]
         [SerializeField] private Transform _speedomentRewardArrow;
@@ -83,8 +84,14 @@ namespace Basketball_YG.Installer
 
             Container
                 .Bind<RangeValues>()
-                .WithId(GameConstants.PlatfromRangeValues)
-                .FromInstance(_limits)
+                .WithId(GameConstants.PlatformMovementRangeValues)
+                .FromInstance(_movementLimits)
+                .AsCached();
+            
+            Container
+                .Bind<RangeValues>()
+                .WithId(GameConstants.PlatformSurfaceRangeValues)
+                .FromInstance(_surfaceLimits)
                 .AsCached();
 
             Container

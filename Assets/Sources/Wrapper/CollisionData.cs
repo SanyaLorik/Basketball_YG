@@ -13,7 +13,7 @@ namespace Basketball_YG.Wrapper
         public readonly float Duration;
         public readonly float Height;
 
-        public CollisionData(AnimationCurve curve, AnimationCurve speed, Vector3 touchPoint, Vector3 final, DirectionBoundType direction, float duration, float height)
+        public CollisionData(AnimationCurve curve, AnimationCurve speed, Vector3 touchPoint, Vector3? final, DirectionBoundType direction, float duration, float height)
         {
             Curve = curve;
             Speed = speed;

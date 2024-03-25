@@ -23,7 +23,7 @@ namespace Basketball_YG.Core
             PathSet pathSet = new(_config.Curve, _config.Speed);
             pathSet
                 .SetInitial(cannon.LaunchPoint)
-                .SetFinal(_calcualor.CalculateByPosition(cannon.LaunchPoint, cannon.Direction))
+                .SetFinal(_calcualor.RandomCentre)
                 .SetDirection(cannon.Direction)
                 .SetDuration(_config.Duration)
                 .SetHeight(_config.Height);

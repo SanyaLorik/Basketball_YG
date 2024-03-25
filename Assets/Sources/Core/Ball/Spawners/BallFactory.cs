@@ -1,7 +1,9 @@
+using Basketball_YG.Config;
 using Basketball_YG.Mediator;
 using Basketball_YG.Model;
 using Basketball_YG.View;
 using Basketball_YG.Wrapper;
+using SanyaBeer.Additional;
 using Zenject;
 
 namespace Basketball_YG.Core
@@ -11,12 +13,16 @@ namespace Basketball_YG.Core
         private readonly SafeDisposableManagement _disposableManagement;
         private readonly BallWrapperFactory _wrapperFactory;
         private readonly BoundPointsCalcualor _calcualor;
+        private readonly RangeValues _range;
 
-        public BallFactory(SafeDisposableManagement disposableManagement, BallWrapperFactory wrapperFactory, BoundPointsCalcualor calcualor)
+        public BallFactory(SafeDisposableManagement disposableManagement, BallWrapperFactory wrapperFactory, BoundPointsCalcualor calcualor,
+            [Inject(Optional = true, Id = GameConstants.PlatformSurfaceRangeValues)]
+            RangeValues range)
         {
             _disposableManagement = disposableManagement;
             _wrapperFactory = wrapperFactory;
             _calcualor = calcualor;
+            _range = range;
         }
 
         public override Ball Create(BallType type)
@@ -24,7 +30,7 @@ namespace Basketball_YG.Core
             BallWrapper wrapper = _wrapperFactory.Create(type);
             MovingPositionView view = new(wrapper.Rigidbody);
             MovingPositionModel model = new(view);
-            BallMovement movement = new(model, _calcualor);
+            BallMovement movement = new(model, _calcualor, _range);
             Ball ball = new(wrapper, movement);
 
             ball.Initialize();

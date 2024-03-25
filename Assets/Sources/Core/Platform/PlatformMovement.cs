@@ -18,7 +18,7 @@ namespace Basketball_YG.Core
             [InjectOptional(Optional = true, Id = GameConstants.PlatformModel)] IPositionModel model, 
             IPaltformInputService input, 
             PlatformConfig config,
-            [InjectOptional(Optional = true, Id = GameConstants.PlatfromRangeValues)] RangeValues limits)
+            [InjectOptional(Optional = true, Id = GameConstants.PlatformMovementRangeValues)] RangeValues limits)
         {
             _model = model;
             _input = input;

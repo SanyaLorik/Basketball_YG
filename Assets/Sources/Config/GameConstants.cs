@@ -6,6 +6,11 @@
         public const float MaxDistanceRaycasting = 128f;
         public const string WallMask = "WallMask";
 
+        // Ball
+        public const float AngelBlock = 104f;
+        public const float RatioNear = 0.2f;
+        public const float RatioCentre = 0.8f; // 0.8 - 1.0 - Farther of ratio 
+
         // Camera
         public const string CameraMain = "CameraMain";
         public const string GameplayCameraActivity = "GameplayCameraActivity";
@@ -29,7 +34,8 @@
         public const string PlatformTransform = "PlatformTransform";
         public const string PlatformView = "PlatformView";
         public const string PlatformModel = "PlatformModel";
-        public const string PlatfromRangeValues = "PlatfromRangeValues";
+        public const string PlatformMovementRangeValues = "PlatformMovementRangeValues";
+        public const string PlatformSurfaceRangeValues = "PlatformSurfaceRangeValues";
 
         // Ui Main Menu
         public const string UiButtonStartMath = "UiButtonStartMath";
