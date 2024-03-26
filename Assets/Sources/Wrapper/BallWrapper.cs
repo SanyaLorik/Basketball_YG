@@ -9,6 +9,8 @@ namespace Basketball_YG.Wrapper
     [RequireComponent(typeof(Rigidbody))]
     public class BallWrapper : MonoBehaviour, IEventObserver<CollisionData>
     {
+        private bool _isDetecting = true;
+
         private void Awake()
         {
             Rigidbody = GetComponent<Rigidbody>();
@@ -20,6 +22,9 @@ namespace Basketball_YG.Wrapper
 
         private void OnCollisionEnter(Collision collision)
         {
+            if (_isDetecting == false)
+                return;
+
             if (collision.gameObject.TryGetComponent(out CollisionBody body) == false) 
                 return;
 
@@ -29,6 +34,11 @@ namespace Basketball_YG.Wrapper
 
             CollisionData data = new(body.Curve, body.Speed, Rigidbody.position, body.GetFinalPoint(), body.GetDirection(), body.Duration, body.Height);
             OnPerfomed?.Invoke(data);
+        }
+
+        public void DisableDetecting()
+        {
+            _isDetecting = false;
         }
     }
 }
