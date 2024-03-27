@@ -12,6 +12,7 @@ namespace Basketball_YG.Installer
 
             BindSwitchState();
             BindScoreState();
+            BindMissedBall();
         }
 
         private void BindSwitchState()
@@ -25,6 +26,13 @@ namespace Basketball_YG.Installer
         {
             Container
                 .DeclareSignal<ScoreSignal>()
+                .OptionalSubscriber();
+        }
+
+        private void BindMissedBall()
+        {
+            Container
+                .DeclareSignal<MissBallSignal>()
                 .OptionalSubscriber();
         }
     }

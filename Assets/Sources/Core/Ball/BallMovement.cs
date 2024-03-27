@@ -6,7 +6,6 @@ using SanyaBeer.Additional;
 using System;
 using System.Threading;
 using UnityEngine;
-using Zenject;
 
 namespace Basketball_YG.Core
 {

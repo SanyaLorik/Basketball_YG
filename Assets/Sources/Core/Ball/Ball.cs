@@ -22,12 +22,14 @@ namespace Basketball_YG.Core
         {
             _wrapper.OnCollision += OnRebound;
             _wrapper.OnScored += OnNotifyScore;
+            _wrapper.OnMissed += OnNotifyMiss;
         }
 
         public void Dispose()
         {
             _wrapper.OnCollision -= OnRebound;
             _wrapper.OnScored -= OnNotifyScore;
+            _wrapper.OnMissed -= OnNotifyMiss;
         }
 
         public void RunPatch(PathSet pathSet)
@@ -44,6 +46,11 @@ namespace Basketball_YG.Core
         {
             const int test_score = 10;
             _signalBus.Fire(new ScoreSignal(test_score));
+        }
+
+        private void OnNotifyMiss()
+        {
+            _signalBus.Fire(new MissBallSignal());
         }
     }
 }

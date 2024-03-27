@@ -8,6 +8,8 @@ namespace Basketball_YG.Wrapper
     [RequireComponent(typeof(Rigidbody))]
     public class BallWrapper : MonoBehaviour
     {
+        [SerializeField] private LayerMask _deathZone;
+
         private bool _isDetecting = true;
 
         private void Awake()
@@ -19,11 +21,19 @@ namespace Basketball_YG.Wrapper
 
         public event Action<CollisionData> OnCollision;
         public event Action OnScored;
+        public event Action OnMissed;
 
         private void OnCollisionEnter(Collision collision)
         {
             if (_isDetecting == false)
                 return;
+
+            if (1 << collision.gameObject.layer == _deathZone.value)
+            {
+                OnMissed?.Invoke();
+                _isDetecting = false;
+                return;
+            }
 
             if (collision.gameObject.TryGetComponent(out CollisionBody body) == false) 
                 return;

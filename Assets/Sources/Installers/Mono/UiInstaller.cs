@@ -29,6 +29,7 @@ namespace Basketball_YG.Installer
         [SerializeField] private ElementActivityArray _gameplayMenuActivities;
         [SerializeField] private ClickedCallback _pauseOpenerButton;
         [SerializeField] private TextSetup _gameplayCounterText;
+        [SerializeField] private EachElementActivityArray _iconHearth;
 
         [Header("Pause Menu")]
         [SerializeField] private ElementActivity _pauseMenuActivity;
@@ -200,9 +201,26 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
-                .Bind(typeof(IInitializable), typeof(IDisposable))
-                .WithId(GameConstants.UiMatchScoreCounter)
-                .To<MatchScoreCounter>()
+                .Bind<MatchScoreCounter>()
+                .WithId(GameConstants.MatchScoreCounter)
+                .AsCached();
+
+            Container
+                .BindInterfacesTo<MatchScoreCounter>()
+                .AsCached();
+
+            Container
+                .Bind<EachElementActivityArray>()
+                .WithId(GameConstants.HealthBar)
+                .FromInstance(_iconHearth);
+
+            Container
+                .Bind<HealthBar>()
+                .WithId(GameConstants.HealthBar)
+                .AsCached();
+
+            Container
+                .BindInterfacesTo<HealthBar>()
                 .AsCached();
         }
 
