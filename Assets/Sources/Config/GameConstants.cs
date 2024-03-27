@@ -58,6 +58,8 @@
         public const string UiGameplayTimerActivity = "UiGameplayTimerActivity";
         public const string UiButtonGameplayPauseOpener = "UiButtonPauseOpener";
         public const string UiGameplayPrestartMatchActivities = "UiGameplayPrestartMatchActivities";
+        public const string UiGameplayScoreCounterText = "UiGameplayScoreCounterText";
+        public const string UiMatchScoreCounter = "MatchScoreCounter";
 
         // Ui Pause Menu
         public const string UiPauseMenu = "UiPauseMenu";

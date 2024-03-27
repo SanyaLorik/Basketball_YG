@@ -1,6 +1,8 @@
 ﻿using Basketball_YG.CompositeRoot;
 using Basketball_YG.Config;
+using Basketball_YG.Counter;
 using SanyaBeer.Meta;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -26,6 +28,7 @@ namespace Basketball_YG.Installer
         [SerializeField] private ElementActivity _gameplayMenuActivity;
         [SerializeField] private ElementActivityArray _gameplayMenuActivities;
         [SerializeField] private ClickedCallback _pauseOpenerButton;
+        [SerializeField] private TextSetup _gameplayCounterText;
 
         [Header("Pause Menu")]
         [SerializeField] private ElementActivity _pauseMenuActivity;
@@ -181,6 +184,12 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
+                .Bind<TextSetup>()
+                .WithId(GameConstants.UiGameplayScoreCounterText)
+                .FromInstance(_gameplayCounterText)
+                .AsCached();
+
+            Container
                 .Bind<IMenuActivity>()
                 .WithId(GameConstants.UiGameplayMenu)
                 .To<GameplayMenu>()
@@ -188,6 +197,12 @@ namespace Basketball_YG.Installer
 
             Container
                 .BindInterfacesTo<GameplayMenu>()
+                .AsCached();
+
+            Container
+                .Bind(typeof(IInitializable), typeof(IDisposable))
+                .WithId(GameConstants.UiMatchScoreCounter)
+                .To<MatchScoreCounter>()
                 .AsCached();
         }
 

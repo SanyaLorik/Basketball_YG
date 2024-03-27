@@ -14,15 +14,17 @@ namespace Basketball_YG.Core
         private readonly BallWrapperFactory _wrapperFactory;
         private readonly BoundPointsCalcualor _calcualor;
         private readonly RangeValues _range;
+        private readonly SignalBus _signalBus;
 
         public BallFactory(SafeDisposableManagement disposableManagement, BallWrapperFactory wrapperFactory, BoundPointsCalcualor calcualor,
             [Inject(Optional = true, Id = GameConstants.PlatformSurfaceRangeValues)]
-            RangeValues range)
+            RangeValues range, SignalBus signalBus)
         {
             _disposableManagement = disposableManagement;
             _wrapperFactory = wrapperFactory;
             _calcualor = calcualor;
             _range = range;
+            _signalBus = signalBus;
         }
 
         public override Ball Create(BallType type)
@@ -31,7 +33,7 @@ namespace Basketball_YG.Core
             MovingPositionView view = new(wrapper.Rigidbody);
             MovingPositionModel model = new(view);
             BallMovement movement = new(model, _calcualor, _range);
-            Ball ball = new(wrapper, movement);
+            Ball ball = new(wrapper, movement, _signalBus);
 
             ball.Initialize();
             _disposableManagement.AddDisposable(ball, movement);

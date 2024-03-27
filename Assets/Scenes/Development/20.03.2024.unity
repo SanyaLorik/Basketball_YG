@@ -1402,6 +1402,8 @@ MonoBehaviour:
     - {fileID: 1074377303}
   _pauseOpenerButton:
     _clicked: {fileID: 531112635}
+  _gameplayCounterText:
+    _text: {fileID: 1178216747}
   _pauseMenuActivity:
     _menu: {fileID: 1263742293}
   _closePauseMenuButton:

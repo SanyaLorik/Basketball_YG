@@ -1,5 +1,4 @@
 ﻿using Basketball_YG.Config;
-using SanyaBeer.Event;
 using System;
 using UnityEngine;
 
@@ -7,7 +6,7 @@ namespace Basketball_YG.Wrapper
 {
     [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Rigidbody))]
-    public class BallWrapper : MonoBehaviour, IEventObserver<CollisionData>
+    public class BallWrapper : MonoBehaviour
     {
         private bool _isDetecting = true;
 
@@ -18,7 +17,8 @@ namespace Basketball_YG.Wrapper
 
         public Rigidbody Rigidbody {  get; private set; }
 
-        public event Action<CollisionData> OnPerfomed;
+        public event Action<CollisionData> OnCollision;
+        public event Action OnScored;
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -33,12 +33,14 @@ namespace Basketball_YG.Wrapper
                 return;
 
             CollisionData data = new(body.Curve, body.Speed, Rigidbody.position, body.GetFinalPoint(), body.GetDirection(), body.Duration, body.Height);
-            OnPerfomed?.Invoke(data);
+            OnCollision?.Invoke(data);
         }
 
-        public void DisableDetecting()
+        public void Score()
         {
             _isDetecting = false;
+            OnScored?.Invoke();
+            Debug.Log("Ball is off");
         }
     }
 }

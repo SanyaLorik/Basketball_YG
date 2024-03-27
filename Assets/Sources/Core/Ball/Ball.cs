@@ -1,5 +1,5 @@
-﻿using Basketball_YG.Wrapper;
-using SanyaBeer.Event;
+﻿using Basketball_YG.Model.Signal;
+using Basketball_YG.Wrapper;
 using System;
 using Zenject;
 
@@ -7,23 +7,27 @@ namespace Basketball_YG.Core
 {
     public class Ball : IInitializable, IDisposable
     {
-        private readonly IEventObserver<CollisionData> _collider;
+        private readonly BallWrapper _wrapper;
         private readonly BallMovement _movement;
+        private readonly SignalBus _signalBus;
 
-        public Ball(IEventObserver<CollisionData> ballWrapper, BallMovement movement)
+        public Ball(BallWrapper ballWrapper, BallMovement movement, SignalBus signalBus)
         {
-            _collider = ballWrapper;
+            _wrapper = ballWrapper;
             _movement = movement;
+            _signalBus = signalBus;
         }
 
         public void Initialize()
         {
-            _collider.OnPerfomed += OnRebound;
+            _wrapper.OnCollision += OnRebound;
+            _wrapper.OnScored += OnNotifyScore;
         }
 
         public void Dispose()
         {
-            _collider.OnPerfomed -= OnRebound;
+            _wrapper.OnCollision -= OnRebound;
+            _wrapper.OnScored -= OnNotifyScore;
         }
 
         public void RunPatch(PathSet pathSet)
@@ -34,6 +38,12 @@ namespace Basketball_YG.Core
         private void OnRebound(CollisionData data)
         {
             _movement.Rebound(data);
+        }
+
+        private void OnNotifyScore()
+        {
+            const int test_score = 10;
+            _signalBus.Fire(new ScoreSignal(test_score));
         }
     }
 }
