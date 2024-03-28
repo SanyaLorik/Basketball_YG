@@ -9,16 +9,18 @@ namespace Basketball_YG.Core
         private readonly SignalBus _signalBus;
         private readonly BallFactory _factory;
         private readonly BallLauncher _launcher;
-        private readonly BoundPoints _bounds;
 
+        private bool _isDistributing = false;
+
+        /*
         private const int TOTAL_COUNT_BALLS = 3;
-        private int _current = 0;
+        private int _current = 0; 
+        */
 
-        public BallDistributer(BallFactory factory, BallLauncher launcher, BoundPoints bounds, SignalBus signalBus)
+        public BallDistributer(BallFactory factory, BallLauncher launcher, SignalBus signalBus)
         {
             _factory = factory;
             _launcher = launcher;
-            _bounds = bounds;
             _signalBus = signalBus;
         }
 
@@ -36,7 +38,13 @@ namespace Basketball_YG.Core
 
         public void Start()
         {
+            _isDistributing = true;
             Distribute();
+        }
+
+        public void Stop()
+        {
+            _isDistributing = false;
         }
 
         private void Distribute()
@@ -47,12 +55,9 @@ namespace Basketball_YG.Core
 
         private void OnAddBall()
         {
-            /*
-            if (_current > TOTAL_COUNT_BALLS)
+            if (_isDistributing == false) 
                 return;
 
-            _current++;
-            */
             Distribute();
         }
     }

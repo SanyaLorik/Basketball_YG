@@ -58,7 +58,10 @@ namespace Basketball_YG.Mediator
 
         public override void Disable()
         {
-            Debug.LogWarning("Enable. There is logic handler GameplayState here!");
+            _uiGameplayMenuActivity.Hide();
+            _prestartActivities.Hide();
+            _activityInput.Disable();
+            _ballDistributer.Stop();
         }
     }
 }

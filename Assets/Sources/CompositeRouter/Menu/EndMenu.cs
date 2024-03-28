@@ -14,12 +14,12 @@ namespace Basketball_YG.CompositeRoot
         {
         }
 
-        public void Dispose()
+        public void Initialize()
         {
             //throw new NotImplementedException();
         }
 
-        public void Initialize()
+        public void Dispose()
         {
             //throw new NotImplementedException();
         }

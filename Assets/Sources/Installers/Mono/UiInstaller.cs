@@ -469,11 +469,12 @@ namespace Basketball_YG.Installer
 
         private void BindEndMenu()
         {
+
             Container
-             .Bind<ElementActivity>()
-             .WithId(GameConstants.UiEndActivity)
-             .FromInstance(_extralifeMenuActivity)
-             .AsCached();
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiEndActivity)
+                .FromInstance(_endMenuActivity)
+                .AsCached();
 
             Container
                 .Bind<IMenuActivity>()
@@ -485,6 +486,12 @@ namespace Basketball_YG.Installer
               .BindInterfacesAndSelfTo<EndMenu>()
               .AsCached()
               .NonLazy();
+
+            Container
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiExtralifeMenu)
+                .FromInstance(_extralifeMenuActivity)
+                .AsCached();
         }
 
         private void BindSpeedometrReward()

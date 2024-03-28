@@ -1,4 +1,6 @@
-﻿using Basketball_YG.Config;
+﻿using Basketball_YG.CompositeRoot;
+using Basketball_YG.Config;
+using Basketball_YG.Mediator;
 using Basketball_YG.Model.Signal;
 using SanyaBeer.Meta;
 using System;
@@ -42,7 +44,10 @@ namespace Basketball_YG.Counter
             _heartCounter--;
 
             if (_heartCounter <= 0)
+            {
                 _signalBus.Fire(new NoneHeartSignal());
+                _signalBus.Fire(new StateSignal(typeof(EndState)));
+            }
         }
     }
 }
