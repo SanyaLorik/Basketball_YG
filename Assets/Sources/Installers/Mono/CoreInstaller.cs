@@ -231,7 +231,7 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
-               .Bind<BallDistributer>()
+               .BindInterfacesAndSelfTo<BallDistributer>()
                .AsCached();
         }
     }

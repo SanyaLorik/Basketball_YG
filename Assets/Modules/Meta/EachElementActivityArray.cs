@@ -13,13 +13,13 @@ namespace SanyaBeer.Meta
         public void ShowOne()
         {
             _elements[_index].SetActive(true);
-            _index = Math.Clamp(_index + 1, 0, _elements.Length - 1);
+            _index = Math.Clamp(_index - 1, 0, _elements.Length - 1);
         }
 
         public void HideOne()
         {
             _elements[_index].SetActive(false);
-            _index = Math.Clamp(_index - 1, 0, _elements.Length - 1);
+            _index = Math.Clamp(_index + 1, 0, _elements.Length - 1);
         }
 
         public void ShowAll()

@@ -11,6 +11,9 @@ namespace Basketball_YG.Counter
         private readonly SignalBus _signalBus;
         private readonly EachElementActivityArray _hearts;
 
+        private const int TotalHeart = 3;
+        private int _heartCounter = TotalHeart;
+
         public HealthBar(
             SignalBus signalBus,
             [InjectOptional(Optional = true, Id = GameConstants.HealthBar)]
@@ -32,7 +35,14 @@ namespace Basketball_YG.Counter
 
         private void OnUpdateHealth()
         {
+            if (_heartCounter <= 0)
+                return;
+
             _hearts.HideOne();
+            _heartCounter--;
+
+            if (_heartCounter <= 0)
+                _signalBus.Fire(new NoneHeartSignal());
         }
     }
 }
