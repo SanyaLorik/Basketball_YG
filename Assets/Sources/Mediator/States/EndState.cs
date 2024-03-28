@@ -7,26 +7,33 @@ namespace Basketball_YG.Mediator
 {
     public class EndState : State
     {
-        private readonly IMenuActivity _menuActivity;
+        private readonly IMenuActivity _endMenu;
+        private readonly IMenuActivity _extraLifeMenu;
+        private readonly IMenuActivity _subendMenu;
 
         public EndState(
              [InjectOptional(Optional = true, Id = GameConstants.UiEndMenu)]
-            IMenuActivity menuActivity)
+             IMenuActivity endMenu,
+             [InjectOptional(Optional = true, Id = GameConstants.UiExtralifeMenu)]
+             IMenuActivity extraLifeMenu,
+             [InjectOptional(Optional = true, Id = GameConstants.UiSubendMenu)]
+             IMenuActivity subendMenu)
         {
-            Debug.Log(menuActivity);
-            _menuActivity = menuActivity;
+            _endMenu = endMenu;
+            _extraLifeMenu = extraLifeMenu;
+            _subendMenu = subendMenu;
         }
 
         public override void Enable()
         {
-            _menuActivity.Show();
-            Debug.Log("_menuActivity.Show()");
-
+            _endMenu.Show();
+            _extraLifeMenu.Show();
+            _subendMenu.Hide();
         }
 
         public override void Disable()
         {
-            throw new System.NotImplementedException();
+            _endMenu.Hide();
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Basketball_YG.CompositeRoot
 {
     public class ExtralifeMenu : Menu, IInitializable, IDisposable
     {
-        private readonly IMenuActivity _endMenu;
+        private readonly IMenuActivity _subendMenu;
         private readonly ClickedCallback _extralife;
         private readonly ClickedCallback _cancelExtralife;
 
@@ -15,11 +15,14 @@ namespace Basketball_YG.CompositeRoot
             SignalBus signalBus,
             [InjectOptional(Optional = true, Id = GameConstants.UiExtralifeMenuActivity)]
             ElementActivity activity,
+            [InjectOptional(Optional = true, Id = GameConstants.UiSubendMenu)]
+            IMenuActivity subendMenu,
             [InjectOptional(Optional = true, Id = GameConstants.UiExtralifeButton)]
             ClickedCallback extralife,
             [InjectOptional(Optional = true, Id = GameConstants.UiCancelExtralifeButton)]
             ClickedCallback cancelExtralife) : base(signalBus, activity)
         {
+            _subendMenu = subendMenu;
             _extralife = extralife;
             _cancelExtralife = cancelExtralife;
         }
@@ -43,7 +46,7 @@ namespace Basketball_YG.CompositeRoot
 
         private void OnCancelExtralife()
         {
-            _endMenu.Show();
+            _subendMenu.Show();
             Hide();
         }
     }

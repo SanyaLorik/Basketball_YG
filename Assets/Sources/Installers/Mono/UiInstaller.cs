@@ -73,6 +73,9 @@ namespace Basketball_YG.Installer
         [Header("End Menu")]
         [SerializeField] private ElementActivity _endMenuActivity;
 
+        [Header("Subend Menu")]
+        [SerializeField] private ElementActivity _subendMenuActivity;
+
         [Header("Speedoment Reward")]
         [SerializeField] private TextSetup _speedomentRewardmoneyText;
 
@@ -86,6 +89,7 @@ namespace Basketball_YG.Installer
             BindSiteStoreMenu();
             BindExtralifeMenu();
             BindEndMenu();
+            BindSubendMenu();
             BindSpeedometrReward();
         }
 
@@ -440,7 +444,7 @@ namespace Basketball_YG.Installer
             Container
                  .Bind<ElementActivity>()
                  .WithId(GameConstants.UiExtralifeMenuActivity)
-                 .FromInstance(_endMenuActivity)
+                 .FromInstance(_extralifeMenuActivity)
                  .AsCached();
 
             Container
@@ -469,7 +473,6 @@ namespace Basketball_YG.Installer
 
         private void BindEndMenu()
         {
-
             Container
                 .Bind<ElementActivity>()
                 .WithId(GameConstants.UiEndActivity)
@@ -481,17 +484,26 @@ namespace Basketball_YG.Installer
                 .WithId(GameConstants.UiEndMenu)
                 .To<EndMenu>()
                 .AsCached();
+        }
 
-            Container
-              .BindInterfacesAndSelfTo<EndMenu>()
-              .AsCached()
-              .NonLazy();
-
+        private void BindSubendMenu()
+        {
             Container
                 .Bind<ElementActivity>()
-                .WithId(GameConstants.UiExtralifeMenu)
-                .FromInstance(_extralifeMenuActivity)
+                .WithId(GameConstants.UiSubendActivity)
+                .FromInstance(_subendMenuActivity)
                 .AsCached();
+
+            Container
+                .Bind<IMenuActivity>()
+                .WithId(GameConstants.UiSubendMenu)
+                .To<SubendMenu>()
+                .AsCached();
+
+            Container
+              .BindInterfacesAndSelfTo<SubendMenu>()
+              .AsCached()
+              .NonLazy();
         }
 
         private void BindSpeedometrReward()
