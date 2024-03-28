@@ -33,6 +33,11 @@ namespace Basketball_YG.Counter
             _signalBus.Unsubscribe<ScoreSignal>(OnUpdateScore);
         }
 
+        public void Reload()
+        {
+            _text.SetText(GameConstants.DefualtScoreCounter);
+        }
+
         private void OnUpdateScore(ScoreSignal score)
         {
             Counter += score.Score;

@@ -1,10 +1,10 @@
 ﻿using Basketball_YG.CompositeRoot;
 using Basketball_YG.Config;
 using Basketball_YG.Core;
+using Basketball_YG.Counter;
 using Basketball_YG.Input;
 using Cysharp.Threading.Tasks;
 using SanyaBeer.Meta;
-using UnityEngine;
 using Zenject;
 
 namespace Basketball_YG.Mediator
@@ -17,6 +17,8 @@ namespace Basketball_YG.Mediator
         private readonly ElementActivity _timerActivity;
         private readonly Timer _timer;
         private readonly BallDistributer _ballDistributer;
+        private readonly HealthBar _healthBar;
+        private readonly MatchScoreCounter _scoreCounter;
 
         public GameplayState(
             [InjectOptional(Optional = true, Id = GameConstants.UiGameplayMenu)]
@@ -27,7 +29,10 @@ namespace Basketball_YG.Mediator
             ElementActivityArray prestartActivities,
             IActivityInputService activityInput,
             Timer timer,
-            BallDistributer ballDistributer)
+            BallDistributer ballDistributer,
+            HealthBar healthBar,
+            [InjectOptional(Optional = true, Id = GameConstants.MatchScoreCounter)]
+            MatchScoreCounter scoreCounter)
         {
             _uiGameplayMenuActivity = uiGameplayMenuActivity;
             _timerActivity = timerActivity;
@@ -35,6 +40,8 @@ namespace Basketball_YG.Mediator
             _activityInput = activityInput;
             _timer = timer;
             _ballDistributer = ballDistributer;
+            _healthBar = healthBar;
+            _scoreCounter = scoreCounter;
         }
 
         public override void Enable()
@@ -62,6 +69,8 @@ namespace Basketball_YG.Mediator
             _prestartActivities.Hide();
             _activityInput.Disable();
             _ballDistributer.Stop();
+            _healthBar.Reload();
+            _scoreCounter.Reload();
         }
     }
 }

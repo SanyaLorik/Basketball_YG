@@ -75,9 +75,12 @@ namespace Basketball_YG.Installer
 
         [Header("Subend Menu")]
         [SerializeField] private ElementActivity _subendMenuActivity;
+        [SerializeField] private ClickedCallback _subendMenuHomeButton;
+        [SerializeField] private ClickedCallback _subendMenuRestartButton;
 
-        [Header("Speedoment Reward")]
+        [Header("Speedometr Reward")]
         [SerializeField] private TextSetup _speedomentRewardmoneyText;
+        [SerializeField] private ClickedCallback _stopSpeedometrButton;
 
         public override void InstallBindings()
         {
@@ -215,12 +218,11 @@ namespace Basketball_YG.Installer
 
             Container
                 .Bind<EachElementActivityArray>()
-                .WithId(GameConstants.HealthBar)
+                .WithId(GameConstants.HealthBarElementArray)
                 .FromInstance(_iconHearth);
 
             Container
                 .Bind<HealthBar>()
-                .WithId(GameConstants.HealthBar)
                 .AsCached();
 
             Container
@@ -501,9 +503,21 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
-              .BindInterfacesAndSelfTo<SubendMenu>()
-              .AsCached()
-              .NonLazy();
+                 .Bind<ClickedCallback>()
+                 .WithId(GameConstants.UiSubendHomeButton)
+                 .FromInstance(_subendMenuHomeButton)
+                 .AsCached();
+
+            Container
+                 .Bind<ClickedCallback>()
+                 .WithId(GameConstants.UiSubendRestartButton)
+                 .FromInstance(_subendMenuRestartButton)
+                 .AsCached();
+
+            Container
+                  .BindInterfacesAndSelfTo<SubendMenu>()
+                  .AsCached()
+                  .NonLazy();
         }
 
         private void BindSpeedometrReward()
@@ -512,6 +526,12 @@ namespace Basketball_YG.Installer
                 .Bind<TextSetup>()
                 .WithId(GameConstants.SpeedometrRewardmoneyText)
                 .FromInstance(_speedomentRewardmoneyText)
+                .AsCached();
+
+            Container
+                .Bind<ClickedCallback>()
+                .WithId(GameConstants.UiButtonStopSpeedometr)
+                .FromInstance(_stopSpeedometrButton)
                 .AsCached();
         }
     }

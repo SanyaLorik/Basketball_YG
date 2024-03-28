@@ -1,6 +1,5 @@
 ﻿using Basketball_YG.CompositeRoot;
 using Basketball_YG.Config;
-using UnityEngine;
 using Zenject;
 
 namespace Basketball_YG.Mediator
@@ -18,7 +17,7 @@ namespace Basketball_YG.Mediator
 
         public override void Enable()
         {
-            Debug.LogWarning("Enable. There is logic handler MainMenuState here!");
+            _uiMainMenuActivity.Show();
         }
 
         public override void Disable()

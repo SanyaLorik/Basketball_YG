@@ -37,6 +37,9 @@
         public const string PlatformMovementRangeValues = "PlatformMovementRangeValues";
         public const string PlatformSurfaceRangeValues = "PlatformSurfaceRangeValues";
 
+        // Defualt Ui
+        public const string DefualtScoreCounter = "0";
+
         // Ui Main Menu
         public const string UiButtonStartMath = "UiButtonStartMath";
         public const string UiButtonBallStore = "UiButtonBallStore";
@@ -60,7 +63,7 @@
         public const string UiGameplayPrestartMatchActivities = "UiGameplayPrestartMatchActivities";
         public const string UiGameplayScoreCounterText = "UiGameplayScoreCounterText";
         public const string MatchScoreCounter = "MatchScoreCounter";
-        public const string HealthBar = "HealthBar";
+        public const string HealthBarElementArray = "HealthBarElementArray";
 
         // Ui Pause Menu
         public const string UiPauseMenu = "UiPauseMenu";
@@ -112,6 +115,8 @@
         // Ui Subend Menu
         public const string UiSubendMenu = "UiSubendMenu";
         public const string UiSubendActivity = "UiSubendActivity";
+        public const string UiSubendHomeButton = "UiSubendHomeButton";
+        public const string UiSubendRestartButton = "UiSubendRestartButton";
 
         // Speedometr Reward
         public const string RewardSpeedometrArrow = "RewardSpeedometrArrow";
@@ -120,6 +125,7 @@
         public const string SpeedometrView = "SpeedomentView";
         public const string SpeedometrRotationModel = "SpeedomentRotationModel";
         public const string SpeedometrInformationModel = "SpeedomentRotationModel";
+        public const string UiButtonStopSpeedometr = "UiButtonStopSpeedometr";
 
         // Money
         public const string MoneyMatch = "MoneyMatch";

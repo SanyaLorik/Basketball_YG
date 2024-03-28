@@ -51,7 +51,7 @@ namespace Basketball_YG.Core
 
         public void StopArrow()
         {
-            _cancellationToken.Cancel();
+            _cancellationToken?.Cancel();
         }
 
         public void ReturToInitialPosition()
