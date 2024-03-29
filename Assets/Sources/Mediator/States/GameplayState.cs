@@ -19,6 +19,7 @@ namespace Basketball_YG.Mediator
         private readonly BallDistributer _ballDistributer;
         private readonly HealthBar _healthBar;
         private readonly MatchScoreCounter _scoreCounter;
+        private readonly PlatformMovement _platformMovement;
 
         public GameplayState(
             [InjectOptional(Optional = true, Id = GameConstants.UiGameplayMenu)]
@@ -32,7 +33,8 @@ namespace Basketball_YG.Mediator
             BallDistributer ballDistributer,
             HealthBar healthBar,
             [InjectOptional(Optional = true, Id = GameConstants.MatchScoreCounter)]
-            MatchScoreCounter scoreCounter)
+            MatchScoreCounter scoreCounter,
+            PlatformMovement platformMovement)
         {
             _uiGameplayMenuActivity = uiGameplayMenuActivity;
             _timerActivity = timerActivity;
@@ -42,6 +44,7 @@ namespace Basketball_YG.Mediator
             _ballDistributer = ballDistributer;
             _healthBar = healthBar;
             _scoreCounter = scoreCounter;
+            _platformMovement = platformMovement;
         }
 
         public override void Enable()

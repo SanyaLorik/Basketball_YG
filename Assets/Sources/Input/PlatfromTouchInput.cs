@@ -55,6 +55,7 @@ namespace Basketball_YG.Input
         public void Disable()
         {
             _isEnabled = false;
+            Reset();
         }
 
         public void OnPointerClick(BaseEventData eventData)
@@ -75,6 +76,11 @@ namespace Basketball_YG.Input
             var ray = _camera.ScreenPointToRay(screenPosition);
             if (Physics.Raycast(ray, out RaycastHit hit, GameConstants.MaxDistanceRaycasting, _wallMask) == true)
                 TargetX = hit.point.x;
+        }
+
+        private void Reset()
+        {
+            TargetX = 0;
         }
     }
 }
