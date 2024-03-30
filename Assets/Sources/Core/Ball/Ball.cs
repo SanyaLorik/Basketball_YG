@@ -1,6 +1,7 @@
 ﻿using Basketball_YG.Model.Signal;
 using Basketball_YG.Wrapper;
 using System;
+using System.Diagnostics;
 using Zenject;
 
 namespace Basketball_YG.Core
@@ -41,6 +42,16 @@ namespace Basketball_YG.Core
         {
             _movement.Dispose();
             _wrapper.Destroy();
+        }
+
+        public void Show()
+        {
+            _wrapper.Show();
+        }
+
+        public void Hide()
+        {
+            _wrapper.Hide();
         }
 
         private void OnRebound(CollisionData data)

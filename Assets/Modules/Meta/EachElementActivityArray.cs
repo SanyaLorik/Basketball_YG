@@ -31,6 +31,7 @@ namespace SanyaBeer.Meta
 
         public void HideAll()
         {
+            _index = _elements.Length - 1;
             for (int i = 0; i < _elements.Length; i++)
                 _elements[i].SetActive(false);
         }

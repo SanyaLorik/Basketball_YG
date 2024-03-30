@@ -1,4 +1,5 @@
 ﻿using Basketball_YG.Model.Signal;
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using Zenject;
@@ -53,9 +54,7 @@ namespace Basketball_YG.Core
         {
             for (int i = _balls.Count - 1; i >= 0; i--)
             {
-                //_balls[i].Dispose();
                 _balls[i].Destroy();
-
                 _balls.RemoveAt(i);
             }
         }
@@ -63,9 +62,12 @@ namespace Basketball_YG.Core
         private void Distribute()
         {
             Ball ball = _factory.Create(BallType.Normal);
+            ball.Hide();
+
             _launcher.Launch(ball);
 
             _balls.Add(ball);
+            ball.Show();
         }
 
         private void OnAddBall()

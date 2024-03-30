@@ -56,5 +56,15 @@ namespace Basketball_YG.Wrapper
         {
             Destroy(gameObject);
         }
+
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

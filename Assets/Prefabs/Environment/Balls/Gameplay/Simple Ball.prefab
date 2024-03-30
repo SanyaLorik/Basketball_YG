@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2403419791905397413}
   - component: {fileID: 5834723894694040775}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ TrailRenderer:
   m_GameObject: {fileID: 8902690222543084}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 0
@@ -76,7 +76,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.22
+  m_Time: 0.18
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 3841741221077468757}
   - component: {fileID: 3166596380263746967}
   - component: {fileID: 8386818603648600353}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Simple Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2378943560945271890}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,6 +353,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 858f3501f73f63240a0a8ad5c2e85665, type: 3}
       propertyPath: m_Name
       value: lowpolyball
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 858f3501f73f63240a0a8ad5c2e85665, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
