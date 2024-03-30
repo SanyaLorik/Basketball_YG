@@ -1,5 +1,6 @@
 ﻿using Basketball_YG.Model.Signal;
 using System;
+using System.Collections.Generic;
 using Zenject;
 
 namespace Basketball_YG.Core
@@ -10,6 +11,7 @@ namespace Basketball_YG.Core
         private readonly BallFactory _factory;
         private readonly BallLauncher _launcher;
 
+        private readonly List<Ball> _balls = new();
         private bool _isDistributing = false;
 
         /*
@@ -47,10 +49,23 @@ namespace Basketball_YG.Core
             _isDistributing = false;
         }
 
+        public void RemoveBalls()
+        {
+            for (int i = _balls.Count - 1; i >= 0; i--)
+            {
+                //_balls[i].Dispose();
+                _balls[i].Destroy();
+
+                _balls.RemoveAt(i);
+            }
+        }
+
         private void Distribute()
         {
             Ball ball = _factory.Create(BallType.Normal);
             _launcher.Launch(ball);
+
+            _balls.Add(ball);
         }
 
         private void OnAddBall()

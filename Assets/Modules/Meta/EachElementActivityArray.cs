@@ -24,6 +24,7 @@ namespace SanyaBeer.Meta
 
         public void ShowAll()
         {
+            _index = 0;
             for (int i = 0; i < _elements.Length; i++)
                 _elements[i].SetActive(true);
         }

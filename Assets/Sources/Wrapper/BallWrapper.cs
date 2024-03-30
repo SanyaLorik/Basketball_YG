@@ -50,7 +50,11 @@ namespace Basketball_YG.Wrapper
         {
             _isDetecting = false;
             OnScored?.Invoke();
-            Debug.Log("Ball is off");
+        }
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
         }
     }
 }

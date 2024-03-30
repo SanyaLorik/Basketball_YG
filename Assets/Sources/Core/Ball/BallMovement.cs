@@ -32,7 +32,7 @@ namespace Basketball_YG.Core
 
         public void Rebound(CollisionData data)
         {
-            _tokenSource.Cancel();
+            _tokenSource?.Cancel();
 
             PathSet pathSet = data;
             RunPath(pathSet);
@@ -61,7 +61,7 @@ namespace Basketball_YG.Core
                 Vector3 position = Vector3.Lerp(pathSet.Initial.Value, pathSet.Final.Value, ratio);
                 position.y += evaluatedPosition * pathSet.Height.Value;
 
-                _model.SetPosition(position);
+                _model?.SetPosition(position);
 
                 float evaluatedSpeed = pathSet.Speed.Evaluate(ratio);
                 extendedTime += Time.deltaTime * evaluatedSpeed;

@@ -36,7 +36,7 @@ namespace Basketball_YG.Core
             Ball ball = new(wrapper, movement, _signalBus);
 
             ball.Initialize();
-            _disposableManagement.AddDisposable(ball, movement);
+            //_disposableManagement.AddDisposable(ball, movement);
 
             return ball;
         }

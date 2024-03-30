@@ -219,14 +219,11 @@ namespace Basketball_YG.Installer
             Container
                 .Bind<EachElementActivityArray>()
                 .WithId(GameConstants.HealthBarElementArray)
-                .FromInstance(_iconHearth);
-
-            Container
-                .Bind<HealthBar>()
+                .FromInstance(_iconHearth)
                 .AsCached();
 
             Container
-                .BindInterfacesTo<HealthBar>()
+                .BindInterfacesAndSelfTo<HealthBar>()
                 .AsCached();
         }
 

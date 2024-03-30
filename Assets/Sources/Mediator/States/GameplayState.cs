@@ -5,6 +5,7 @@ using Basketball_YG.Counter;
 using Basketball_YG.Input;
 using Cysharp.Threading.Tasks;
 using SanyaBeer.Meta;
+using UnityEngine;
 using Zenject;
 
 namespace Basketball_YG.Mediator
@@ -19,7 +20,6 @@ namespace Basketball_YG.Mediator
         private readonly BallDistributer _ballDistributer;
         private readonly HealthBar _healthBar;
         private readonly MatchScoreCounter _scoreCounter;
-        private readonly PlatformMovement _platformMovement;
 
         public GameplayState(
             [InjectOptional(Optional = true, Id = GameConstants.UiGameplayMenu)]
@@ -33,8 +33,7 @@ namespace Basketball_YG.Mediator
             BallDistributer ballDistributer,
             HealthBar healthBar,
             [InjectOptional(Optional = true, Id = GameConstants.MatchScoreCounter)]
-            MatchScoreCounter scoreCounter,
-            PlatformMovement platformMovement)
+            MatchScoreCounter scoreCounter)
         {
             _uiGameplayMenuActivity = uiGameplayMenuActivity;
             _timerActivity = timerActivity;
@@ -44,7 +43,6 @@ namespace Basketball_YG.Mediator
             _ballDistributer = ballDistributer;
             _healthBar = healthBar;
             _scoreCounter = scoreCounter;
-            _platformMovement = platformMovement;
         }
 
         public override void Enable()
@@ -72,6 +70,7 @@ namespace Basketball_YG.Mediator
             _prestartActivities.Hide();
             _activityInput.Disable();
             _ballDistributer.Stop();
+            _ballDistributer.RemoveBalls();
             _healthBar.Reload();
             _scoreCounter.Reload();
         }

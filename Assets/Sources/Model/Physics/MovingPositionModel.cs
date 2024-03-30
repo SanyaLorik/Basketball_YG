@@ -7,7 +7,6 @@ namespace Basketball_YG.Model
     public class MovingPositionModel
     {
         private readonly MovingPositionView _view;
-        private Vector3 _last;
 
         public MovingPositionModel(MovingPositionView view)
         {
@@ -20,9 +19,8 @@ namespace Basketball_YG.Model
 
         public void SetPosition(Vector3 position)
         {
-            _last = Position;
             Position = position;
-            _view.SetPosition(position);
+            _view?.SetPosition(position);
         }
     }
 }

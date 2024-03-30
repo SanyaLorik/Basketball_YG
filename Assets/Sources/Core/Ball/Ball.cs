@@ -37,6 +37,12 @@ namespace Basketball_YG.Core
             _movement.RunPath(pathSet);
         }
 
+        public void Destroy()
+        {
+            _movement.Dispose();
+            _wrapper.Destroy();
+        }
+
         private void OnRebound(CollisionData data)
         {
             _movement.Rebound(data);

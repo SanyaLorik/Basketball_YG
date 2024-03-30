@@ -55,7 +55,7 @@ namespace Basketball_YG.Input
         public void Disable()
         {
             _isEnabled = false;
-            Reset();
+            ResetTarget();
         }
 
         public void OnPointerClick(BaseEventData eventData)
@@ -78,7 +78,7 @@ namespace Basketball_YG.Input
                 TargetX = hit.point.x;
         }
 
-        private void Reset()
+        private void ResetTarget()
         {
             TargetX = 0;
         }

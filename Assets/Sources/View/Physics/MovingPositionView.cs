@@ -14,7 +14,8 @@ namespace Basketball_YG.View
 
         public void SetPosition(Vector3 position)
         {
-            _rigidbody.MovePosition(position);
+            if (_rigidbody != null)
+                _rigidbody.MovePosition(position);
         }
     }
 }
