@@ -3,14 +3,16 @@ using Basketball_YG.Config;
 using Basketball_YG.Core;
 using Basketball_YG.Counter;
 using Basketball_YG.Input;
+using Basketball_YG.Model.Signal;
 using Cysharp.Threading.Tasks;
 using SanyaBeer.Meta;
+using System;
 using UnityEngine;
 using Zenject;
 
 namespace Basketball_YG.Mediator
 {
-    public class GameplayState : State
+    public class GameplayState : State, IInitializable, IDisposable
     {
         private readonly IMenuActivity _uiGameplayMenuActivity;
         private readonly IActivityInputService _activityInput;
@@ -20,6 +22,7 @@ namespace Basketball_YG.Mediator
         private readonly BallDistributer _ballDistributer;
         private readonly HealthBar _healthBar;
         private readonly MatchScoreCounter _scoreCounter;
+        private readonly SignalBus _signalBus;
 
         public GameplayState(
             [InjectOptional(Optional = true, Id = GameConstants.UiGameplayMenu)]
@@ -33,7 +36,8 @@ namespace Basketball_YG.Mediator
             BallDistributer ballDistributer,
             HealthBar healthBar,
             [InjectOptional(Optional = true, Id = GameConstants.MatchScoreCounter)]
-            MatchScoreCounter scoreCounter)
+            MatchScoreCounter scoreCounter,
+            SignalBus signalBus)
         {
             _uiGameplayMenuActivity = uiGameplayMenuActivity;
             _timerActivity = timerActivity;
@@ -43,6 +47,7 @@ namespace Basketball_YG.Mediator
             _ballDistributer = ballDistributer;
             _healthBar = healthBar;
             _scoreCounter = scoreCounter;
+            _signalBus = signalBus;
         }
 
         public override void Enable()
@@ -73,6 +78,26 @@ namespace Basketball_YG.Mediator
             _ballDistributer.RemoveBalls();
             _healthBar.Reload();
             _scoreCounter.Reload();
+        }
+
+        public void Initialize()
+        {
+            _signalBus.Subscribe<PauseSingal>(OnPause);
+        }
+
+        public void Dispose()
+        {
+            _signalBus.Unsubscribe<PauseSingal>(OnPause);
+        }
+
+        private void OnPause(PauseSingal pauseSingal)
+        {
+            if (pauseSingal.Type == PauseSingal.PauseType.Pause)
+                _ballDistributer.Pause();
+
+
+            if (pauseSingal.Type == PauseSingal.PauseType.Unpause)
+                _ballDistributer.Unpause();
         }
     }
 }

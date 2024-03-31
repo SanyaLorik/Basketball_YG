@@ -1,4 +1,5 @@
 ﻿using Basketball_YG.Config;
+using Basketball_YG.Model.Signal;
 using SanyaBeer.Meta;
 using System;
 using Zenject;
@@ -36,6 +37,7 @@ namespace Basketball_YG.CompositeRoot
         private void OnPause()
         {
             _pauseMenu.Show();
+            SignalBus.Fire(new PauseSingal(PauseSingal.PauseType.Pause));
         }
     }
 }

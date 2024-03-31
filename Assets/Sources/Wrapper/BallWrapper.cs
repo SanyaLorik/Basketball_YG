@@ -66,5 +66,15 @@ namespace Basketball_YG.Wrapper
         {
             gameObject.SetActive(false);
         }
+
+        public void Pause()
+        {
+            Rigidbody.isKinematic = true;
+        }
+
+        public void Unpause()
+        {
+            Rigidbody.isKinematic = false;
+        }
     }
 }

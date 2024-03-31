@@ -13,12 +13,12 @@ namespace Basketball_YG.CompositeRoot
             _close = close;
         }
 
-        public void Initialize()
+        public virtual void Initialize()
         {
             _close.AddListner(OnClose);
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             _close.RemoveListener(OnClose);
         }

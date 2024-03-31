@@ -69,5 +69,17 @@ namespace Basketball_YG.Core
         {
             _signalBus.Fire(new MissBallSignal());
         }
+
+        public void Pause()
+        {
+            _movement.Pause();
+            _wrapper.Pause();
+        }
+
+        public void Unpause()
+        {
+            _movement.Unpause();
+            _wrapper.Unpause();
+        }
     }
 }

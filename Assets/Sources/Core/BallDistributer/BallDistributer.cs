@@ -1,5 +1,4 @@
 ﻿using Basketball_YG.Model.Signal;
-using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using Zenject;
@@ -48,6 +47,18 @@ namespace Basketball_YG.Core
         public void Stop()
         {
             _isDistributing = false;
+        }
+
+        public void Pause()
+        {
+            foreach (var ball in _balls)
+                ball.Pause();
+        }
+
+        public void Unpause()
+        {
+            foreach (var ball in _balls)
+                ball.Unpause();
         }
 
         public void RemoveBalls()

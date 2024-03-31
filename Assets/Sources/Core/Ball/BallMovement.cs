@@ -16,6 +16,7 @@ namespace Basketball_YG.Core
         private readonly RangeValues _range;
 
         private CancellationTokenSource _tokenSource;
+        private bool _isPaused = false;
 
         public BallMovement(MovingPositionModel model, BoundPointsCalcualor boundCalcualor, RangeValues range)
         {
@@ -50,6 +51,16 @@ namespace Basketball_YG.Core
             FollowPath(pathSet, _tokenSource.Token).Forget();
         }
 
+        public void Pause()
+        {
+            _isPaused = true;
+        }
+
+        public void Unpause()
+        {
+            _isPaused = false;
+        }
+
         private async UniTaskVoid FollowPath(PathSet pathSet, CancellationToken token)
         {
             float extendedTime = 0;
@@ -67,6 +78,7 @@ namespace Basketball_YG.Core
                 extendedTime += Time.deltaTime * evaluatedSpeed;
 
                 await UniTask.Yield(cancellationToken: token);
+                await UniTask.WaitWhile(() => _isPaused == true);
             }
             while (extendedTime < pathSet.Duration && token.IsCancellationRequested == false);
         }

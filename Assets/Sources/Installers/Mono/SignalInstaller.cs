@@ -14,6 +14,7 @@ namespace Basketball_YG.Installer
             BindScoreState();
             BindMissedBall();
             BindNoneHeartBall();
+            BindPause();
         }
 
         private void BindSwitchState()
@@ -41,6 +42,13 @@ namespace Basketball_YG.Installer
         {
             Container
                 .DeclareSignal<NoneHeartSignal>()
+                .OptionalSubscriber();
+        }
+
+        private void BindPause()
+        {
+            Container
+                .DeclareSignal<PauseSingal>()
                 .OptionalSubscriber();
         }
     }

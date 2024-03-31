@@ -1,4 +1,5 @@
-﻿using Basketball_YG.Config;
+﻿using Basketball_YG.CompositeRoot;
+using Basketball_YG.Config;
 using Basketball_YG.Mediator;
 using Zenject;
 
@@ -29,6 +30,10 @@ namespace Basketball_YG.Installer
                 .Bind<IState>()
                 .WithId(GameConstants.StateGameplay)
                 .To<GameplayState>()
+                .AsCached();
+
+            Container
+                .BindInterfacesTo<GameplayState>()
                 .AsCached();
         }
 
