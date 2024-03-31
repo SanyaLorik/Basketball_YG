@@ -47,7 +47,10 @@ namespace Basketball_YG.Mediator
         {
             if (next.State == _current.GetType())
             {
-                Debug.LogWarning($"This state {next.State} is already set.");
+                Debug.Log($"Reload state {_current}.");
+                _current.Disable();
+                _current.Enable();
+
                 return;
             }
 

@@ -78,7 +78,9 @@ namespace Basketball_YG.Core
                 extendedTime += Time.deltaTime * evaluatedSpeed;
 
                 await UniTask.Yield(cancellationToken: token);
-                await UniTask.WaitWhile(() => _isPaused == true);
+
+                if (_isPaused == true)
+                    await UniTask.WaitWhile(() => _isPaused == true);
             }
             while (extendedTime < pathSet.Duration && token.IsCancellationRequested == false);
         }

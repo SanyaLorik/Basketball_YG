@@ -1413,6 +1413,10 @@ MonoBehaviour:
     _menu: {fileID: 1263742293}
   _closePauseMenuButton:
     _clicked: {fileID: 1692370930}
+  _continuePauseMenuButton:
+    _clicked: {fileID: 1989876718}
+  _restartPauseMenuButton:
+    _clicked: {fileID: 942898389}
   _ballStoreMenuActivity:
     _menu: {fileID: 732249417}
   _ballStoreSelectedActivity:
@@ -8164,6 +8168,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5985929234769663332, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
   m_PrefabInstance: {fileID: 942898387}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &942898389 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7178467674647797253, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
+  m_PrefabInstance: {fileID: 942898387}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba89156f073153947bc549168bf523c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &945009958
 GameObject:
   m_ObjectHideFlags: 0
@@ -16096,6 +16111,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5985929234769663332, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
   m_PrefabInstance: {fileID: 1989876716}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1989876718 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7178467674647797253, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
+  m_PrefabInstance: {fileID: 1989876716}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba89156f073153947bc549168bf523c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2002660678
 GameObject:
   m_ObjectHideFlags: 0

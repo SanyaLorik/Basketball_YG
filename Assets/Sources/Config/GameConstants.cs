@@ -69,6 +69,8 @@
         public const string UiPauseMenu = "UiPauseMenu";
         public const string UiPauseMenuActivity = "UiPauseMenuActivity";
         public const string UiButtonClosePauseMenu = "UiButtonClosePauseMenu";
+        public const string UiButtonContinuePauseMenu = "UiButtonContinuePauseMenu";
+        public const string UiButtonRestartPauseMenu = "UiButtonRestartPauseMenu";
 
         // Ui Ball Skin Menu
         public const string UiBallStoreMenu = "UiBallStoreMenu";
