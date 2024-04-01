@@ -75,11 +75,11 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Lumin: 0
+    - _Lumin: 0.68
     - _MaxAtten: 1
-    - _MaxLight: 1
+    - _MaxLight: 0
     - _Metallic: 0
-    - _MinLight: 0.13
+    - _MinLight: 1
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 0
@@ -105,7 +105,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Steps: 6.6
-    - _StpSmooth: 0.486
+    - _StpSmooth: 0.5
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
