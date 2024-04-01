@@ -27,7 +27,10 @@ namespace Basketball_YG.Installer
 
         private void RealConnetionBind()
         {
-            throw new NotImplementedException();
+            Container
+                .Bind<IContectionStatus>()
+                .To<YandexConnectionStatus>()
+                .AsCached();
         }
     }
 }
