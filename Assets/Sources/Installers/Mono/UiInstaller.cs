@@ -10,6 +10,9 @@ namespace Basketball_YG.Installer
 {
     public class UiInstaller : MonoInstaller
     {
+        [Header("Boostrap Menu")]
+        [SerializeField] private ElementActivity _boostrapMenuActivity;
+
         [Header("Main Menu")]
         [SerializeField] private ClickedCallback _startMathButton;
         [SerializeField] private ClickedCallback _skinStoreButton;
@@ -86,6 +89,7 @@ namespace Basketball_YG.Installer
 
         public override void InstallBindings()
         {
+            BindBoostrapMenu();
             BindMainMenu();
             BindSettingsMenu();
             BindGameplayMenu();
@@ -96,6 +100,25 @@ namespace Basketball_YG.Installer
             BindEndMenu();
             BindSubendMenu();
             BindSpeedometrReward();
+        }
+
+        private void BindBoostrapMenu()
+        {
+            Container
+                .Bind<ElementActivity>()
+                .WithId(GameConstants.UiBoostrapMenuActivity)
+                .FromInstance(_boostrapMenuActivity)
+                .AsCached();
+
+            Container
+                .Bind<IMenuActivity>()
+                .WithId(GameConstants.UiBoostrapMenu)
+                .To<BoostrapMenu>()
+                .AsCached();
+
+            Container
+                .BindInterfacesTo<BoostrapMenu>()
+                .AsCached();
         }
 
         private void BindMainMenu()
