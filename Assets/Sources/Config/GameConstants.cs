@@ -40,6 +40,10 @@
         // Defualt Ui
         public const string DefualtScoreCounter = "0";
 
+        // Ui Boostrap Menu
+        public const string UiBoostrapMenuActivity = "UiBoostrapMenuActivity";
+        public const string UiBoostrapMenu = "UiBoostrapMenu";
+
         // Ui Main Menu
         public const string UiButtonStartMath = "UiButtonStartMath";
         public const string UiButtonBallStore = "UiButtonBallStore";

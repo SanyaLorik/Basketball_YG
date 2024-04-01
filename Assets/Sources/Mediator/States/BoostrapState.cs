@@ -1,4 +1,6 @@
-﻿using Basketball_YG.Model.Signal;
+﻿using Basketball_YG.CompositeRoot;
+using Basketball_YG.Config;
+using Basketball_YG.Model.Signal;
 using Basketball_YG.Sdk;
 using Cysharp.Threading.Tasks;
 using Zenject;
@@ -9,11 +11,16 @@ namespace Basketball_YG.Mediator
     {
         private readonly SignalBus _signalBus;
         private readonly IContectionStatus _contectionStatus;
+        private readonly IMenuActivity _boostrapMenu;
 
-        public BoostrapState(SignalBus signalBus, IContectionStatus contectionStatus)
+        public BoostrapState(SignalBus signalBus,
+            IContectionStatus contectionStatus,
+            [InjectOptional(Optional = true, Id = GameConstants.UiBoostrapMenu)]
+            IMenuActivity boostrapMenu)
         {
             _signalBus = signalBus;
             _contectionStatus = contectionStatus;
+            _boostrapMenu = boostrapMenu;
         }
         public override void Enable()
         {
@@ -27,7 +34,7 @@ namespace Basketball_YG.Mediator
 
         public override void Disable()
         {
-            throw new System.NotImplementedException();
+            _boostrapMenu.Hide();
         }
     }
 }

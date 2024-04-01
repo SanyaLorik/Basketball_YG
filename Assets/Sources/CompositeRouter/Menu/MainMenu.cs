@@ -7,6 +7,7 @@ using Zenject;
 
 namespace Basketball_YG.CompositeRoot
 {
+
     public class MainMenu : Menu, IInitializable, IDisposable
     {
         private readonly ClickedCallback _startMath;
