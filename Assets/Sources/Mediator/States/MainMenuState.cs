@@ -4,6 +4,7 @@ using Zenject;
 
 namespace Basketball_YG.Mediator
 {
+
     public class MainMenuState : State
     {
         private readonly IMenuActivity _uiMainMenuActivity;

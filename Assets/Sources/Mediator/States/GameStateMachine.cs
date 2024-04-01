@@ -15,6 +15,7 @@ namespace Basketball_YG.Mediator
         private readonly SignalBus _signalBus;
 
         public GameStateMachine(
+             [InjectOptional(Optional = true, Id = GameConstants.BoostrapMenu)] IState boostrapMenu,
              [InjectOptional(Optional = true, Id = GameConstants.StateMainMenu)] IState mainMenu,
              [InjectOptional(Optional = true, Id = GameConstants.StateGameplay)] IState stateGameplay,
              [InjectOptional(Optional = true, Id = GameConstants.StateEnd)] IState end,
@@ -22,6 +23,7 @@ namespace Basketball_YG.Mediator
         {
             _states = new Dictionary<Type, IState>()
             {
+                [typeof(BoostrapState)] = boostrapMenu,
                 [typeof(MainMenuState)] = mainMenu,
                 [typeof(GameplayState)] = stateGameplay,
                 [typeof(EndState)] = end
@@ -34,7 +36,7 @@ namespace Basketball_YG.Mediator
         {
             _signalBus.Subscribe<StateSignal>(OnSwitch);
 
-            _current = _states[typeof(MainMenuState)];
+            _current = _states[typeof(BoostrapState)];
             _current.Enable();
         }
 

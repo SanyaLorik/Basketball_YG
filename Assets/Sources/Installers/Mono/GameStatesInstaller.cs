@@ -1,5 +1,4 @@
-﻿using Basketball_YG.CompositeRoot;
-using Basketball_YG.Config;
+﻿using Basketball_YG.Config;
 using Basketball_YG.Mediator;
 using Zenject;
 
@@ -9,10 +8,20 @@ namespace Basketball_YG.Installer
     {
         public override void InstallBindings()
         {
+            BindBoostrapState();
             BindMainMenuState();
             BindGameplayState();
             BindEndState();
             BindGameStateMachine();
+        }
+
+        private void BindBoostrapState()
+        {
+            Container
+                .Bind<IState>()
+                .WithId(GameConstants.BoostrapMenu)
+                .To<BoostrapState>()
+                .AsCached();
         }
 
         private void BindMainMenuState()

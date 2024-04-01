@@ -133,6 +133,7 @@
         public const string MoneyMatch = "MoneyMatch";
 
         // States
+        public const string BoostrapMenu = "BoostrapMenu";
         public const string StateMainMenu = "StateMainMenu";
         public const string StateGameplay = "StateGameplay";
         public const string StateEnd = "StateEnd";
