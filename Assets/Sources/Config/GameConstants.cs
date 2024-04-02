@@ -91,6 +91,7 @@
         public const string UiBallStoreVideoActivity = "UiBallStoreVideoActivity";
         public const string UiBallStoreNamingText = "UiBallStoreNamingText";
         public const string UiBallStoreMoneyText = "UiBallStoreMoneyText";
+        public const string UiBallStoreTotalMoneyText = "UiBallStoreTotalMoneyText";
         public const string UiBallStoreSkinPriceText = "UiBallStoreSkinPriceText";
 
         // Ui Site Skin Menu
@@ -107,6 +108,7 @@
         public const string UiSiteStoreVideoActivity = "UiSiteStoreVideoActivity";
         public const string UiSiteStoreNamingText = "UiSiteStoreNamingText";
         public const string UiSiteStoreMoneyText = "UiSiteStoreMoneyText";
+        public const string UiSiteStoreTotalMoneyText = "UiSiteStoreTotalMoneyText";
         public const string UiSiteStoreSkinPriceText = "UiSiteStoreSkinPriceText";
 
         // Ui Extralife Menu

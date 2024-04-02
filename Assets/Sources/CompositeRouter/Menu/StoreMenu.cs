@@ -1,4 +1,5 @@
 ﻿using Basketball_YG.Core;
+using Basketball_YG.Model.Signal;
 using SanyaBeer.Meta;
 using System;
 using Zenject;
@@ -13,6 +14,7 @@ namespace Basketball_YG.CompositeRoot
         private readonly ClickedCallback _boughtButton;
         private readonly ClickedCallback _videoButton;
         private readonly ClickedCallback _menuButton;
+        private readonly TextSetup _totalMoney;
         private readonly SkinSelector _skinSelector;
 
         public StoreMenu(
@@ -24,6 +26,7 @@ namespace Basketball_YG.CompositeRoot
             ClickedCallback boughtButton,
             ClickedCallback videoButton,
             ClickedCallback menuButton,
+            TextSetup totalMoney,
             SkinSelector skinSelector) : base(signalBus, activity)
         {
             _nextButton = nextButton;
@@ -32,6 +35,7 @@ namespace Basketball_YG.CompositeRoot
             _menuButton = menuButton;
             _boughtButton = boughtButton;
             _videoButton = videoButton;
+            _totalMoney = totalMoney;
             _skinSelector = skinSelector;
         }
 
@@ -43,6 +47,8 @@ namespace Basketball_YG.CompositeRoot
             _boughtButton.AddListner(OnBuyForMoney);
             _videoButton.AddListner(OnBuyForVideo);
             _menuButton.AddListner(OnBackToMenu);
+
+            SignalBus.Subscribe<TotalMoneySignal>(OnUpdateText);
         }
 
         public void Dispose()
@@ -53,6 +59,8 @@ namespace Basketball_YG.CompositeRoot
             _boughtButton.RemoveListener(OnBuyForMoney);
             _videoButton.RemoveListener(OnBuyForVideo);
             _menuButton.RemoveListener(OnBackToMenu);
+
+            SignalBus.Unsubscribe<TotalMoneySignal>(OnUpdateText);
         }
 
         public override void Show()
@@ -89,6 +97,11 @@ namespace Basketball_YG.CompositeRoot
         private void OnBackToMenu()
         {
             Hide();
+        }
+
+        private void OnUpdateText(TotalMoneySignal totalMoney)
+        {
+            _totalMoney.SetText(totalMoney.TotalMoney.ToString());
         }
     }
 }

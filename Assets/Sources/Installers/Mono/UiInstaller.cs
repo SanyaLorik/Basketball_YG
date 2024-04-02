@@ -53,6 +53,7 @@ namespace Basketball_YG.Installer
         [SerializeField] private ClickedCallback _ballStoreMenuButton;
         [SerializeField] private TextSetup _ballStoreNamingText;
         [SerializeField] private TextSetup _ballStoreMoneyText;
+        [SerializeField] private TextSetup _ballStoreTotalMoneyText;
         [SerializeField] private TextSetup _ballStoreSkinPriceText;
 
         [Header("Site Store Menu")]
@@ -68,6 +69,7 @@ namespace Basketball_YG.Installer
         [SerializeField] private ClickedCallback _siteStoreMenuButton;
         [SerializeField] private TextSetup _siteStoreNamingText;
         [SerializeField] private TextSetup _siteStoreMoneyText;
+        [SerializeField] private TextSetup _siteStoreTotalMoneyText;
         [SerializeField] private TextSetup _siteStoreSkinPriceText;
 
         [Header("Extralife Menu")]
@@ -372,6 +374,12 @@ namespace Basketball_YG.Installer
 
             Container
                 .Bind<TextSetup>()
+                .WithId(GameConstants.UiBallStoreTotalMoneyText)
+                .FromInstance(_ballStoreTotalMoneyText)
+                .AsCached();
+
+            Container
+                .Bind<TextSetup>()
                 .WithId(GameConstants.UiBallStoreSkinPriceText)
                 .FromInstance(_ballStoreSkinPriceText)
                 .AsCached();
@@ -460,6 +468,13 @@ namespace Basketball_YG.Installer
                 .Bind<TextSetup>()
                 .WithId(GameConstants.UiSiteStoreMoneyText)
                 .FromInstance(_siteStoreMoneyText)
+                .AsCached();
+
+
+            Container
+                .Bind<TextSetup>()
+                .WithId(GameConstants.UiSiteStoreTotalMoneyText)
+                .FromInstance(_siteStoreTotalMoneyText)
                 .AsCached();
 
             Container

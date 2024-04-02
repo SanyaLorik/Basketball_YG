@@ -7532,6 +7532,8 @@ MonoBehaviour:
     _text: {fileID: 3478792429455801752}
   _ballStoreMoneyText:
     _text: {fileID: 2699629947177798599}
+  _ballStoreTotalMoneyText:
+    _text: {fileID: 2699629947177798599}
   _ballStoreSkinPriceText:
     _text: {fileID: 4010146914237846151}
   _siteStoreMenuActivity:
@@ -7557,6 +7559,8 @@ MonoBehaviour:
   _siteStoreNamingText:
     _text: {fileID: 3351911047870468891}
   _siteStoreMoneyText:
+    _text: {fileID: 2974436367463449310}
+  _siteStoreTotalMoneyText:
     _text: {fileID: 2974436367463449310}
   _siteStoreSkinPriceText:
     _text: {fileID: 1195998802786579050}
