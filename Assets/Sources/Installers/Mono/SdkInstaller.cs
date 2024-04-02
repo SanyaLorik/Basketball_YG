@@ -12,9 +12,17 @@ namespace Basketball_YG.Installer
         public override void InstallBindings()
         {
             if (_hasSdk == true)
+            {
                 RealConnetionBind();
+                RealMoneyReciver();
+                RealMoneySender();
+            }
             else
+            {
                 FakeConnectionBind();
+                FakeMoneyReciver();
+                FakeMoneySender();
+            }
         }
 
         private void FakeConnectionBind()
@@ -25,12 +33,38 @@ namespace Basketball_YG.Installer
                 .AsCached();
         }
 
+        private void FakeMoneyReciver()
+        {
+            Container
+                .Bind<IMoneyReciver>()
+                .To<IMoneyReciver>()
+                .AsCached();
+        }
+
+        private void FakeMoneySender()
+        {
+            Container
+                .Bind<IMoneySender>()
+                .To<FakeMoneySender>()
+                .AsCached();
+        }
+
         private void RealConnetionBind()
         {
             Container
                 .Bind<IContectionStatus>()
                 .To<YandexConnectionStatus>()
                 .AsCached();
+        }
+
+        private void RealMoneyReciver()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void RealMoneySender()
+        {
+            throw new NotImplementedException();
         }
     }
 }
