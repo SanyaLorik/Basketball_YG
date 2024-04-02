@@ -7,7 +7,6 @@ using Zenject;
 
 namespace Basketball_YG.CompositeRoot
 {
-
     public class MainMenu : Menu, IInitializable, IDisposable
     {
         private readonly ClickedCallback _startMath;
@@ -15,6 +14,7 @@ namespace Basketball_YG.CompositeRoot
         private readonly ClickedCallback _siteStore;
         private readonly ClickedCallback _settingsOpener;
         private readonly ClickedCallback _gameSharing;
+        private readonly TextSetup _moneyText;
         private readonly IMenuActivity _ballStoreMenu;
         private readonly IMenuActivity _siteStoreMenu;
         private readonly IMenuActivity _settingMenu;
@@ -33,6 +33,8 @@ namespace Basketball_YG.CompositeRoot
             ClickedCallback settingsOpener,
             [InjectOptional(Optional = true, Id = GameConstants.UiButtonGameSharing)]
             ClickedCallback gameSharing,
+            [InjectOptional(Optional = true, Id = GameConstants.UiMainMenuMoneyText)]
+            TextSetup moneyText,
             [InjectOptional(Optional = true, Id = GameConstants.UiBallStoreMenu)]
             IMenuActivity ballStoreMenu,
             [InjectOptional(Optional = true, Id = GameConstants.UiSiteStoreMenu)]
@@ -48,6 +50,7 @@ namespace Basketball_YG.CompositeRoot
             _ballStoreMenu = ballStoreMenu;
             _siteStoreMenu = siteStoreMenu;
             _settingMenu = settingMenu;
+            _moneyText = moneyText;
         }
 
         public void Initialize()
@@ -57,6 +60,8 @@ namespace Basketball_YG.CompositeRoot
             _siteStore.AddListner(OnOpenSiteStore);
             _settingsOpener.AddListner(OnOpenSettings);
             _gameSharing.AddListner(OnShareGame);
+
+            SignalBus.Subscribe<TotalMoneySignal>(OnUpdateText);
         }
 
         public void Dispose()
@@ -66,6 +71,8 @@ namespace Basketball_YG.CompositeRoot
             _siteStore.RemoveListener(OnOpenSiteStore);
             _settingsOpener.RemoveListener(OnOpenSettings);
             _gameSharing.RemoveListener(OnShareGame);
+
+            SignalBus.Unsubscribe<TotalMoneySignal>(OnUpdateText);
         }
 
         private void OnStartMath()
@@ -91,6 +98,11 @@ namespace Basketball_YG.CompositeRoot
         private void OnShareGame()
         {
             throw new NotImplementedException();
+        }
+
+        private void OnUpdateText(TotalMoneySignal totalMoney)
+        {
+            _moneyText.SetText(totalMoney.TotalMoney.ToString());
         }
     }
 }

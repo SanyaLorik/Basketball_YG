@@ -1,5 +1,4 @@
 ﻿using Basketball_YG.Model.Signal;
-using System;
 using Zenject;
 
 namespace Basketball_YG.Installer
@@ -15,6 +14,7 @@ namespace Basketball_YG.Installer
             BindMissedBall();
             BindNoneHeartBall();
             BindPause();
+            BindMoney();
         }
 
         private void BindSwitchState()
@@ -49,6 +49,13 @@ namespace Basketball_YG.Installer
         {
             Container
                 .DeclareSignal<PauseSingal>()
+                .OptionalSubscriber();
+        }
+
+        private void BindMoney()
+        {
+            Container
+                .DeclareSignal<TotalMoneySignal>()
                 .OptionalSubscriber();
         }
     }
