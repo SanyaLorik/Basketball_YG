@@ -28,24 +28,21 @@ namespace Basketball_YG.Installer
         private void FakeConnectionBind()
         {
             Container
-                .Bind<IContectionStatus>()
-                .To<FakeConnectionStatus>()
+                .BindInterfacesAndSelfTo<FakeConnectionStatus>()
                 .AsCached();
         }
 
         private void FakeMoneyReciver()
         {
             Container
-                .Bind<IMoneyReciver>()
-                .To<IMoneyReciver>()
+                .BindInterfacesAndSelfTo<FakeMoneyReciver>()
                 .AsCached();
         }
 
         private void FakeMoneySender()
         {
             Container
-                .Bind<IMoneySender>()
-                .To<FakeMoneySender>()
+                .BindInterfacesAndSelfTo<FakeMoneySender>()
                 .AsCached();
         }
 
