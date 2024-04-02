@@ -23,9 +23,11 @@ namespace Basketball_YG.CompositeRoot
             ClickedCallback videoButton,
             [InjectOptional(Optional = true, Id = GameConstants.UiSiteStoreMenuButton)]
             ClickedCallback menuButton,
+            [InjectOptional(Optional = true, Id = GameConstants.UiSiteStoreTotalMoneyText)]
+            TextSetup totalMoney,
             [InjectOptional(Optional = true, Id = GameConstants.SiteSkinSelector)]
             SkinSelector skinSelector) :
-            base(signalBus, activity, nextButton, backButton, selectedButton, boughtButton, videoButton, menuButton, skinSelector)
+            base(signalBus, activity, nextButton, backButton, selectedButton, boughtButton, videoButton, menuButton, totalMoney, skinSelector)
         {
 
         }
