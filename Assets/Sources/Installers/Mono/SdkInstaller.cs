@@ -49,19 +49,22 @@ namespace Basketball_YG.Installer
         private void RealConnetionBind()
         {
             Container
-                .Bind<IContectionStatus>()
-                .To<YandexConnectionStatus>()
+                .BindInterfacesAndSelfTo<YandexConnectionStatus>()
                 .AsCached();
         }
 
         private void RealMoneyReciver()
         {
-            throw new NotImplementedException();
+            Container
+                .BindInterfacesAndSelfTo<YandexMoneyReciver>()
+                .AsCached();
         }
 
         private void RealMoneySender()
         {
-            throw new NotImplementedException();
+            Container
+                .BindInterfacesAndSelfTo<YandexMoneySender>()
+                .AsCached();
         }
     }
 }
