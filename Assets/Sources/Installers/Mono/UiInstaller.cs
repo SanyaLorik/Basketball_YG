@@ -84,6 +84,7 @@ namespace Basketball_YG.Installer
         [SerializeField] private ElementActivity _subendMenuActivity;
         [SerializeField] private ClickedCallback _subendMenuHomeButton;
         [SerializeField] private ClickedCallback _subendMenuRestartButton;
+        [SerializeField] private TextSetup _subendCountText;
 
         [Header("Speedometr Reward")]
         [SerializeField] private TextSetup _speedomentRewardmoneyText;
@@ -247,12 +248,7 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
-                .Bind<MatchScoreCounter>()
-                .WithId(GameConstants.MatchScoreCounter)
-                .AsCached();
-
-            Container
-                .BindInterfacesTo<MatchScoreCounter>()
+                .BindInterfacesAndSelfTo<MatchScoreCounter>()
                 .AsCached();
 
             Container
@@ -573,6 +569,12 @@ namespace Basketball_YG.Installer
                  .Bind<ClickedCallback>()
                  .WithId(GameConstants.UiSubendRestartButton)
                  .FromInstance(_subendMenuRestartButton)
+                 .AsCached();
+
+            Container
+                 .Bind<TextSetup>()
+                 .WithId(GameConstants.UiSubendCounText)
+                 .FromInstance(_subendCountText)
                  .AsCached();
 
             Container

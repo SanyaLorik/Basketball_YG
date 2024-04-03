@@ -2,7 +2,7 @@
 {
     public class FakeMoneySender : IMoneySender
     {
-        public void Send(int money)
+        public void SendMoney(int money)
         {
             throw new System.NotImplementedException();
         }

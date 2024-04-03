@@ -11,7 +11,9 @@ namespace Basketball_YG.Counter
         private readonly TextSetup _text;
         private readonly SignalBus _signalBus;
 
-        public int Counter { get; private set; } = 0;
+        private int _counter = 0;
+
+        public int LastCount { get; private set; }
 
         public MatchScoreCounter(
             [InjectOptional(Optional = true, Id = GameConstants.UiGameplayScoreCounterText)]
@@ -39,8 +41,10 @@ namespace Basketball_YG.Counter
 
         private void OnUpdateScore(ScoreSignal score)
         {
-            Counter += score.Score;
-            _text.SetText(Counter.ToString());
+            _counter += score.Score;
+            _text.SetText(_counter.ToString());
+
+            LastCount = _counter;
         }
     }
 }
