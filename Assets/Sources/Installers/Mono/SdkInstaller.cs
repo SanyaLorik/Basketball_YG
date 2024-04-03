@@ -87,12 +87,16 @@ namespace Basketball_YG.Installer
 
         private void RealScoreReciver()
         {
-            throw new NotImplementedException();
+            Container
+                .BindInterfacesAndSelfTo<YandexScoreReciver>()
+                .AsCached();
         }
 
         private void RealScoreSender()
         {
-            throw new NotImplementedException();
+            Container
+                .BindInterfacesAndSelfTo<YandexScoreSender>()
+                .AsCached();
         }
     }
 }
