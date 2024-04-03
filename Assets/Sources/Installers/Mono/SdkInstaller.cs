@@ -16,12 +16,16 @@ namespace Basketball_YG.Installer
                 RealConnetionBind();
                 RealMoneyReciver();
                 RealMoneySender();
+                RealScoreReciver();
+                RealScoreSender();
             }
             else
             {
                 FakeConnectionBind();
                 FakeMoneyReciver();
                 FakeMoneySender();
+                FakeScoreReciver();
+                FakeScoreSender();
             }
         }
 
@@ -46,6 +50,20 @@ namespace Basketball_YG.Installer
                 .AsCached();
         }
 
+        private void FakeScoreReciver()
+        {
+            Container
+                .BindInterfacesAndSelfTo<FakeScoreReciver>()
+                .AsCached();
+        }
+
+        private void FakeScoreSender()
+        {
+            Container
+                .BindInterfacesAndSelfTo<FakeScoreSender>()
+                .AsCached();
+        }
+
         private void RealConnetionBind()
         {
             Container
@@ -65,6 +83,16 @@ namespace Basketball_YG.Installer
             Container
                 .BindInterfacesAndSelfTo<YandexMoneySender>()
                 .AsCached();
+        }
+
+        private void RealScoreReciver()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void RealScoreSender()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace Basketball_YG.Sdk
 {
-    public class FakeMoneySender : IMoneySender
+    public class FakeScoreSender : IScoreSender
     {
-        public void Send(int money)
+        public void SendScore(int score)
         {
             throw new System.NotImplementedException();
         }
