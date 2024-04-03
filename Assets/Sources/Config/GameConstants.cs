@@ -67,7 +67,6 @@
         public const string UiButtonGameplayPauseOpener = "UiButtonPauseOpener";
         public const string UiGameplayPrestartMatchActivities = "UiGameplayPrestartMatchActivities";
         public const string UiGameplayScoreCounterText = "UiGameplayScoreCounterText";
-        public const string MatchScoreCounter = "MatchScoreCounter";
         public const string HealthBarElementArray = "HealthBarElementArray";
 
         // Ui Pause Menu
@@ -126,6 +125,7 @@
         public const string UiSubendActivity = "UiSubendActivity";
         public const string UiSubendHomeButton = "UiSubendHomeButton";
         public const string UiSubendRestartButton = "UiSubendRestartButton";
+        public const string UiSubendCounText = "UiSubendCounText";
 
         // Speedometr Reward
         public const string RewardSpeedometrArrow = "RewardSpeedometrArrow";

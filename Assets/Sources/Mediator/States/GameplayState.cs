@@ -34,7 +34,6 @@ namespace Basketball_YG.Mediator
             Timer timer,
             BallDistributer ballDistributer,
             HealthBar healthBar,
-            [InjectOptional(Optional = true, Id = GameConstants.MatchScoreCounter)]
             MatchScoreCounter scoreCounter,
             SignalBus signalBus)
         {
