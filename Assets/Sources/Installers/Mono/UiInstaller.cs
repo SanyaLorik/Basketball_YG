@@ -168,6 +168,12 @@ namespace Basketball_YG.Installer
                 .AsCached();
 
             Container
+                .Bind<TextSetup>()
+                .WithId(GameConstants.UiMainMenuScoreText)
+                .FromInstance(_scoreMain)
+                .AsCached();
+
+            Container
                 .Bind<IMenuActivity>()
                 .WithId(GameConstants.UiMainMenu)
                 .To<MainMenu>()

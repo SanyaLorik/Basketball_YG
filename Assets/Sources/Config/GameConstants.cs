@@ -50,8 +50,8 @@
         public const string UiButtonSiteStore = "UiButtonSiteStore";
         public const string UiButtonSettingsOpener = "UiButtonSettingsOpener";
         public const string UiButtonGameSharing = "UiButtonGameSharing";
-        public const string UiMainMenuScoreText = "UiScoreText";
-        public const string UiMainMenuMoneyText = "UiScoreText";
+        public const string UiMainMenuScoreText = "UiMainMenuScoreText";
+        public const string UiMainMenuMoneyText = "UiMainMenuMoneyText";
         public const string UiMainMenuActivity = "UiMainMenuActivity";
         public const string UiMainMenu = "UiMainMenu";
 
