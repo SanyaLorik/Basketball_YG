@@ -8573,6 +8573,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _volumeEntities:
+  - <Type>k__BackingField: 1
+    <Clip>k__BackingField: {fileID: 8300000, guid: b91f38a302cbc7741abd262fea3fc991, type: 3}
+  - <Type>k__BackingField: 2
+    <Clip>k__BackingField: {fileID: 8300000, guid: db3d2740513ad6146ad6e24ba20165b7, type: 3}
+  - <Type>k__BackingField: 3
+    <Clip>k__BackingField: {fileID: 8300000, guid: 06f799d7283cbe94b8701b93e600b30f, type: 3}
   - <Type>k__BackingField: 0
     <Clip>k__BackingField: {fileID: 8300000, guid: 06f799d7283cbe94b8701b93e600b30f, type: 3}
   _music:

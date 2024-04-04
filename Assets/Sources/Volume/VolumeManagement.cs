@@ -33,16 +33,6 @@ namespace Basketball_YG.Volume
                 TurnOnSound();
             else
                 TurnOffSound();
-
-            if (_volumeProvider.IsActivedMusic == true)
-            {
-                TurnOnMusic();
-                PlayMusic(VolumeType.MainMusic);
-            }
-            else
-            {
-                TurnOffMusic();
-            }
         }
 
         public void PlaySound(VolumeType type)
