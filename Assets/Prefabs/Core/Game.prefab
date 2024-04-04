@@ -7937,6 +7937,10 @@ MonoBehaviour:
     _menu: {fileID: 7921475403930570103}
   _closeSettingsMenuButton:
     _clicked: {fileID: 8668443913412291104}
+  _soundSettingCheckBox:
+    _checkedBox: {fileID: 8002368869685233064}
+  _musicSettingCheckBox:
+    _checkedBox: {fileID: 4777855210330133765}
   _settingsMenuActivity:
     _menu: {fileID: 2681694908844281270}
   _gameplayMenuActivity:
@@ -18463,6 +18467,17 @@ PrefabInstance:
       addedObject: {fileID: 8114364291521582457}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 611e61e7b472dcd44a1b31d09a35852a, type: 3}
+--- !u!114 &4777855210330133765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1120657495648809753, guid: 611e61e7b472dcd44a1b31d09a35852a, type: 3}
+  m_PrefabInstance: {fileID: 5603386072403584540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9412c92c82ed31f45902bd1a7b76d5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5745401553705169890 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 178171135562503678, guid: 611e61e7b472dcd44a1b31d09a35852a, type: 3}
@@ -19328,6 +19343,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2799933232298938637, guid: 611e61e7b472dcd44a1b31d09a35852a, type: 3}
   m_PrefabInstance: {fileID: 6954472724236154545}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8002368869685233064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1120657495648809753, guid: 611e61e7b472dcd44a1b31d09a35852a, type: 3}
+  m_PrefabInstance: {fileID: 6954472724236154545}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9412c92c82ed31f45902bd1a7b76d5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7050368272896713678
 PrefabInstance:
   m_ObjectHideFlags: 0

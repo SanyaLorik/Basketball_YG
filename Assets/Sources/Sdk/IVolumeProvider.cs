@@ -3,8 +3,8 @@ namespace Basketball_YG.Sdk
 {
     public interface IVolumeProvider
     {
-        bool IsActivedMusic { get; set; }
+        bool IsActivedMusic { get; }
 
-        bool IsActivedSound { get; set; }
+        bool IsActivedSound { get; }
     }
 }
