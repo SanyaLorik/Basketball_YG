@@ -103,13 +103,15 @@ namespace Basketball_YG.Installer
 
         private void BindRealScoreSender()
         {
-            throw new NotImplementedException();
+            Container
+                .BindInterfacesAndSelfTo<YandexScoreSender>()
+                .AsCached();
         }
 
         private void BindRealVolumeProvider()
         {
             Container
-                .BindInterfacesAndSelfTo<YandexScoreSender>()
+                .BindInterfacesAndSelfTo<YandexVolumeProvider>()
                 .AsCached();
         }
     }

@@ -12,5 +12,8 @@ namespace YG
 
         public int score;
         public int money;
+
+        public bool activedSound;
+        public bool activedMusic;
     }
 }
