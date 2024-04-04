@@ -13,7 +13,7 @@ namespace YG
         public int score;
         public int money;
 
-        public bool activedSound;
-        public bool activedMusic;
+        public bool activedSound = true;
+        public bool activedMusic = true;
     }
 }

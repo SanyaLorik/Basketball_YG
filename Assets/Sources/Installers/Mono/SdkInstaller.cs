@@ -111,7 +111,7 @@ namespace Basketball_YG.Installer
         private void BindRealVolume()
         {
             Container
-                .BindInterfacesAndSelfTo<YandexVolumeProvider>()
+                .BindInterfacesAndSelfTo<YandexVolume>()
                 .AsCached();
         }
     }
