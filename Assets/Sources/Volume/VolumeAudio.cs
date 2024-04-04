@@ -1,16 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Basketball_YG.Volume
 {
+    [Serializable]
     public class VolumeAudio 
     {
-        private readonly AudioSource _source;
-        private bool _isPlayed;
+        [SerializeField] private AudioSource _source;
 
-        public VolumeAudio(AudioSource source)
-        {
-            _source = source;
-        }
+        private bool _isPlayed;
 
         public void TurnOn()
         {
