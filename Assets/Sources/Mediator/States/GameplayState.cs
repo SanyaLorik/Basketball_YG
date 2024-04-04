@@ -4,6 +4,7 @@ using Basketball_YG.Core;
 using Basketball_YG.Counter;
 using Basketball_YG.Input;
 using Basketball_YG.Model.Signal;
+using Basketball_YG.Volume;
 using Cysharp.Threading.Tasks;
 using SanyaBeer.Meta;
 using System;
@@ -21,6 +22,7 @@ namespace Basketball_YG.Mediator
         private readonly BallDistributer _ballDistributer;
         private readonly HealthBar _healthBar;
         private readonly MatchScoreCounter _scoreCounter;
+        private readonly VolumeManagement _volumeManagement;
         private readonly SignalBus _signalBus;
 
         public GameplayState(
@@ -35,6 +37,7 @@ namespace Basketball_YG.Mediator
             BallDistributer ballDistributer,
             HealthBar healthBar,
             MatchScoreCounter scoreCounter,
+            VolumeManagement volumeManagement,
             SignalBus signalBus)
         {
             _uiGameplayMenuActivity = uiGameplayMenuActivity;
@@ -45,6 +48,7 @@ namespace Basketball_YG.Mediator
             _ballDistributer = ballDistributer;
             _healthBar = healthBar;
             _scoreCounter = scoreCounter;
+            _volumeManagement = volumeManagement;
             _signalBus = signalBus;
         }
 
@@ -64,6 +68,8 @@ namespace Basketball_YG.Mediator
                 _prestartActivities.Show();
 
                 _ballDistributer.Start();
+
+                _volumeManagement.PlayMusic(VolumeType.GameplayMusic);
             });
         }
 

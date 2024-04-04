@@ -19,20 +19,6 @@ namespace Basketball_YG.Installer
             BindVolumeManagement();
         }
 
-        private void BindVolumeManagement()
-        {
-            IDictionary<VolumeType, AudioClip> volumes = _volumeEntities.ToDictionary(entity => entity.Type, entity => entity.Clip);
-
-            Container
-                .Bind<IDictionary<VolumeType, AudioClip>>()
-                .FromInstance(volumes)
-                .AsCached();
-
-            Container
-                .Bind<VolumeManagement>()
-                .AsCached();
-        }
-
         private void BindVolumeAudio()
         {
             Container
@@ -45,6 +31,20 @@ namespace Basketball_YG.Installer
                 .Bind<VolumeAudio>()
                 .WithId(GameConstants.VolumeAudioSound)
                 .FromInstance(_sound)
+                .AsCached();
+        }
+
+        private void BindVolumeManagement()
+        {
+            IDictionary<VolumeType, AudioClip> volumes = _volumeEntities.ToDictionary(entity => entity.Type, entity => entity.Clip);
+
+            Container
+                .Bind<IDictionary<VolumeType, AudioClip>>()
+                .FromInstance(volumes)
+                .AsCached();
+
+            Container
+                .BindInterfacesAndSelfTo<VolumeManagement>()
                 .AsCached();
         }
     }
