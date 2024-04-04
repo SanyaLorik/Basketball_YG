@@ -63,6 +63,8 @@
         public const string UiSettingsMenu = "UiSettingsMenu";
         public const string UiSettingsMenuActivity = "UiSettingsMenuActivity";
         public const string UiButtonCloseSettingsMenu = "UiButtonCloseSettingsMenu";
+        public const string UiCheckboxSoundMenu = "UiCheckboxSoundMenu";
+        public const string UiCheckboxMusicMenu = "UiCheckboxMusicMenu";
 
         // Ui Gameplay Menu
         public const string UiGameplayMenu = "UiGameplayMenu";

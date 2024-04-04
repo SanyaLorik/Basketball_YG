@@ -18,7 +18,7 @@ namespace Basketball_YG.Installer
                 BindRealMoneySender();
                 BindRealScoreReciver();
                 BindRealScoreSender();
-                BindRealVolumeProvider();
+                BindRealVolume();
             }
             else
             {
@@ -27,7 +27,7 @@ namespace Basketball_YG.Installer
                 BindFakeMoneySender();
                 BindFakeScoreReciver();
                 BindFakeScoreSender();
-                BindFakeVolumeProvider();
+                BindFakeVolume();
             }
         }
 
@@ -66,10 +66,10 @@ namespace Basketball_YG.Installer
                 .AsCached();
         }
 
-        private void BindFakeVolumeProvider()
+        private void BindFakeVolume()
         {
             Container
-                .BindInterfacesAndSelfTo<FakeVolumeProvider>()
+                .BindInterfacesAndSelfTo<FakeVolume>()
                 .AsCached();
         }
 
@@ -98,7 +98,7 @@ namespace Basketball_YG.Installer
             throw new NotImplementedException();
         }
 
-        private void BindRealVolumeProvider()
+        private void BindRealVolume()
         {
             throw new NotImplementedException();
         }

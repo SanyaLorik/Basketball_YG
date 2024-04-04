@@ -25,6 +25,8 @@ namespace Basketball_YG.Installer
 
         [Header("Settings Menu")]
         [SerializeField] private ClickedCallback _closeSettingsMenuButton;
+        [SerializeField] private CheckedBox _soundSettingCheckBox;
+        [SerializeField] private CheckedBox _musicSettingCheckBox;
         [SerializeField] private ElementActivity _settingsMenuActivity;
 
         [Header("Gameplay Menu")]
@@ -191,6 +193,18 @@ namespace Basketball_YG.Installer
                 .Bind<ClickedCallback>()
                 .WithId(GameConstants.UiButtonCloseSettingsMenu)
                 .FromInstance(_closeSettingsMenuButton)
+                .AsCached();
+
+            Container
+                .Bind<CheckedBox>()
+                .WithId(GameConstants.UiCheckboxSoundMenu)
+                .FromInstance(_soundSettingCheckBox)
+                .AsCached();
+
+            Container
+                .Bind<CheckedBox>()
+                .WithId(GameConstants.UiCheckboxMusicMenu)
+                .FromInstance(_musicSettingCheckBox)
                 .AsCached();
 
             Container

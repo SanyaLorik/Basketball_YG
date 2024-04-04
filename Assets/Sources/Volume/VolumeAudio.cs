@@ -8,7 +8,7 @@ namespace Basketball_YG.Volume
     {
         [SerializeField] private AudioSource _source;
 
-        private bool _isPlayed;
+        private bool _isPlayed = true;
 
         public void TurnOn()
         {

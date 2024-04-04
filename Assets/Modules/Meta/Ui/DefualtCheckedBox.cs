@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace SanyaBeer.Meta.Ui
@@ -6,7 +7,9 @@ namespace SanyaBeer.Meta.Ui
     [RequireComponent(typeof(Image))]
     public class DefualtCheckedBox : DefualtClickedElement
     {
-        private bool _isChecked = true;
+        public event Action OnChanged;
+
+        public bool IsChecked { get; private set; } = true;
 
         private void OnEnable()
         {
@@ -18,14 +21,27 @@ namespace SanyaBeer.Meta.Ui
             OnClicked -= OnChangeState;
         }
 
+        public void SetChecking()
+        {
+            IsChecked = true;
+            ChangeSpriteToState1();
+        } 
+
+        public void SetUnchecking()
+        {
+            IsChecked = false;
+            ChangeSpriteToState2();
+        }
+
         private void OnChangeState()
         {
-            if (_isChecked == true)
+            if (IsChecked == true)
                 ChangeSpriteToState2();
             else
                 ChangeSpriteToState1();
 
-            _isChecked = !_isChecked;
+            IsChecked = !IsChecked;
+            OnChanged?.Invoke();
         }
     }
 }
