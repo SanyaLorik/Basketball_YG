@@ -13,86 +13,100 @@ namespace Basketball_YG.Installer
         {
             if (_hasSdk == true)
             {
-                RealConnetionBind();
-                RealMoneyReciver();
-                RealMoneySender();
-                RealScoreReciver();
-                RealScoreSender();
+                BindRealConnetion();
+                BindRealMoneyReciver();
+                BindRealMoneySender();
+                BindRealScoreReciver();
+                BindRealScoreSender();
+                BindRealVolumeProvider();
             }
             else
             {
-                FakeConnectionBind();
-                FakeMoneyReciver();
-                FakeMoneySender();
-                FakeScoreReciver();
-                FakeScoreSender();
+                BindFakeConnection();
+                BindFakeMoneyReciver();
+                BindFakeMoneySender();
+                BindFakeScoreReciver();
+                BindFakeScoreSender();
+                BindFakeVolumeProvider();
             }
         }
 
-        private void FakeConnectionBind()
+        private void BindFakeConnection()
         {
             Container
                 .BindInterfacesAndSelfTo<FakeConnectionStatus>()
                 .AsCached();
         }
 
-        private void FakeMoneyReciver()
+        private void BindFakeMoneyReciver()
         {
             Container
                 .BindInterfacesAndSelfTo<FakeMoneyReciver>()
                 .AsCached();
         }
 
-        private void FakeMoneySender()
+        private void BindFakeMoneySender()
         {
             Container
                 .BindInterfacesAndSelfTo<FakeMoneySender>()
                 .AsCached();
         }
 
-        private void FakeScoreReciver()
+        private void BindFakeScoreReciver()
         {
             Container
                 .BindInterfacesAndSelfTo<FakeScoreReciver>()
                 .AsCached();
         }
 
-        private void FakeScoreSender()
+        private void BindFakeScoreSender()
         {
             Container
                 .BindInterfacesAndSelfTo<FakeScoreSender>()
                 .AsCached();
         }
 
-        private void RealConnetionBind()
+        private void BindFakeVolumeProvider()
+        {
+            Container
+                .BindInterfacesAndSelfTo<FakeVolumeProvider>()
+                .AsCached();
+        }
+
+        private void BindRealConnetion()
         {
             Container
                 .BindInterfacesAndSelfTo<YandexConnectionStatus>()
                 .AsCached();
         }
 
-        private void RealMoneyReciver()
+        private void BindRealMoneyReciver()
         {
             Container
                 .BindInterfacesAndSelfTo<YandexMoneyReciver>()
                 .AsCached();
         }
 
-        private void RealMoneySender()
+        private void BindRealMoneySender()
         {
             Container
                 .BindInterfacesAndSelfTo<YandexMoneySender>()
                 .AsCached();
         }
 
-        private void RealScoreReciver()
+        private void BindRealScoreReciver()
         {
             Container
                 .BindInterfacesAndSelfTo<YandexScoreReciver>()
                 .AsCached();
         }
 
-        private void RealScoreSender()
+        private void BindRealScoreSender()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BindRealVolumeProvider()
         {
             Container
                 .BindInterfacesAndSelfTo<YandexScoreSender>()

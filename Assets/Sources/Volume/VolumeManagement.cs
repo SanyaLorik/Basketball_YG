@@ -1,3 +1,4 @@
+using Basketball_YG.Config;
 using Basketball_YG.Sdk;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,13 @@ namespace Basketball_YG.Volume
         private readonly VolumeAudio _music;
         private readonly VolumeAudio _sound;
 
-        public VolumeManagement(IDictionary<VolumeType, AudioClip> volumes, IVolumeProvider volumeProvider, VolumeAudio music, VolumeAudio sound)
+        public VolumeManagement(
+            IDictionary<VolumeType, AudioClip> volumes, 
+            IVolumeProvider volumeProvider,
+            [InjectOptional(Optional = true, Id = GameConstants.VolumeAudioMusic)]
+            VolumeAudio music,
+            [InjectOptional(Optional = true, Id = GameConstants.VolumeAudioSound)]
+            VolumeAudio sound)
         {
             _volumes = volumes;
             _volumeProvider = volumeProvider;
@@ -28,9 +35,24 @@ namespace Basketball_YG.Volume
                 TurnOffSound();
 
             if (_volumeProvider.IsActivedMusic == true)
+            {
                 TurnOnMusic();
+                PlayMusic(VolumeType.MainMusic);
+            }
             else
+            {
                 TurnOffMusic();
+            }
+        }
+
+        public void PlaySound(VolumeType type)
+        {
+            _sound.Play(_volumes[type]);
+        }
+
+        public void PlayMusic(VolumeType type)
+        {
+            _music.Play(_volumes[type]);
         }
 
         public void TurnOnSound()

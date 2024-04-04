@@ -37,6 +37,10 @@
         public const string PlatformMovementRangeValues = "PlatformMovementRangeValues";
         public const string PlatformSurfaceRangeValues = "PlatformSurfaceRangeValues";
 
+        // Volume
+        public const string VolumeAudioSound = "VolumeAudioSound";
+        public const string VolumeAudioMusic = "VolumeAudioMusic";
+
         // Defualt Ui
         public const string DefualtScoreCounter = "0";
 
