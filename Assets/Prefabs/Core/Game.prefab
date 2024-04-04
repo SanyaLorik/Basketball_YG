@@ -4048,6 +4048,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6845293514498695865}
+  - {fileID: 5260309052319589051}
   - {fileID: 5388939610980892349}
   m_Father: {fileID: 7750164253045677674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4244,12 +4245,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2320538552452761004}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 9.35, z: -32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2048021798627290519}
+  m_Father: {fileID: 5260309052319589051}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &907896914160141052
 AudioSource:
@@ -4263,7 +4264,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4272,8 +4273,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 253.46535
+  MaxDistance: 256
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -8582,9 +8583,9 @@ MonoBehaviour:
   - <Type>k__BackingField: 2
     <Clip>k__BackingField: {fileID: 8300000, guid: db3d2740513ad6146ad6e24ba20165b7, type: 3}
   - <Type>k__BackingField: 3
-    <Clip>k__BackingField: {fileID: 8300000, guid: 06f799d7283cbe94b8701b93e600b30f, type: 3}
+    <Clip>k__BackingField: {fileID: 8300000, guid: db3d2740513ad6146ad6e24ba20165b7, type: 3}
   - <Type>k__BackingField: 0
-    <Clip>k__BackingField: {fileID: 8300000, guid: 06f799d7283cbe94b8701b93e600b30f, type: 3}
+    <Clip>k__BackingField: {fileID: 8300000, guid: 1e057571346e8a943994cffef72cb4b2, type: 3}
   _music:
     _source: {fileID: 6778359646880820421}
   _sound:
@@ -11408,9 +11409,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 9.35, z: -32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1214435508847304774}
-  - {fileID: 5418384307202595985}
+  m_Children: []
   m_Father: {fileID: 1938174751264101981}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &622739641817665365
@@ -12400,12 +12399,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7225827783480923929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 9.35, z: -32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2048021798627290519}
+  m_Father: {fileID: 5260309052319589051}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6778359646880820421
 AudioSource:
@@ -12419,7 +12418,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -12428,8 +12427,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 253.46535
+  MaxDistance: 256
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -15078,6 +15077,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasSdk: 0
+--- !u!1 &8863092827209419028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5260309052319589051}
+  - component: {fileID: 6020952634829044147}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5260309052319589051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8863092827209419028}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5418384307202595985}
+  - {fileID: 1214435508847304774}
+  m_Father: {fileID: 5771422474807277262}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6020952634829044147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8863092827209419028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21042290ec8814da9ec324929c6c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8871497581882223632
 GameObject:
   m_ObjectHideFlags: 0
