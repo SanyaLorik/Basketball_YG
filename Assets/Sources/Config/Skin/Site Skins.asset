@@ -17,4 +17,4 @@ MonoBehaviour:
     Name: Patrik
     Price: 0
     Trade: 0
-    Prefab: {fileID: 533521308493794369, guid: 3cb38df9f23ed6c46b52f352fc92170e, type: 3}
+    Prefab: {fileID: 533521308493794369, guid: 3fec8b960ca1c3f42ac1a386b081437c, type: 3}
