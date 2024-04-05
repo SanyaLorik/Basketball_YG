@@ -23,3 +23,18 @@ MonoBehaviour:
     Price: 10
     Trade: 0
     Prefab: {fileID: 533521308493794369, guid: 356a3e6a96e944e4bbcf3a0eaafb49db, type: 3}
+  - Id: 2
+    Name: Fugu
+    Price: 25
+    Trade: 0
+    Prefab: {fileID: 533521308493794369, guid: 84a1e6875fb8a3941b8f9d33dee4dda6, type: 3}
+  - Id: 3
+    Name: Jojo
+    Price: 35
+    Trade: 0
+    Prefab: {fileID: 533521308493794369, guid: 52121de5ae8486d419d8461842b4c167, type: 3}
+  - Id: 4
+    Name: Airless
+    Price: 15
+    Trade: 0
+    Prefab: {fileID: 533521308493794369, guid: 9e28461e97b66f347affc717ec7ef66e, type: 3}
