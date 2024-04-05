@@ -1,5 +1,4 @@
-﻿using Basketball_YG.CompositeRoot;
-using Basketball_YG.Config;
+﻿using Basketball_YG.Config;
 using Basketball_YG.Sdk;
 using System;
 using UnityEngine;
