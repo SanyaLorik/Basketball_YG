@@ -62,14 +62,16 @@ namespace Basketball_YG.Model
 
         public void SelectCurrent()
         {
-            _selectedSkinId = IndexSelector;
+            _selectedSkinId = _collection.Skins[IndexSelector].Id;
             _currentSkinSender.SetIdSkin(_selectedSkinId);
         }
 
         private void OnLoad()
         {
-            SetSkinByIndex(GetIndexById(_currentSkinProvider.Id));
-            SelectCurrent();
+            _selectedSkinId = _currentSkinProvider.Id;
+            IndexSelector = GetIndexById(_currentSkinProvider.Id);
+
+            SetSkinByIndex(IndexSelector);
         }
 
         private int GetIndexById(int id)
