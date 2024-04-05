@@ -29,6 +29,12 @@
         public const string BallSkinPrefabStore = "BallSkinPrefabStore";
         public const string SiteSkinPrefabStore = "SiteSkinPrefabStore";
 
+        // Sdk Skins
+        public const string BallSkinStoreSdkProvider = "BallSkinStoreSdkProvider";
+        public const string SiteSkinStoreSdkProvider = "SiteSkinStoreSdkProvider";
+        public const string BallSkinStoreSdkSender = "BallSkinStoreSdkSender";
+        public const string SiteSkinStoreSdkSender = "SiteSkinStoreSdkSender";
+
         // Platfrom
         public const string PlatfromTouchInput = "PlatfromTouchInput";
         public const string PlatformTransform = "PlatformTransform";

@@ -6491,6 +6491,50 @@ RectTransform:
   m_AnchoredPosition: {x: -344, y: -190}
   m_SizeDelta: {x: 390, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &3239955774656256536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2302093971909689748}
+  - component: {fileID: 829261181515262712}
+  m_Layer: 0
+  m_Name: AnimationInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2302093971909689748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239955774656256536}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 109129440632106821}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &829261181515262712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239955774656256536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2ac9c195da50e4f9eb42cf09e53578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3249359645202702271
 GameObject:
   m_ObjectHideFlags: 0
@@ -9869,6 +9913,7 @@ MonoBehaviour:
   - {fileID: 1623640581949991936}
   - {fileID: 8469187917732136112}
   - {fileID: 2590000393831745722}
+  - {fileID: 829261181515262712}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -10689,6 +10734,7 @@ Transform:
   - {fileID: 2637790022102520115}
   - {fileID: 1465662800272069491}
   - {fileID: 8319012810665310011}
+  - {fileID: 2302093971909689748}
   m_Father: {fileID: 1864912231437941092}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6352050292044298678
@@ -18948,7 +18994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5985929234769663332, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -180
+      value: -120
       objectReference: {fileID: 0}
     - target: {fileID: 5985929234769663332, guid: 2eec9133329f3e04481787ab01b6e501, type: 3}
       propertyPath: m_AnchoredPosition.y

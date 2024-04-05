@@ -1,4 +1,6 @@
-﻿using Basketball_YG.Sdk;
+﻿using Basketball_YG.CompositeRoot;
+using Basketball_YG.Config;
+using Basketball_YG.Sdk;
 using System;
 using UnityEngine;
 using Zenject;
@@ -19,6 +21,8 @@ namespace Basketball_YG.Installer
                 BindRealScoreReciver();
                 BindRealScoreSender();
                 BindRealVolume();
+                BindRealBallSkinStore();
+                BindRealSiteSkinStore();
             }
             else
             {
@@ -28,6 +32,8 @@ namespace Basketball_YG.Installer
                 BindFakeScoreReciver();
                 BindFakeScoreSender();
                 BindFakeVolume();
+                BindFakeBallSkinStore();
+                BindFakeSiteSkinStore();
             }
         }
 
@@ -73,6 +79,44 @@ namespace Basketball_YG.Installer
                 .AsCached();
         }
 
+        private void BindFakeBallSkinStore()
+        {
+            Container
+                .Bind<ICurrentSkinProvider>()
+                .WithId(GameConstants.BallSkinStoreSdkProvider)
+                .To<FakeBallSkin>()
+                .AsCached();
+
+            Container
+                .Bind<ICurrentSkinSender>()
+                .WithId(GameConstants.BallSkinStoreSdkSender)
+                .To<FakeBallSkin>()
+                .AsCached();
+
+            Container
+                .BindInterfacesTo<FakeBallSkin>()
+                .AsCached();
+        }
+
+        private void BindFakeSiteSkinStore()
+        {
+            Container
+                .Bind<ICurrentSkinProvider>()
+                .WithId(GameConstants.SiteSkinStoreSdkProvider)
+                .To<FakeSiteSkin>()
+                .AsCached();
+
+            Container
+                .Bind<ICurrentSkinSender>()
+                .WithId(GameConstants.SiteSkinStoreSdkSender)
+                .To<FakeSiteSkin>()
+                .AsCached();
+
+            Container
+                .BindInterfacesTo<FakeSiteSkin>()
+                .AsCached();
+        }
+
         private void BindRealConnetion()
         {
             throw new NotImplementedException();
@@ -99,6 +143,16 @@ namespace Basketball_YG.Installer
         }
 
         private void BindRealVolume()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BindRealBallSkinStore()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BindRealSiteSkinStore()
         {
             throw new NotImplementedException();
         }
