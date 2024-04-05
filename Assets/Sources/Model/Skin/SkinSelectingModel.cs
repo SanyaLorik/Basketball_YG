@@ -1,13 +1,16 @@
 ﻿using Basketball_YG.Config;
+using Basketball_YG.Model.Signal;
 using Basketball_YG.Sdk;
 using Basketball_YG.View;
+using System;
 using System.Linq;
 using Zenject;
 
 namespace Basketball_YG.Model
 {
-    public abstract class SkinSelectingModel : IInitializable
+    public abstract class SkinSelectingModel : IInitializable, IDisposable
     {
+        private readonly SignalBus _signalBus;
         private readonly SkinSelectingView _view;
         private readonly SkinCollectionData _collection;
         private readonly SkinPrefabStore _prefabStore;
@@ -16,8 +19,9 @@ namespace Basketball_YG.Model
 
         private int _selectedSkinId = 0;
 
-        protected SkinSelectingModel(SkinCollectionData collection, SkinSelectingView view, SkinPrefabStore prefabStore, ICurrentSkinSender currentSkinSender, ICurrentSkinProvider currentSkinProvider)
+        protected SkinSelectingModel(SignalBus signalBus, SkinCollectionData collection, SkinSelectingView view, SkinPrefabStore prefabStore, ICurrentSkinSender currentSkinSender, ICurrentSkinProvider currentSkinProvider)
         {
+            _signalBus = signalBus;
             _collection = collection;
             _view = view;
             _prefabStore = prefabStore;
@@ -37,8 +41,12 @@ namespace Basketball_YG.Model
         {
             _prefabStore.Spawn();
 
-            SetSkinByIndex(GetIndexById(_currentSkinProvider.Id));
-            SelectCurrent();
+            _signalBus.Subscribe<BoostrapLoadedSignal>(OnLoad);
+        }
+
+        public void Dispose()
+        {
+            _signalBus.Unsubscribe<BoostrapLoadedSignal>(OnLoad);
         }
 
         public void SetSkinByIndex(int index)
@@ -56,6 +64,12 @@ namespace Basketball_YG.Model
         {
             _selectedSkinId = IndexSelector;
             _currentSkinSender.SetIdSkin(_selectedSkinId);
+        }
+
+        private void OnLoad()
+        {
+            SetSkinByIndex(GetIndexById(_currentSkinProvider.Id));
+            SelectCurrent();
         }
 
         private int GetIndexById(int id)

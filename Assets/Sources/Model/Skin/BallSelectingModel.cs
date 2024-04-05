@@ -8,6 +8,7 @@ namespace Basketball_YG.Model
     public class BallSelectingModel : SkinSelectingModel
     {
         public BallSelectingModel(
+            SignalBus signalBus,
             [InjectOptional(Optional = true, Id = GameConstants.BallSkinData)]
             SkinCollectionData collection,
             [InjectOptional(Optional = true, Id = GameConstants.BallSkinSelectingView)]
@@ -17,7 +18,7 @@ namespace Basketball_YG.Model
             [InjectOptional(Optional = true, Id = GameConstants.BallSkinStoreSdkSender)]
             ICurrentSkinSender currentSkinSender,
             [InjectOptional(Optional = true, Id = GameConstants.BallSkinStoreSdkProvider)]
-            ICurrentSkinProvider currentSkinProvider) : base(collection, view, prefabStore, currentSkinSender, currentSkinProvider)
+            ICurrentSkinProvider currentSkinProvider) : base(signalBus, collection, view, prefabStore, currentSkinSender, currentSkinProvider)
         {
 
         }
