@@ -151,12 +151,6 @@ namespace Basketball_YG.Installer
                .AsCached();
 
             Container
-               .Bind<SkinSelectingModel>()
-               .WithId(GameConstants.BallSkinSelectingModel)
-               .To<BallSelectingModel>()
-               .AsCached();
-
-            Container
                .BindInterfacesAndSelfTo<BallSelectingModel>()
                .AsCached();
 
@@ -179,12 +173,6 @@ namespace Basketball_YG.Installer
                .Bind<SkinSelectingView>()
                .WithId(GameConstants.SiteSkinSelectingView)
                .To<SiteSelectingView>()
-               .AsCached();
-
-            Container
-               .Bind<SkinSelectingModel>()
-               .WithId(GameConstants.SiteSkinSelectingModel)
-               .To<SiteSelectingModel>()
                .AsCached();
 
             Container
