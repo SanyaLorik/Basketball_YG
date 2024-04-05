@@ -1,4 +1,5 @@
 ﻿using Basketball_YG.Config;
+using Basketball_YG.Data;
 using Basketball_YG.Model.Signal;
 using Basketball_YG.Sdk;
 using Basketball_YG.View;
@@ -16,10 +17,14 @@ namespace Basketball_YG.Model
         private readonly SkinPrefabStore _prefabStore;
         private readonly ICurrentSkinSender _currentSkinSender;
         private readonly ICurrentSkinProvider _currentSkinProvider;
+        private readonly IMoneyReciver _moneyReciver;
+        private readonly IMoneySender _moneySender;
+        private readonly ICollectionSkinsProvider _skinsProvider;
+        private readonly ICollectionSkinsSender _skinsSender;
 
         private int _selectedSkinId = 0;
 
-        protected SkinSelectingModel(SignalBus signalBus, SkinCollectionData collection, SkinSelectingView view, SkinPrefabStore prefabStore, ICurrentSkinSender currentSkinSender, ICurrentSkinProvider currentSkinProvider)
+        protected SkinSelectingModel(SignalBus signalBus, SkinCollectionData collection, SkinSelectingView view, SkinPrefabStore prefabStore, ICurrentSkinSender currentSkinSender, ICurrentSkinProvider currentSkinProvider, IMoneyReciver moneyReciver, IMoneySender moneySender, ICollectionSkinsProvider skinsProvider, ICollectionSkinsSender skinsSender)
         {
             _signalBus = signalBus;
             _collection = collection;
@@ -27,15 +32,21 @@ namespace Basketball_YG.Model
             _prefabStore = prefabStore;
             _currentSkinSender = currentSkinSender;
             _currentSkinProvider = currentSkinProvider;
+            _moneyReciver = moneyReciver;
+            _moneySender = moneySender;
+            _skinsProvider = skinsProvider;
+            _skinsSender = skinsSender;
         }
 
         public int Lenght => _collection.Skins.Length;
 
         public int IndexSelector { get; private set; } = 0;
 
-        public bool HasSelectedCurrent => _collection.Skins[IndexSelector].Trade == Data.TradeType.Bought;
+        public bool HasSelectedCurrent => CurrentSkin.Trade == TradeType.Bought || _skinsProvider.HasId(CurrentSkin.Id) == true;
 
-        public bool IsSelectedCurrent => _collection.Skins[IndexSelector].Id == _selectedSkinId;
+        public bool IsSelectedCurrent => CurrentSkin.Id == _selectedSkinId;
+
+        public bool CanBuyCurrentSkin => CurrentSkin.Price <= _moneyReciver.Money;
 
         public void Initialize()
         {
@@ -55,15 +66,36 @@ namespace Basketball_YG.Model
             _prefabStore.ShowOnlyCurrentSkin(index);
 
             var skin = _collection.Skins[index];
-            _view.ShowOnlyButtonByType(skin.Trade);
+
+            if (_skinsProvider.HasId(skin.Id) == true)
+            {
+                _view.ShowOnlyButtonByType(TradeType.Bought);
+                _view.HidePrice();
+            }
+            else
+            {
+                _view.ShowOnlyButtonByType(skin.Trade);
+                _view.SetPrice(skin.Price.ToString());
+            }
+
             _view.SetName(skin.Name);
-            _view.SetPrice(skin.Price.ToString());
         }
 
         public void SelectCurrent()
         {
-            _selectedSkinId = _collection.Skins[IndexSelector].Id;
-            _currentSkinSender.SetIdSkin(_selectedSkinId);
+            _selectedSkinId = CurrentSkin.Id;
+            _currentSkinSender.SendIdSkin(_selectedSkinId);
+        }
+
+        public void BuyCurrent()
+        {
+            int money = _moneyReciver.Money - CurrentSkin.Price;
+            _moneySender.SendMoney(money);
+            _skinsSender.AddId(CurrentSkin.Id);
+
+            SetSkinByIndex(GetIndexById(CurrentSkin.Id));
+
+            _signalBus.Fire(new TotalMoneySignal(money));
         }
 
         private void OnLoad()
@@ -73,6 +105,8 @@ namespace Basketball_YG.Model
 
             SetSkinByIndex(IndexSelector);
         }
+
+        private SkinStore CurrentSkin => _collection.Skins[IndexSelector];
 
         private int GetIndexById(int id)
         {

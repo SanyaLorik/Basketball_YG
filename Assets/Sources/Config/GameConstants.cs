@@ -29,9 +29,13 @@
 
         // Sdk Skins
         public const string BallSkinStoreSdkProvider = "BallSkinStoreSdkProvider";
-        public const string SiteSkinStoreSdkProvider = "SiteSkinStoreSdkProvider";
         public const string BallSkinStoreSdkSender = "BallSkinStoreSdkSender";
         public const string SiteSkinStoreSdkSender = "SiteSkinStoreSdkSender";
+        public const string SiteSkinStoreSdkProvider = "SiteSkinStoreSdkProvider";
+        public const string BallCollectionSdkSkinsProvider = "BallCollectionSdkSkinsProvider";
+        public const string BallCollectionSdkSkinsSender = "BallCollectionSdkSkinsSender";
+        public const string SiteCollectionSdkSkinsProvider = "SiteCollectionSdkSkinsProvider";
+        public const string SiteCollectionSdkSkinsSender = "SiteCollectionSdkSkinsSender";
 
         // Platfrom
         public const string PlatfromTouchInput = "PlatfromTouchInput";

@@ -1,6 +1,8 @@
 ﻿using Basketball_YG.Data;
 using SanyaBeer.Meta;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Basketball_YG.View
 {
@@ -49,6 +51,11 @@ namespace Basketball_YG.View
         public void SetPrice(string price)
         {
             _price.SetText(price);
+        }
+
+        public void HidePrice()
+        {
+            UnityEngine.Debug.Log("Hide Price!");
         }
     }
 }

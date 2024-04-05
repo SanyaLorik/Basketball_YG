@@ -15,24 +15,26 @@ namespace Basketball_YG.Installer
             if (_hasSdk == true)
             {
                 BindRealConnetion();
-                BindRealMoneyReciver();
-                BindRealMoneySender();
+                BindRealMoney();
                 BindRealScoreReciver();
                 BindRealScoreSender();
                 BindRealVolume();
                 BindRealBallSkinStore();
                 BindRealSiteSkinStore();
+                BindRealBallCollectionSkins();
+                BindRealSiteCollectionSkins();
             }
             else
             {
                 BindFakeConnection();
-                BindFakeMoneyReciver();
-                BindFakeMoneySender();
+                BindFakeMoney();
                 BindFakeScoreReciver();
                 BindFakeScoreSender();
                 BindFakeVolume();
                 BindFakeBallSkinStore();
                 BindFakeSiteSkinStore();
+                BindFakeBallCollectionSkins();
+                BindFakeSiteCollectionSkins();
             }
         }
 
@@ -43,17 +45,10 @@ namespace Basketball_YG.Installer
                 .AsCached();
         }
 
-        private void BindFakeMoneyReciver()
+        private void BindFakeMoney()
         {
             Container
-                .BindInterfacesAndSelfTo<FakeMoneyReciver>()
-                .AsCached();
-        }
-
-        private void BindFakeMoneySender()
-        {
-            Container
-                .BindInterfacesAndSelfTo<FakeMoneySender>()
+                .BindInterfacesAndSelfTo<FakeMoney>()
                 .AsCached();
         }
 
@@ -116,17 +111,52 @@ namespace Basketball_YG.Installer
                 .FromResolve();
         }
 
+        private void BindFakeBallCollectionSkins()
+        {
+            Container
+                .Bind<FakeBallCollection>()
+                .AsCached();
+
+            Container
+               .Bind<ICollectionSkinsSender>()
+               .WithId(GameConstants.BallCollectionSdkSkinsSender)
+               .To<FakeBallCollection>()
+               .FromResolve();
+
+            Container
+                .Bind<ICollectionSkinsProvider>()
+                .WithId(GameConstants.BallCollectionSdkSkinsProvider)
+                .To<FakeBallCollection>()
+                .FromResolve();
+        }
+
+        private void BindFakeSiteCollectionSkins()
+        {
+            Container
+                .Bind<FakeSiteCollection>()
+                .AsCached();
+
+            Container
+               .Bind<ICollectionSkinsSender>()
+               .WithId(GameConstants.SiteCollectionSdkSkinsSender)
+               .To<FakeSiteCollection>()
+               .FromResolve();
+
+            Container
+                .Bind<ICollectionSkinsProvider>()
+                .WithId(GameConstants.SiteCollectionSdkSkinsProvider)
+                .To<FakeSiteCollection>()
+                .FromResolve();
+        }
+
+        // Reals
+
         private void BindRealConnetion()
         {
             throw new NotImplementedException();
         }
 
-        private void BindRealMoneyReciver()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void BindRealMoneySender()
+        private void BindRealMoney()
         {
             throw new NotImplementedException();
         }
@@ -155,5 +185,16 @@ namespace Basketball_YG.Installer
         {
             throw new NotImplementedException();
         }
+
+        private void BindRealBallCollectionSkins()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BindRealSiteCollectionSkins()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

@@ -41,7 +41,14 @@ namespace Basketball_YG.Core
 
         public void BuyForMoney()
         {
-            throw new NotImplementedException();
+            if (_model.CanBuyCurrentSkin == false)
+            {
+                _notificationPopup.NotifyNoEnoughtMoney();
+                return;
+            }
+
+            _model.BuyCurrent();
+            _model.SelectCurrent();
         }
 
         public void BuyForVideo()
