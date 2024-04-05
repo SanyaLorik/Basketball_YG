@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine;
+
 namespace Basketball_YG.Sdk
 {
     public class FakeBallSkin : ICurrentSkinProvider, ICurrentSkinSender

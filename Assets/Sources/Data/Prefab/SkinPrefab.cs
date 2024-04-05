@@ -8,6 +8,8 @@ namespace Basketball_YG.Data
     [Serializable]
     public struct SkinPrefab
     {
+        [field: SerializeField] public int Id { get; private set; }
+
         [field: SerializeField] public string Name { get; private set; }
 
         [field: SerializeField] public BallWrapper Ball { get; private set; }
