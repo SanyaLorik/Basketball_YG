@@ -10,8 +10,6 @@ namespace Basketball_YG.Data
     {
         [field: SerializeField] public int Id { get; private set; }
 
-        [field: SerializeField] public string Name { get; private set; }
-
         [field: SerializeField] public BallWrapper Ball { get; private set; }
 
         [field: SerializeField] public BallType Type { get; private set; }
