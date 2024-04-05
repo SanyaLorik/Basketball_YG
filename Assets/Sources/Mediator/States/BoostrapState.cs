@@ -38,6 +38,7 @@ namespace Basketball_YG.Mediator
                 _signalBus.Fire(new TotalMoneySignal(_moneyReciver.Money));
                 _signalBus.Fire(new TotalScoreSignal(_scoreReciver.Score));
 
+                _signalBus.Fire(new BoostrapLoadedSignal());
                 _signalBus.Fire(new StateSignal(typeof(MainMenuState)));
             });
         }

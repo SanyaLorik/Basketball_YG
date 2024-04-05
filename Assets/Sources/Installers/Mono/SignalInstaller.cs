@@ -17,6 +17,7 @@ namespace Basketball_YG.Installer
             BindPause();
             BindMoney();
             BindScore();
+            BindBoostrapLoaded();
         }
 
         private void BindSwitchState()
@@ -65,6 +66,13 @@ namespace Basketball_YG.Installer
         {
             Container
                 .DeclareSignal<TotalScoreSignal>()
+                .OptionalSubscriber();
+        }
+
+        private void BindBoostrapLoaded()
+        {
+            Container
+                .DeclareSignal<BoostrapLoadedSignal>()
                 .OptionalSubscriber();
         }
     }
