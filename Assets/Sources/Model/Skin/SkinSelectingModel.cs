@@ -1,6 +1,7 @@
 ﻿using Basketball_YG.Config;
 using Basketball_YG.Sdk;
 using Basketball_YG.View;
+using System.Linq;
 using Zenject;
 
 namespace Basketball_YG.Model
@@ -36,7 +37,7 @@ namespace Basketball_YG.Model
         {
             _prefabStore.Spawn();
 
-            SetSkinByIndex(_currentSkinProvider.Id);
+            SetSkinByIndex(GetIndexById(_currentSkinProvider.Id));
             SelectCurrent();
         }
 
@@ -55,6 +56,13 @@ namespace Basketball_YG.Model
         {
             _selectedSkinId = IndexSelector;
             _currentSkinSender.SetIdSkin(_selectedSkinId);
+        }
+
+        private int GetIndexById(int id)
+        {
+            return _collection.Skins
+                .Select((value, index) => new { value, index })
+                .FirstOrDefault(pair => pair.value.Id == id).index;
         }
     }
 }
