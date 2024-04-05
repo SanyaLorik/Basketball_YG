@@ -6,7 +6,7 @@ namespace Basketball_YG.Sdk
     {
         public int Id => YandexGame.savesData.idCurrentSiteSkin;
 
-        public void SetIdSkin(int id)
+        public void SendIdSkin(int id)
         {
             YandexGame.savesData.idCurrentSiteSkin = id;
             YandexGame.SaveProgress();

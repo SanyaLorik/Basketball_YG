@@ -2,8 +2,10 @@
 
 namespace Basketball_YG.Sdk
 {
-    public class YandexMoneySender : IMoneySender
+    public class YandexMoney : IMoneySender, IMoneyReciver
     {
+        public int Money => YandexGame.savesData.money;
+
         public void SendMoney(int money)
         {
             YandexGame.savesData.money = money;

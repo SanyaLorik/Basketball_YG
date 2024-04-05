@@ -1,12 +1,16 @@
 {
-    "idSave": 10,
+    "idSave": 27,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
     "score": 0,
-    "money": 0,
+    "money": 90,
     "activedSound": true,
     "activedMusic": true,
     "idCurrentBallSkin": 0,
-    "idCurrentSiteSkin": 0
+    "idCurrentSiteSkin": 0,
+    "idUnlockedBallSkins": [
+        1
+    ],
+    "idUnlockedSiteSkins": []
 }

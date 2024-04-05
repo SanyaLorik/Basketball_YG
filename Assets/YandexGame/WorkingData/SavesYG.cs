@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace YG
 {
     [System.Serializable]
@@ -18,5 +20,9 @@ namespace YG
 
         public int idCurrentBallSkin = 0;
         public int idCurrentSiteSkin = 0;
+
+        public List<int> idUnlockedBallSkins;
+        public List<int> idUnlockedSiteSkins;
+
     }
 }

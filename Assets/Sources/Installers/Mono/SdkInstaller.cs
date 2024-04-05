@@ -161,7 +161,7 @@ namespace Basketball_YG.Installer
         private void BindRealMoney()
         {
             Container
-                .BindInterfacesAndSelfTo<YandexMoneySender>()
+                .BindInterfacesAndSelfTo<YandexMoney>()
                 .AsCached();
         }
 
@@ -226,13 +226,40 @@ namespace Basketball_YG.Installer
 
         private void BindRealBallCollectionSkins()
         {
-            throw new NotImplementedException();
+            Container
+                .Bind<YandexBallCollection>()
+                .AsCached();
+
+            Container
+               .Bind<ICollectionSkinsSender>()
+               .WithId(GameConstants.BallCollectionSdkSkinsSender)
+               .To<YandexBallCollection>()
+               .FromResolve();
+
+            Container
+                .Bind<ICollectionSkinsProvider>()
+                .WithId(GameConstants.BallCollectionSdkSkinsProvider)
+                .To<YandexBallCollection>()
+                .FromResolve();
         }
 
         private void BindRealSiteCollectionSkins()
         {
-            throw new NotImplementedException();
-        }
+            Container
+                .Bind<YandexSiteCollection>()
+                .AsCached();
 
+            Container
+               .Bind<ICollectionSkinsSender>()
+               .WithId(GameConstants.SiteCollectionSdkSkinsSender)
+               .To<YandexSiteCollection>()
+               .FromResolve();
+
+            Container
+                .Bind<ICollectionSkinsProvider>()
+                .WithId(GameConstants.SiteCollectionSdkSkinsProvider)
+                .To<YandexSiteCollection>()
+                .FromResolve();
+        }
     }
 }
