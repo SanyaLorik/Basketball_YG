@@ -10,6 +10,7 @@ namespace Basketball_YG.Sdk
                 return;
 
             YandexGame.savesData.idUnlockedBallSkins.Add(id);
+            YandexGame.SaveProgress();
         }
 
         public bool HasId(int id)

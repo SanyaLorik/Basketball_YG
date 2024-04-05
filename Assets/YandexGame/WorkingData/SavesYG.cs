@@ -13,7 +13,7 @@ namespace YG
         public bool promptDone;
 
         public int score;
-        public int money;
+        public int money = 1000;
 
         public bool activedSound = true;
         public bool activedMusic = true;
