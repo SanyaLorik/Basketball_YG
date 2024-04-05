@@ -21,8 +21,8 @@ namespace YG
         public int idCurrentBallSkin = 0;
         public int idCurrentSiteSkin = 0;
 
-        public List<int> idUnlockedBallSkins;
-        public List<int> idUnlockedSiteSkins;
+        public List<int> idUnlockedBallSkins = new();
+        public List<int> idUnlockedSiteSkins = new();
 
     }
 }
