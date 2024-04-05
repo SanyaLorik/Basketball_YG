@@ -81,39 +81,39 @@ namespace Basketball_YG.Installer
         private void BindFakeBallSkinStore()
         {
             Container
+                .Bind<FakeBallSkin>()
+                .AsCached();
+
+            Container
                 .Bind<ICurrentSkinProvider>()
                 .WithId(GameConstants.BallSkinStoreSdkProvider)
                 .To<FakeBallSkin>()
-                .AsCached();
+                .FromResolve();
 
             Container
                 .Bind<ICurrentSkinSender>()
                 .WithId(GameConstants.BallSkinStoreSdkSender)
                 .To<FakeBallSkin>()
-                .AsCached();
-
-            Container
-                .BindInterfacesTo<FakeBallSkin>()
-                .AsCached();
+                .FromResolve();
         }
 
         private void BindFakeSiteSkinStore()
         {
             Container
-                .Bind<ICurrentSkinProvider>()
-                .WithId(GameConstants.SiteSkinStoreSdkProvider)
-                .To<FakeSiteSkin>()
+                .Bind<FakeSiteSkin>()
                 .AsCached();
+
+            Container
+               .Bind<ICurrentSkinProvider>()
+               .WithId(GameConstants.SiteSkinStoreSdkProvider)
+               .To<FakeSiteSkin>()
+               .FromResolve();
 
             Container
                 .Bind<ICurrentSkinSender>()
                 .WithId(GameConstants.SiteSkinStoreSdkSender)
                 .To<FakeSiteSkin>()
-                .AsCached();
-
-            Container
-                .BindInterfacesTo<FakeSiteSkin>()
-                .AsCached();
+                .FromResolve();
         }
 
         private void BindRealConnetion()
