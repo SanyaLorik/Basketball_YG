@@ -15,5 +15,8 @@ namespace YG
 
         public bool activedSound = true;
         public bool activedMusic = true;
+
+        public int idCurrentBallSkin = 0;
+        public int idCurrentSiteSkin = 0;
     }
 }

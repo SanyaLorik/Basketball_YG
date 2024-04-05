@@ -161,12 +161,40 @@ namespace Basketball_YG.Installer
 
         private void BindRealBallSkinStore()
         {
-            throw new NotImplementedException();
+            Container
+                .Bind<ICurrentSkinProvider>()
+                .WithId(GameConstants.BallSkinStoreSdkProvider)
+                .To<YandexBallSkin>()
+                .AsCached();
+
+            Container
+                .Bind<ICurrentSkinSender>()
+                .WithId(GameConstants.BallSkinStoreSdkSender)
+                .To<YandexBallSkin>()
+                .AsCached();
+
+            Container
+                .BindInterfacesTo<YandexBallSkin>()
+                .AsCached();
         }
 
         private void BindRealSiteSkinStore()
         {
-            throw new NotImplementedException();
+            Container
+                .Bind<ICurrentSkinProvider>()
+                .WithId(GameConstants.SiteSkinStoreSdkProvider)
+                .To<YandexSiteSkin>()
+                .AsCached();
+
+            Container
+                .Bind<ICurrentSkinSender>()
+                .WithId(GameConstants.SiteSkinStoreSdkSender)
+                .To<YandexSiteSkin>()
+                .AsCached();
+
+            Container
+                .BindInterfacesTo<YandexSiteSkin>()
+                .AsCached();
         }
     }
 }
