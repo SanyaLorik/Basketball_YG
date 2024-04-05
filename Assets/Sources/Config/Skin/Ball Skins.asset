@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Ball Skins
   m_EditorClassIdentifier: 
   <Skins>k__BackingField:
-  - Name: Simple
+  - Id: 0
+    Name: Simple
     Price: 0
-    Trade: 1
+    Trade: 2
     Prefab: {fileID: 533521308493794369, guid: 3fec8b960ca1c3f42ac1a386b081437c, type: 3}
-  - Name: Dirty
+  - Id: 1
+    Name: Dirty
     Price: 10
     Trade: 0
     Prefab: {fileID: 533521308493794369, guid: 356a3e6a96e944e4bbcf3a0eaafb49db, type: 3}
