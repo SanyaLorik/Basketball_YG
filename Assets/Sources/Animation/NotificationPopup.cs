@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Basketball_YG.Animation
 {
@@ -7,6 +8,11 @@ namespace Basketball_YG.Animation
         public void NotifyBallAlreadySelected()
         {
             Debug.Log("Ball has already selected!");
+        }
+
+        public void NotifyNoEnoughtMoney()
+        {
+            Debug.Log("No enought money!");
         }
     }
 }

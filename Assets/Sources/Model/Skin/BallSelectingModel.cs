@@ -18,7 +18,14 @@ namespace Basketball_YG.Model
             [InjectOptional(Optional = true, Id = GameConstants.BallSkinStoreSdkSender)]
             ICurrentSkinSender currentSkinSender,
             [InjectOptional(Optional = true, Id = GameConstants.BallSkinStoreSdkProvider)]
-            ICurrentSkinProvider currentSkinProvider) : base(signalBus, collection, view, prefabStore, currentSkinSender, currentSkinProvider)
+            ICurrentSkinProvider currentSkinProvider, 
+            IMoneyReciver moneyReciver, 
+            IMoneySender moneySender,
+            [InjectOptional(Optional = true, Id = GameConstants.BallCollectionSdkSkinsProvider)]
+            ICollectionSkinsProvider skinProvider,
+            [InjectOptional(Optional = true, Id = GameConstants.BallCollectionSdkSkinsSender)]
+            ICollectionSkinsSender skinSender) :
+            base(signalBus, collection, view, prefabStore, currentSkinSender, currentSkinProvider, moneyReciver, moneySender, skinProvider, skinSender)
         {
 
         }
