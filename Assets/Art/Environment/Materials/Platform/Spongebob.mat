@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlatformV2
+  m_Name: Spongebob
   m_Shader: {fileID: 4800000, guid: fe4dc6667161b437a82d94861aaf1f79, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -47,7 +47,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1b3c6f7d081f9574994ddec7cdc05842, type: 3}
+        m_Texture: {fileID: 2800000, guid: db48c2354aed8d2449223d0b62f96eb8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -83,7 +83,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 0
-    - _OtlWidth: 0.015
+    - _OtlWidth: 0.07
     - _Parallax: 0.02
     - _PostAtten: 0
     - _RimIntense: 0
