@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Skins>k__BackingField:
   - Id: 0
-    Name: Patrik
+    Name: Defualt
     Price: 0
-    Trade: 0
-    Prefab: {fileID: 533521308493794369, guid: 3fec8b960ca1c3f42ac1a386b081437c, type: 3}
+    Trade: 2
+    Prefab: {fileID: 6082606854835052476, guid: 886a7f5c27e1b5e4d840ae2c68a9d463, type: 3}
