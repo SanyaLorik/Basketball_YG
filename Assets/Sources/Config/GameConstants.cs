@@ -50,7 +50,8 @@
         public const string VolumeAudioMusic = "VolumeAudioMusic";
 
         // Defualt Ui
-        public const string DefualtScoreCounter = "0";
+        public const string DefualtScoreCounterText = "0";
+        public const int DefualtScoreCounterValue = 0;
 
         // Ui Boostrap Menu
         public const string UiBoostrapMenuActivity = "UiBoostrapMenuActivity";
@@ -87,7 +88,7 @@
         public const string UiPauseMenu = "UiPauseMenu";
         public const string UiPauseMenuActivity = "UiPauseMenuActivity";
         public const string UiButtonClosePauseMenu = "UiButtonClosePauseMenu";
-        public const string UiButtonContinuePauseMenu = "UiButtonContinuePauseMenu";
+        public const string UiButtonHomePauseMenu = "UiButtonContinuePauseMenu";
         public const string UiButtonRestartPauseMenu = "UiButtonRestartPauseMenu";
 
         // Ui Ball Skin Menu

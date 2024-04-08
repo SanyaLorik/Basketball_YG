@@ -36,7 +36,8 @@ namespace Basketball_YG.Counter
 
         public void Reload()
         {
-            _text.SetText(GameConstants.DefualtScoreCounter);
+            _counter = GameConstants.DefualtScoreCounterValue;
+            _text.SetText(GameConstants.DefualtScoreCounterText);
         }
 
         private void OnUpdateScore(ScoreSignal score)

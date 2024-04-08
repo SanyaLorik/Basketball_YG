@@ -39,7 +39,7 @@ namespace Basketball_YG.Installer
         [Header("Pause Menu")]
         [SerializeField] private ElementActivity _pauseMenuActivity;
         [SerializeField] private ClickedCallback _closePauseMenuButton;
-        [SerializeField] private ClickedCallback _continuePauseMenuButton;
+        [SerializeField] private ClickedCallback _homePauseMenuButton;
         [SerializeField] private ClickedCallback _restartPauseMenuButton;
 
         [Header("Ball Store Menu")]
@@ -286,8 +286,8 @@ namespace Basketball_YG.Installer
 
             Container
                 .Bind<ClickedCallback>()
-                .WithId(GameConstants.UiButtonContinuePauseMenu)
-                .FromInstance(_continuePauseMenuButton)
+                .WithId(GameConstants.UiButtonHomePauseMenu)
+                .FromInstance(_homePauseMenuButton)
                 .AsCached();
 
             Container

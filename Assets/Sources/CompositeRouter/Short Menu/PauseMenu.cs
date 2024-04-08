@@ -3,13 +3,14 @@ using Basketball_YG.Installer;
 using Basketball_YG.Mediator;
 using Basketball_YG.Model.Signal;
 using SanyaBeer.Meta;
+using System;
 using Zenject;
 
 namespace Basketball_YG.CompositeRoot
 {
     public class PauseMenu : ShortMenu
     {
-        private readonly ClickedCallback _continueButton;
+        private readonly ClickedCallback _homeButton;
         private readonly ClickedCallback _restartButton;
 
         public PauseMenu(
@@ -18,12 +19,12 @@ namespace Basketball_YG.CompositeRoot
             ElementActivity activity,
             [InjectOptional(Optional = true, Id = GameConstants.UiButtonClosePauseMenu)]
             ClickedCallback close,
-            [InjectOptional(Optional = true, Id = GameConstants.UiButtonContinuePauseMenu)]
-            ClickedCallback continueButton,
+            [InjectOptional(Optional = true, Id = GameConstants.UiButtonHomePauseMenu)]
+            ClickedCallback homeButton,
             [InjectOptional(Optional = true, Id = GameConstants.UiButtonRestartPauseMenu)]
             ClickedCallback restartButton) : base(signalBus, activity, close)
         {
-            _continueButton = continueButton;
+            _homeButton = homeButton;
             _restartButton = restartButton;
         }
 
@@ -31,7 +32,7 @@ namespace Basketball_YG.CompositeRoot
         {
             base.Initialize();
 
-            _continueButton.AddListner(OnClose);
+            _homeButton.AddListner(OnReturnToMainMenu);
             _restartButton.AddListner(OnRestart);
         }
 
@@ -39,7 +40,7 @@ namespace Basketball_YG.CompositeRoot
         {
             base.Dispose();
 
-            _continueButton.RemoveListener(OnClose);
+            _homeButton.RemoveListener(OnReturnToMainMenu);
             _restartButton.AddListner(OnRestart);
         }
 
@@ -53,6 +54,12 @@ namespace Basketball_YG.CompositeRoot
         {
             OnClose();
             SignalBus.Fire(new StateSignal(typeof(GameplayState)));
+        }
+
+        private void OnReturnToMainMenu()
+        {
+            OnClose();
+            SignalBus.Fire(new StateSignal(typeof(MainMenuState)));
         }
     }
 }
