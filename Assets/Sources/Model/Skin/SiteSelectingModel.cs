@@ -1,4 +1,5 @@
 ﻿using Basketball_YG.Config;
+using Basketball_YG.Model.Signal;
 using Basketball_YG.Sdk;
 using Basketball_YG.View;
 using Zenject;
@@ -28,6 +29,13 @@ namespace Basketball_YG.Model
             base(signalBus, collection, view, prefabStore, currentSkinSender, currentSkinProvider, moneyReciver, moneySender, skinProvider, skinSender)
         {
 
+        }
+
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            PrefabStore.Spawn();
         }
     }
 }

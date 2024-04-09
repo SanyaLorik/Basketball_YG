@@ -29,5 +29,12 @@ namespace Basketball_YG.Model
         {
 
         }
+
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            PrefabStore.Spawn();
+        }
     }
 }

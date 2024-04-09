@@ -11,10 +11,11 @@ namespace Basketball_YG.Model
 {
     public abstract class SkinSelectingModel : IInitializable, IDisposable
     {
+        protected readonly SkinPrefabStore PrefabStore;
+
         private readonly SignalBus _signalBus;
         private readonly SkinSelectingView _view;
         private readonly SkinCollectionData _collection;
-        private readonly SkinPrefabStore _prefabStore;
         private readonly ICurrentSkinSender _currentSkinSender;
         private readonly ICurrentSkinProvider _currentSkinProvider;
         private readonly IMoneyReciver _moneyReciver;
@@ -29,7 +30,7 @@ namespace Basketball_YG.Model
             _signalBus = signalBus;
             _collection = collection;
             _view = view;
-            _prefabStore = prefabStore;
+            PrefabStore = prefabStore;
             _currentSkinSender = currentSkinSender;
             _currentSkinProvider = currentSkinProvider;
             _moneyReciver = moneyReciver;
@@ -48,10 +49,8 @@ namespace Basketball_YG.Model
 
         public bool CanBuyCurrentSkin => CurrentSkin.Price <= _moneyReciver.Money;
 
-        public void Initialize()
+        public virtual void Initialize()
         {
-            _prefabStore.Spawn();
-
             _signalBus.Subscribe<BoostrapLoadedSignal>(OnLoad);
         }
 
@@ -63,7 +62,7 @@ namespace Basketball_YG.Model
         public void SetSkinByIndex(int index)
         {
             IndexSelector = index;
-            _prefabStore.ShowOnlyCurrentSkin(index);
+            PrefabStore.ShowOnlyCurrentSkin(index);
 
             var skin = _collection.Skins[index];
 
