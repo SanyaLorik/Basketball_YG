@@ -35,6 +35,9 @@ namespace Basketball_YG.Installer
         [Header("Ball Distributer")]
         [SerializeField] private Cannon[] _cannons;
 
+        [Header("Site")]
+        [SerializeField] private ExtendedPosition _sitePosition;
+
         public override void InstallBindings()
         {
             BindPlatfrom();
@@ -53,7 +56,6 @@ namespace Basketball_YG.Installer
                 .WithId(GameConstants.UiGameplayTimerActivity)
                 .FromInstance(_timerActivity)
                 .AsCached();
-
 
             Container
                 .Bind<Timer>()
@@ -183,6 +185,12 @@ namespace Basketball_YG.Installer
                .Bind<SkinSelector>()
                .WithId(GameConstants.SiteSkinSelector)
                .To<SiteSkinSelector>()
+               .AsCached();
+
+            Container
+               .Bind<ExtendedPosition>()
+               .WithId(GameConstants.SitePosition)
+               .FromInstance(_sitePosition)
                .AsCached();
         }
 

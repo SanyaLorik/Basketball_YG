@@ -49,8 +49,9 @@ namespace Basketball_YG.Model
 
         public bool CanBuyCurrentSkin => CurrentSkin.Price <= _moneyReciver.Money;
 
-        public virtual void Initialize()
+        public void Initialize()
         {
+            PrefabStore.Spawn();
             _signalBus.Subscribe<BoostrapLoadedSignal>(OnLoad);
         }
 
@@ -84,6 +85,8 @@ namespace Basketball_YG.Model
         {
             _selectedSkinId = CurrentSkin.Id;
             _currentSkinSender.SendIdSkin(_selectedSkinId);
+
+            OnSelectedOnId(_currentSkinProvider.Id);
         }
 
         public void BuyCurrent()
@@ -97,21 +100,27 @@ namespace Basketball_YG.Model
             _signalBus.Fire(new TotalMoneySignal(money));
         }
 
+        private SkinStore CurrentSkin => _collection.Skins[IndexSelector];
+
         private void OnLoad()
         {
             _selectedSkinId = _currentSkinProvider.Id;
             IndexSelector = GetIndexById(_currentSkinProvider.Id);
 
             SetSkinByIndex(IndexSelector);
+            OnSelectedOnId(_currentSkinProvider.Id);
         }
-
-        private SkinStore CurrentSkin => _collection.Skins[IndexSelector];
 
         private int GetIndexById(int id)
         {
             return _collection.Skins
                 .Select((value, index) => new { value, index })
                 .FirstOrDefault(pair => pair.value.Id == id).index;
+        }
+
+        protected virtual void OnSelectedOnId(int id)
+        {
+
         }
     }
 }

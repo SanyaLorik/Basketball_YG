@@ -26,6 +26,7 @@
         public const string SiteSkinSelectingView = "SiteSkinSelectingView";
         public const string BallSkinPrefabStore = "BallSkinPrefabStore";
         public const string SiteSkinPrefabStore = "SiteSkinPrefabStore";
+        public const string SitePosition = "SitePosition";
 
         // Sdk Skins
         public const string BallSkinStoreSdkProvider = "BallSkinStoreSdkProvider";
